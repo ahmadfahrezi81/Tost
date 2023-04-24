@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 const page: FC = ({}) => {
-    return <div>register page</div>;
+    return <div>admin home</div>;
 };
 
 export default page;
