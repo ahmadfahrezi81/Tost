@@ -1,13 +1,23 @@
+"use client";
+
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import Button, { buttonVariants } from "@/ui/Button";
 import Icons from "./Icons";
-// import { useState } from "react";
+import { useState, useEffect } from "react";
+// import { useRouter } from "next/router";
 
-const Navbar = async () => {
+const Navbar = () => {
     // const session = await getServerSession();
-    // const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const session = true;
+    // const router = useRouter();
+
+    // useEffect(() => {
+    //     setIsOpen(false);
+    //     setCurretnUrl(window.location.pathname);
+    //     console.log(window.location.pathname);
+    // }, [isOpen currentUrl]);
 
     return (
         <div
@@ -16,7 +26,11 @@ const Navbar = async () => {
             shadow-sm flex items-center justify-between"
         >
             <div className="container max-w-7xl mx-auto flex justify-between items-center">
-                <Link href="/" className={buttonVariants({ variant: "ghost" })}>
+                <Link
+                    onClick={() => setIsOpen(false)}
+                    href="/"
+                    className={buttonVariants({ variant: "ghost" })}
+                >
                     <Icons.EggFried />
                     &nbsp; <strong>TOST</strong>
                 </Link>
@@ -31,6 +45,7 @@ const Navbar = async () => {
                     {session ? (
                         <>
                             <Link
+                                onClick={() => setIsOpen(false)}
                                 href="/menu"
                                 className={buttonVariants({
                                     variant: "ghost",
@@ -39,6 +54,7 @@ const Navbar = async () => {
                                 Menu
                             </Link>
                             <Link
+                                onClick={() => setIsOpen(false)}
                                 href="/reserve"
                                 className={buttonVariants({
                                     variant: "ghost",
@@ -46,35 +62,90 @@ const Navbar = async () => {
                             >
                                 Reservation
                             </Link>
-                            <Link
-                                href="/profile"
-                                className={buttonVariants({
-                                    variant: "ghost",
-                                })}
-                            >
-                                Profile
-                            </Link>
 
-                            <div className="flex items-center">
+                            <div className="flex items-center gap-2">
                                 <Link
-                                    href="/cart"
-                                    className={buttonVariants({
-                                        variant: "ghost",
-                                    })}
-                                >
-                                    <Icons.ShoppingCart />
-                                </Link>
-                                <Link
+                                    onClick={() => setIsOpen(false)}
                                     href="/notification"
                                     className={buttonVariants({
                                         variant: "ghost",
+                                        size: "icon",
                                     })}
                                 >
                                     <Icons.Bell />
                                 </Link>
-                                <Button className="ml-4 rounded-full h-10 w-10">
+                                <Link
+                                    onClick={() => setIsOpen(false)}
+                                    href="/cart"
+                                    className={buttonVariants({
+                                        variant: "ghost",
+                                        size: "icon",
+                                    })}
+                                >
+                                    <Icons.ShoppingCart />
+                                </Link>
+
+                                <Button
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className="ml-2 rounded-full h-10 w-10"
+                                >
                                     UI
                                 </Button>
+                                {isOpen ? (
+                                    <div className="absolute top-24 right-24 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                                        <ul className="py-2 text-sm text-gray-700 ">
+                                            <li>
+                                                <Link
+                                                    onClick={() =>
+                                                        setIsOpen(false)
+                                                    }
+                                                    href="/profile"
+                                                    className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
+                                                >
+                                                    <Icons.User size={16} />
+                                                    <span className="pl-2">
+                                                        Profile
+                                                    </span>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link
+                                                    onClick={() =>
+                                                        setIsOpen(false)
+                                                    }
+                                                    href="/history"
+                                                    className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
+                                                >
+                                                    <Icons.History size={16} />
+                                                    <span className="pl-2">
+                                                        History
+                                                    </span>
+                                                </Link>
+                                            </li>
+                                            {/* <li>
+                                                <a
+                                                    href="#"
+                                                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                >
+                                                    Settings
+                                                </a>
+                                            </li> */}
+                                        </ul>
+
+                                        <Link
+                                            onClick={() => setIsOpen(false)}
+                                            href="/"
+                                            className="py-4 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
+                                        >
+                                            <Icons.LogOut size={16} />
+                                            <span className="pl-2">
+                                                Sign Out
+                                            </span>
+                                        </Link>
+                                    </div>
+                                ) : (
+                                    <></>
+                                )}
                             </div>
                             {/* <Button>Sign Out</Button> */}
                             {/* <SignOutButton /> */}

@@ -3,12 +3,14 @@ import {
     ChevronLeft,
     ChevronRight,
     Image,
+    User,
     Users,
     ShoppingCart,
     Edit,
     Trash2,
     EggFried,
     Bell,
+    History,
     LogOut,
 } from "lucide-react";
 
@@ -17,12 +19,14 @@ export const Icons = {
     ChevronLeft,
     ChevronRight,
     Image,
+    User,
     Users,
     ShoppingCart,
     Edit,
     Trash2,
     EggFried,
     Bell,
+    History,
     LogOut,
 };
 
