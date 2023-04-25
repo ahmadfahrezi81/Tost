@@ -28,7 +28,6 @@ export default function RootLayout({
 
                 <Toaster position="bottom-right" />
 
-                {/* @ts-expect-error Server Component */}
                 <Navbar />
 
                 {/* Allow for more height in mobile devices */}
