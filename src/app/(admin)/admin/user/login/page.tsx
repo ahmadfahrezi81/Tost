@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Form as LoginForm } from "./form";
+import { Form as LoginForm } from "../../../../../components/loginform";
 
 
 export default function LoginPage(){
