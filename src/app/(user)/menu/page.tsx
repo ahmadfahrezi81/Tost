@@ -1,120 +1,70 @@
 import { FC } from "react";
+import Burger from "../../../../public/Burger.png";
+import Image from "next/image";
 
 const page: FC = ({}) => {
-    return (
-        <>
-        <div className="grid grid-cols-4 gap-4">
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://upload.wikimedia.org/wikipedia/commons/1/15/Cat_August_2010-4.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
-        <div>
-          <Image
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
-            alt=""
-            width={500}
-            height={500}
-          />
-        </div>
+  return (
+    <>
+      <div className="grid grid-cols-4 gap-10 gap-x-0 mx-10 my-10 justify-items-center">
+        <a
+          href="#"
+          className="block max-w-sm p-6"
+        >
+          <Image src={Burger} alt="" width={300} height={300}/>
+          <p className="flex justify-center py-3 text-3xl font-semibold">Menu</p>
+        </a>
+        <a
+          href="#"
+          className="block max-w-sm p-6"
+        >
+          <Image src={Burger} alt="" width={300} height={300}/>
+          <p className="flex justify-center py-3 text-3xl font-semibold">Menu</p>
+        </a>
+        <a
+          href="#"
+          className="block max-w-sm p-6"
+        >
+          <Image src={Burger} alt="" width={300} height={300}/>
+          <p className="flex justify-center py-3 text-3xl font-semibold">Menu</p>
+        </a>
+        <a
+          href="#"
+          className="block max-w-sm p-6"
+        >
+          <Image src={Burger} alt="" width={300} height={300}/>
+          <p className="flex justify-center py-3 text-3xl font-semibold">Menu</p>
+        </a>
+        <a
+          href="#"
+          className="block max-w-sm p-6"
+        >
+          <Image src={Burger} alt="" width={300} height={300}/>
+          <p className="flex justify-center py-3 text-3xl font-semibold">Menu</p>
+        </a>
+        <a
+          href="#"
+          className="block max-w-sm p-6"
+        >
+          <Image src={Burger} alt="" width={300} height={300}/>
+          <p className="flex justify-center py-3 text-3xl font-semibold">Menu</p>
+        </a>
+        <a
+          href="#"
+          className="block max-w-sm p-6"
+        >
+          <Image src={Burger} alt="" width={300} height={300}/>
+          <p className="flex justify-center py-3 text-3xl font-semibold">Menu</p>
+        </a>
+        <a
+          href="#"
+          className="block max-w-sm p-6"
+        >
+          <Image src={Burger} alt="" width={300} height={300}/>
+          <p className="flex justify-center py-3 text-3xl font-semibold">Menu</p>
+        </a>
       </div>
-        </>
-    );
+    </>
+  );
 };
 
 export default page;
