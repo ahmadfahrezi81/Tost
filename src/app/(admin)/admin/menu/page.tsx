@@ -1,4 +1,7 @@
 import { FC } from "react";
+import Cat from "../../../../../public/Cat.jpg";
+import Burger from "../../../../../public/Burger.png";
+import Image from "next/image";
 
 const page: FC = ({}) => {
   return (
@@ -34,7 +37,7 @@ const page: FC = ({}) => {
               <th scope="col" className="px-6 py-3 w-56">
                 Ingredients
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 h-full">
                 Action
               </th>
             </tr>
@@ -53,29 +56,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                Apple MacBook Pro 17&quot;
-              </th>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">Laptop</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4 truncate">adsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsds</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">23</td>
+              <td className="px-6 py-4">BlengerBandung</td>
+              <td className="px-6 py-4">RM 80</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
@@ -91,29 +125,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                Microsoft Surface Pro
-              </th>
-              <td className="px-6 py-4">White</td>
-              <td className="px-6 py-4">Laptop PC</td>
-              <td className="px-6 py-4">No</td>
-              <td className="px-6 py-4 truncate"></td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">53</td>
+              <td className="px-6 py-4">BandungKing</td>
+              <td className="px-6 py-4">RM 53</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
@@ -129,29 +194,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                Magic Mouse 2
-              </th>
-              <td className="px-6 py-4">Black</td>
-              <td className="px-6 py-4">Accessories</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">No</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">54</td>
+              <td className="px-6 py-4">BandungERS</td>
+              <td className="px-6 py-4">RM 78</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
@@ -167,29 +263,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                Apple Watch
-              </th>
-              <td className="px-6 py-4">Black</td>
-              <td className="px-6 py-4">Watches</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">No</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">34</td>
+              <td className="px-6 py-4">BandungChicken</td>
+              <td className="px-6 py-4">RM 68</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
@@ -205,29 +332,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                Apple iMac
-              </th>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">PC</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">79</td>
+              <td className="px-6 py-4">SeblakBandung</td>
+              <td className="px-6 py-4">RM 90</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
@@ -243,29 +401,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                Apple AirPods
-              </th>
-              <td className="px-6 py-4">White</td>
-              <td className="px-6 py-4">Accessories</td>
-              <td className="px-6 py-4">No</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">35</td>
+              <td className="px-6 py-4">SukarBandung</td>
+              <td className="px-6 py-4">RM 50</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
@@ -281,29 +470,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                iPad Pro
-              </th>
-              <td className="px-6 py-4">Gold</td>
-              <td className="px-6 py-4">Tablet</td>
-              <td className="px-6 py-4">No</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">98</td>
+              <td className="px-6 py-4">GoldBandung</td>
+              <td className="px-6 py-4">RM 72</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
@@ -319,29 +539,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                Magic Keyboard
-              </th>
-              <td className="px-6 py-4">Black</td>
-              <td className="px-6 py-4">Accessories</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">23</td>
+              <td className="px-6 py-4">KampongBandung</td>
+              <td className="px-6 py-4">RM 20</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
@@ -357,29 +608,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                Apple TV 4K
-              </th>
-              <td className="px-6 py-4">Black</td>
-              <td className="px-6 py-4">TV</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">No</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">29</td>
+              <td className="px-6 py-4">JumpaBandung</td>
+              <td className="px-6 py-4">RM 15</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
             <tr className="border-t-2 border-gray-200">
@@ -395,29 +677,60 @@ const page: FC = ({}) => {
                   </label>
                 </div>
               </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                AirTag
-              </th>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">Accessories</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">No</td>
-              <td className="flex items-center px-6 py-4 space-x-3">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600"
-                >
-                  Edit
-                </a>
-                <a
-                  href="#"
-                  className="font-medium text-red-600"
-                >
-                  Remove
-                </a>
+              <Image
+                src={Burger}
+                width={100}
+                height={100}
+                alt=""
+                className="pt-3 pb-3"
+              />
+              <td className="px-6 py-4">19</td>
+              <td className="px-6 py-4">BandungCan</td>
+              <td className="px-6 py-4">RM 28</td>
+              <td className="px-6 py-4 truncate">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </td>
+              <td className="py-4 px-6 space-x-3">
+                <div className="flex flex-row gap-3">
+                  <a href="#" className="font-medium text-blue-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#" className="font-medium text-red-600">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
               </td>
             </tr>
           </tbody>
