@@ -1,63 +1,53 @@
 import Image from "next/image";
 import { FC } from "react";
+import cc from "../../../../public/assets/cc.png";
+import fpx from "../../../../public/assets/fpx.png";
 
-const page: FC = ({}) => {
+const page = ({}) => {
     return (
-        <div>
-            <div className="relative overflow-x-auto">
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" className="px-6 py-3">
-                                Product name
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Color
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Category
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Price
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th
-                                scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                            >
-                                Apple MacBook Pro 17
-                            </th>
-                            <td className="px-6 py-4">Silver</td>
-                            <td className="px-6 py-4">Laptop</td>
-                            <td className="px-6 py-4">$2999</td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th
-                                scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                            >
-                                Microsoft Surface Pro
-                            </th>
-                            <td className="px-6 py-4">White</td>
-                            <td className="px-6 py-4">Laptop PC</td>
-                            <td className="px-6 py-4">$1999</td>
-                        </tr>
-                        <tr className="bg-white dark:bg-gray-800">
-                            <th
-                                scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                            >
-                                Magic Mouse 2
-                            </th>
-                            <td className="px-6 py-4">Black</td>
-                            <td className="px-6 py-4">Accessories</td>
-                            <td className="px-6 py-4">$99</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div className="h-screen w-screen flex">
+            <div className="card h-1/2 w-1/2 bg-white flex rounded-lg align-middle items-center">
+                <div className="container px-7 py-7">
+                    <h5 className="text-gray-500">Select payment method</h5>
+                    <hr className="mb-2 bg-gray-500" />
+                    <div className="flex flex-row gap-x-20">
+                        <div className="flex items-center mb-4">
+                            <input
+                                id="payment-option-1"
+                                type="radio"
+                                name="countries"
+                                value="CCorDC"
+                                className="h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300 mr-2"
+                                aria-labelledby="country-option-1"
+                                aria-describedby="country-option-1"
+                            />
+                            <Image
+                                src={cc}
+                                alt="CC or Debit"
+                                height={16}
+                                width={21}
+                                style={{ opacity: 0.8 }}
+                            />
+                            <label className="text-sm font-regular text-gray-500 ml-2 block ">
+                                Credit or Debit Card
+                            </label>
+                        </div>
+
+                        <div className="flex items-center mb-4">
+                            <input
+                                id="payment-option-2"
+                                type="radio"
+                                name="countries"
+                                value="FPX"
+                                className="h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300 mr-2"
+                                aria-labelledby="country-option-1"
+                                aria-describedby="country-option-1"
+                            />
+                            <Image src={fpx} alt="FPX" height={32} width={42} />
+                            <label className="text-sm font-regular text-gray-500 ml-2 block"></label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
