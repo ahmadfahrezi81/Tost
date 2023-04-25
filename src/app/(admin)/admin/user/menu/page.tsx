@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from 'next/image';
 import DisplayPic from '../menu/burger.png'
-import { Button } from "@/components/ui/button"
+import Button  from "@/ui/Button"
 
 export default function MenuIdPage(){
     return(

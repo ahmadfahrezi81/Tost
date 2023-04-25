@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/Button"
+import { Input } from "@/components/ui/Input"
 import { Label } from "@radix-ui/react-label"
 // import {signIn } from "next-auth/react"
 import { useState } from "react"
