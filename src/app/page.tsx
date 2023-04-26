@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import toast_pict from "/public/assets/toast_pict.jpg"
+import Confirmed from "@/components/Confirmed";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Tost | Home",
@@ -19,7 +21,10 @@ export default function Home() {
                 <div className="font-sans m-20">
                     <h1 className="text-7xl mb-3 font-bold text-custom-green">TOST.</h1>
                     <h3 className="text-2xl mb-10">The o-gee of them all</h3>
-                    <button className="bg-custom-red hover:bg-custom-red-hov text-white py-2 px-20 rounded-md">Get Started</button>
+                    <Link href={"/login"} className="bg-custom-red hover:bg-custom-red-hov text-white py-2 px-20 rounded-md">
+                        Get Started
+                    </Link>
+                    {/* <button className="bg-custom-red hover:bg-custom-red-hov text-white py-2 px-20 rounded-md">Get Started</button> */}
                 </div>
             </div>
             <div className="flex justify-center relative">
