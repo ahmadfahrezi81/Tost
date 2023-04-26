@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { FC } from "react";
-import cc from "../../../../public/assets/cc.png";
-import fpx from "../../../../public/assets/fpx.png";
+import cc from "@/images/cc.png";
+import fpx from "@/images/fpx.png";
 
 const page = ({}) => {
     return (

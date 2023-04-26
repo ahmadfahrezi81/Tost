@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Metadata } from "next";
-import toast_pict from "/public/assets/toast_pict.jpg";
+import toast_pict from "@/images/toast_pict.jpg";
 import Link from "next/link";
 
 export const metadata: Metadata = {
