@@ -25,6 +25,8 @@ module.exports = {
                 "custom-green": "#0E5F66",
                 "custom-orange": "#F7382E",
                 "custom-white": "#FAFAFA",
+                "custom-red": "#F7382E",
+                "custom-red-hov": "#E21106",
             },
         },
     },

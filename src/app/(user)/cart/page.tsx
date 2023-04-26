@@ -3,12 +3,12 @@ import Burgir from "../../../../public/Burgir.png";
 export default function Home() {
   return (
     <>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="relative overflow-x-auto sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500">
-          <caption className="p-5 text-3xl font-bold text-left text-gray-900 bg-white ">
+          <caption className="p-5 text-3xl font-bold text-left text-gray-900">
             Checkout
           </caption>
-          <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-200 ">
+          <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-500 bg-white ">
             <tr>
               <th scope="col" className="px-6 py-3">
                 <span className="sr-only">Image</span>
@@ -96,18 +96,18 @@ export default function Home() {
       </div>
       <div className="flex mt-10 ml-8 h-screen">
         <div className="w-full mr-4">
-          <div className="mb-6 h-56">
+          <div className="mb-6 w-full lg:w-3/4 h-56">
             <label
-              htmlFor="large-input"
-              className="block mb-2 text-sm font-bold text-gray-900"
+              htmlFor="message"
+              className="block mb-2 text-sm font-boblock mb-2 text-sm font-bold text-gray-900ld text-gray-900"
             >
               Add Notes
             </label>
-            <input
-              type="text"
-              id="large-input"
-              className="block align-text-top start-0 w-full h-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
-            />
+            <textarea
+              id="message"
+              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Write your notes here"
+            ></textarea>
           </div>
         </div>
         <div className="w-full flex justify-end items-start">
@@ -130,7 +130,7 @@ export default function Home() {
                 <p className="text-gray-700 text-base">RM 31.00</p>
               </div>
               <div className="flex justify-end mt-4">
-                <button className="bg-red-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button className="bg-custom-orange hover:bg-custom-red-hov text-white font-bold py-2 px-4 rounded">
                   Checkout
                 </button>
               </div>

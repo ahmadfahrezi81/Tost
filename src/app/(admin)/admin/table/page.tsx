@@ -5,6 +5,9 @@ const page: FC = ({}) => {
     <div>
       <div className="relative mt-12 mx-60 mr-16 overflow-auto">
         <table className="w-full text-sm text-left text-gray-500 ">
+          <caption className="p-5 text-3xl font-bold text-left text-gray-900 bg-white ">
+            Table Info
+          </caption>
           <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-200">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -61,11 +64,11 @@ const page: FC = ({}) => {
               >
                 05.00 PM
               </th>
-              <td className="px-6 py-4">Available</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">-</td>
+              <td className="px-6 py-4">Booked</td>
+              <td className="px-6 py-4">Leo</td>
+              <td className="px-6 py-4">CPH3</td>
               <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">-</td>
+              <td className="px-6 py-4">1 hours</td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
               <th
@@ -73,58 +76,6 @@ const page: FC = ({}) => {
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
               >
                 05.30 PM
-              </th>
-              <td className="px-6 py-4">Available</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">-</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                06.00 PM
-              </th>
-              <td className="px-6 py-4">Available</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">-</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                06.30 PM
-              </th>
-              <td className="px-6 py-4">Available</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">-</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                07.00 PM
-              </th>
-              <td className="px-6 py-4">Available</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">-</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                07.30 PM
               </th>
               <td className="px-6 py-4">Available</td>
               <td className="px-6 py-4">-</td>
