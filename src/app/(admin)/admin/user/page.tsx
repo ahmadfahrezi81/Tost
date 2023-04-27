@@ -5,6 +5,9 @@ const page: FC = ({}) => {
     <>
       <div className="relative mt-12 mx-60 mr-16 overflow-auto">
         <table className="w-full text-sm table-fixed text-left text-gray-700">
+          <caption className="p-5 text-3xl font-bold text-left text-gray-900 bg-white ">
+            User Info
+          </caption>
           <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-200">
             <tr>
               <th scope="col" className="p-4 w-28">
@@ -48,10 +51,10 @@ const page: FC = ({}) => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
               >
-                someone@gmail.com
+                jaki@gmail.com
               </th>
-              <td className="px-6 py-4">User ID</td>
-              <td className="px-6 py-4">Phone Number</td>
+              <td className="px-6 py-4">MDA2</td>
+              <td className="px-6 py-4">0169573019</td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
               <td className="w-4 p-4">
@@ -70,10 +73,10 @@ const page: FC = ({}) => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
               >
-                someone@gmail.com
+                leo@gmail.com
               </th>
-              <td className="px-6 py-4">User ID</td>
-              <td className="px-6 py-4">Phone Number</td>
+              <td className="px-6 py-4">LLL3</td>
+              <td className="px-6 py-4">0167349231</td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
               <td className="w-4 p-4">
@@ -92,10 +95,10 @@ const page: FC = ({}) => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
               >
-                someone@gmail.com
+                nisya@gmail.com
               </th>
-              <td className="px-6 py-4">User ID</td>
-              <td className="px-6 py-4">Phone Number</td>
+              <td className="px-6 py-4">NBQ5</td>
+              <td className="px-6 py-4">0162433901</td>
             </tr>
             <tr className="border-t-2 border-b-2 border-gray-200">
               <td className="w-4 p-4">
@@ -114,98 +117,10 @@ const page: FC = ({}) => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
               >
-                someone@gmail.com
+                harits@gmail.com
               </th>
-              <td className="px-6 py-4">User ID</td>
-              <td className="px-6 py-4">Phone Number</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <td className="w-4 p-4">
-                <div className="flex items-center">
-                  <input
-                    id="checkbox-table-search-1"
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  <label htmlFor="checkbox-table-search-1" className="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                someone@gmail.com
-              </th>
-              <td className="px-6 py-4">User ID</td>
-              <td className="px-6 py-4">Phone Number</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <td className="w-4 p-4">
-                <div className="flex items-center">
-                  <input
-                    id="checkbox-table-search-1"
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  <label htmlFor="checkbox-table-search-1" className="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                someone@gmail.com
-              </th>
-              <td className="px-6 py-4">User ID</td>
-              <td className="px-6 py-4">Phone Number</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <td className="w-4 p-4">
-                <div className="flex items-center">
-                  <input
-                    id="checkbox-table-search-1"
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  <label htmlFor="checkbox-table-search-1" className="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                someone@gmail.com
-              </th>
-              <td className="px-6 py-4">User ID</td>
-              <td className="px-6 py-4">Phone Number</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <td className="w-4 p-4">
-                <div className="flex items-center">
-                  <input
-                    id="checkbox-table-search-1"
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  <label htmlFor="checkbox-table-search-1" className="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                someone@gmail.com
-              </th>
-              <td className="px-6 py-4">User ID</td>
-              <td className="px-6 py-4">Phone Number</td>
+              <td className="px-6 py-4">HDM4</td>
+              <td className="px-6 py-4">0162431321</td>
             </tr>
           </tbody>
         </table>
