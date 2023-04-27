@@ -110,7 +110,7 @@ const page = ({}) => {
                     <div className="mb-6 w-full lg:w-3/4 h-56">
                         <label
                             htmlFor="message"
-                            className="block mb-2 text-sm font-boblock mb-2 text-sm font-bold text-gray-900ld text-gray-900"
+                            className="block font-boblock mb-2 text-sm font-bold text-gray-900ld text-gray-900"
                         >
                             Add Notes
                         </label>
