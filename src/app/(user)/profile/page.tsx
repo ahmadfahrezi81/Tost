@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const page: FC = ({}) => {
+const page = ({}) => {
     return (
         <div className="flex flex-col container my-20 mx-auto items-center px-36">
             <h1 className="flex pb-12 text-5xl font-bold justify-center leading-none tracking-tight text-gray-900">
@@ -41,7 +41,7 @@ const page: FC = ({}) => {
                     type="text"
                     id="disabled-input-2"
                     aria-label="disabled input 2"
-                    className="bg-zinc-400 text-zinc-600 text-sm rounded-lg block p-2.5 w-full font-semibold cursor-not-allowed"
+                    className="bg-zinc-300 text-zinc-600 text-sm rounded-lg block p-2.5 w-full font-semibold cursor-not-allowed"
                     value="•••••••••"
                     disabled
                 />
@@ -65,7 +65,7 @@ const page: FC = ({}) => {
                     type="text"
                     id="disabled-input-3"
                     aria-label="disabled input 3"
-                    className="bg-zinc-400 text-zinc-600 text-sm rounded-lg block p-2.5 w-full font-semibold cursor-not-allowed"
+                    className="bg-zinc-300 text-zinc-600 text-sm rounded-lg block p-2.5 w-full font-semibold cursor-not-allowed"
                     value="+6012345678"
                     disabled
                 />

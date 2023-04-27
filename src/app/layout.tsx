@@ -23,7 +23,7 @@ export default function RootLayout({
                 (cn("bg-white text-slate-900 antialiased "), inter.className)
             }
         >
-            <body className="min-h-screen bg-slate-50 antialiased pt-20">
+            <body className="h-screen bg-slate-50 antialiased pt-20 flex flex-col">
                 {children}
 
                 <Toaster position="bottom-right" />

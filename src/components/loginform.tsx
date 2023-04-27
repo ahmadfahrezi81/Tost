@@ -2,6 +2,7 @@
 
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
+import Link from "next/link";
 // import {signIn } from "next-auth/react"
 import { useState } from "react";
 
@@ -36,7 +37,6 @@ export const Form = () => {
                 <label htmlFor="password">Password</label>
                 <Input
                     className="w-full"
-                    required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     id="password"
@@ -46,9 +46,12 @@ export const Form = () => {
 
             {/* {error && <Alert>{error}</Alert>} */}
             <div className="w-full">
-                <Button className="w-full" size="lg">
+                <Link
+                    href="/menu"
+                    className="w-full flex bg-custom-red hover:bg-custom-red-hov text-white py-3 justify-center rounded-md"
+                >
                     Login
-                </Button>
+                </Link>
             </div>
         </form>
     );

@@ -2,6 +2,7 @@
 
 import Button from "@/ui/Button";
 import Input from "@/ui/Input";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export const RegisterForm = () => {
@@ -41,9 +42,12 @@ export const RegisterForm = () => {
 
             {/* {error && <Alert>{error}</Alert>} */}
             <div className="w-full">
-                <Button className="w-full" size="lg">
+                <Link
+                    href="/menu"
+                    className="w-full flex bg-custom-red hover:bg-custom-red-hov text-white py-3 justify-center rounded-md"
+                >
                     Register
-                </Button>
+                </Link>
             </div>
         </form>
     );
