@@ -12,6 +12,7 @@ import {
     Bell,
     History,
     LogOut,
+    Receipt,
 } from "lucide-react";
 
 export const Icons = {
@@ -28,6 +29,7 @@ export const Icons = {
     Bell,
     History,
     LogOut,
+    Receipt,
 };
 
 export default Icons;

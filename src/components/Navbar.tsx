@@ -122,6 +122,20 @@ const Navbar = () => {
                                                     </span>
                                                 </Link>
                                             </li>
+                                            <li>
+                                                <Link
+                                                    onClick={() =>
+                                                        setIsOpen(false)
+                                                    }
+                                                    href="/receipt"
+                                                    className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
+                                                >
+                                                    <Icons.Receipt size={16} />
+                                                    <span className="pl-2">
+                                                        Receipt
+                                                    </span>
+                                                </Link>
+                                            </li>
                                             {/* <li>
                                                 <a
                                                     href="#"
