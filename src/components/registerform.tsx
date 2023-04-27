@@ -43,7 +43,7 @@ export const RegisterForm = () => {
             {/* {error && <Alert>{error}</Alert>} */}
             <div className="w-full">
                 <Link
-                    href="/menu"
+                    href="/user/menu"
                     className="w-full flex bg-custom-red hover:bg-custom-red-hov text-white py-3 justify-center rounded-md"
                 >
                     Register

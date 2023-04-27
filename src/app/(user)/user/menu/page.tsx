@@ -14,37 +14,37 @@ const page: FC = ({}) => {
     return (
         <>
             <div className="h-screen grid grid-cols-3 gap-10 gap-x-0 mx-10 my-10 justify-items-center">
-                <Link href="menu/id" className="block max-w-sm p-6">
+                <Link href="/user/menu/id" className="block max-w-sm p-6">
                     <Image src={Burger} alt="" width={300} height={300} />
                     <p className="flex justify-center py-3 text-3xl font-semibold">
                         Burger
                     </p>
                 </Link>
-                <Link href="menu/id" className="block max-w-sm p-6">
+                <Link href="/user/menu/id" className="block max-w-sm p-6">
                     <Image src={Biscuits} alt="" width={300} height={300} />
                     <p className="flex justify-center py-3 text-3xl font-semibold">
                         Biscuits
                     </p>
                 </Link>
-                <Link href="menu/id" className="block max-w-sm p-6">
+                <Link href="/user/menu/id" className="block max-w-sm p-6">
                     <Image src={Croissant} alt="" width={300} height={300} />
                     <p className="flex justify-center py-3 text-3xl font-semibold">
                         Croissant
                     </p>
                 </Link>
-                <Link href="menu/id" className="block max-w-sm p-6">
+                <Link href="/user/menu/id" className="block max-w-sm p-6">
                     <Image src={Dessert} alt="" width={300} height={300} />
                     <p className="flex justify-center py-3 text-3xl font-semibold">
                         Dessert
                     </p>
                 </Link>
-                <Link href="menu/id" className="block max-w-sm p-6">
+                <Link href="/user/menu/id" className="block max-w-sm p-6">
                     <Image src={Hotdog} alt="" width={300} height={300} />
                     <p className="flex justify-center py-3 text-3xl font-semibold">
                         Hotdog
                     </p>
                 </Link>
-                <Link href="menu/id" className="block max-w-sm p-6">
+                <Link href="/user/menu/id" className="block max-w-sm p-6">
                     <Image src={Sandwich} alt="" width={300} height={300} />
                     <p className="flex justify-center py-3 text-3xl font-semibold">
                         Sandwich

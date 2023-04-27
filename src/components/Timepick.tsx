@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 const Timepick = () => {
     return (
@@ -13,7 +13,8 @@ const Timepick = () => {
                         className="w-4 h-4 mx-5 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 focus:ring-2"
                     />
                     <label
-                        /*for="horizontal-list-radio-license"*/ className="py-3 text-sm font-medium text-gray-900 me-5"
+                        htmlFor="horizontal-list-radio-license"
+                        className="py-3 text-sm font-medium text-gray-900 me-5"
                     >
                         13:00
                     </label>

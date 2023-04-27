@@ -13,6 +13,7 @@ import {
     History,
     LogOut,
     Receipt,
+    UserCog,
 } from "lucide-react";
 
 export const Icons = {
@@ -30,6 +31,7 @@ export const Icons = {
     History,
     LogOut,
     Receipt,
+    UserCog,
 };
 
 export default Icons;

@@ -17,7 +17,7 @@ const page = ({}) => {
                     type="text"
                     id="disabled-input"
                     aria-label="disabled input"
-                    className="bg-zinc-300 text-zinc-600 text-sm rounded-lg block p-2.5 w-full font-semibold cursor-not-allowed"
+                    className="bg-zinc-300 text-zinc-600 text-sm rounded-lg block p-2.5 w-[20rem] font-semibold cursor-not-allowed"
                     value="example@gmail.com"
                     disabled
                 />

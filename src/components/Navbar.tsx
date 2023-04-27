@@ -5,12 +5,19 @@ import Link from "next/link";
 import Button, { buttonVariants } from "@/ui/Button";
 import Icons from "./Icons";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import Logo from "@/public/Logo1.svg";
+
 // import { useRouter } from "next/router";
 
-const Navbar = () => {
+interface NavbarProps {
+    session?: boolean;
+}
+
+const Navbar = ({ session }: NavbarProps) => {
     // const session = await getServerSession();
     const [isOpen, setIsOpen] = useState(false);
-    const session = true;
+    // const session = session;
     // const router = useRouter();
 
     // useEffect(() => {
@@ -29,10 +36,16 @@ const Navbar = () => {
                 <Link
                     onClick={() => setIsOpen(false)}
                     href="/"
-                    className={buttonVariants({ variant: "ghost" })}
+                    className={buttonVariants({ variant: "none" })}
                 >
-                    <Icons.EggFried />
-                    &nbsp; <strong>TOST</strong>
+                    <Image
+                        priority
+                        src={Logo}
+                        height={40}
+                        width={40}
+                        alt="Logo"
+                    />
+                    &nbsp;<strong className="text-xl">TOST</strong>
                 </Link>
 
                 <div className="hidden md:flex gap-4">
@@ -46,7 +59,7 @@ const Navbar = () => {
                         <>
                             <Link
                                 onClick={() => setIsOpen(false)}
-                                href="/menu"
+                                href="/user/menu"
                                 className={buttonVariants({
                                     variant: "ghost",
                                 })}
@@ -55,7 +68,7 @@ const Navbar = () => {
                             </Link>
                             <Link
                                 onClick={() => setIsOpen(false)}
-                                href="/reserve"
+                                href="/user/reserve"
                                 className={buttonVariants({
                                     variant: "ghost",
                                 })}
@@ -66,7 +79,7 @@ const Navbar = () => {
                             <div className="flex items-center gap-2">
                                 <Link
                                     onClick={() => setIsOpen(false)}
-                                    href="/notification"
+                                    href="/user/notification"
                                     className={buttonVariants({
                                         variant: "ghost",
                                         size: "icon",
@@ -76,7 +89,7 @@ const Navbar = () => {
                                 </Link>
                                 <Link
                                     onClick={() => setIsOpen(false)}
-                                    href="/cart"
+                                    href="/user/cart"
                                     className={buttonVariants({
                                         variant: "ghost",
                                         size: "icon",
@@ -99,7 +112,7 @@ const Navbar = () => {
                                                     onClick={() =>
                                                         setIsOpen(false)
                                                     }
-                                                    href="/profile"
+                                                    href="/user/profile"
                                                     className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
                                                 >
                                                     <Icons.User size={16} />
@@ -113,7 +126,7 @@ const Navbar = () => {
                                                     onClick={() =>
                                                         setIsOpen(false)
                                                     }
-                                                    href="/history"
+                                                    href="/user/history"
                                                     className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
                                                 >
                                                     <Icons.History size={16} />
@@ -122,12 +135,12 @@ const Navbar = () => {
                                                     </span>
                                                 </Link>
                                             </li>
-                                            <li>
+                                            {/* <li>
                                                 <Link
                                                     onClick={() =>
                                                         setIsOpen(false)
                                                     }
-                                                    href="/receipt"
+                                                    href="/user/receipt"
                                                     className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
                                                 >
                                                     <Icons.Receipt size={16} />
@@ -135,7 +148,7 @@ const Navbar = () => {
                                                         Receipt
                                                     </span>
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                             {/* <li>
                                                 <a
                                                     href="#"
@@ -164,10 +177,8 @@ const Navbar = () => {
                             {/* <Button>Sign Out</Button> */}
                             {/* <SignOutButton /> */}
                         </>
-                    ) : (
-                        // <SignInButton />
-                        <Button>Sign In</Button>
-                    )}
+                    ) : // <SignInButton />
+                    null}
                 </div>
             </div>
         </div>
