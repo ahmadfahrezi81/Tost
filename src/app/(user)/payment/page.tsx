@@ -1,63 +1,109 @@
 import Image from "next/image";
-import { FC } from "react";
+import cc from "@/images/cc.png";
+import fpx from "@/images/fpx.png";
 
-const page: FC = ({}) => {
+const page = ({}) => {
     return (
-        <div>
-            <div className="relative overflow-x-auto">
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" className="px-6 py-3">
-                                Product name
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Color
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Category
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Price
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th
-                                scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        <div className="bg-custom-green h-screen w-full flex items-center justify-center">
+            <div className="card h-1/2 w-1/2 bg-white flex justify-center items-center rounded-lg">
+                <div className="container px-7 py-7">
+                    <h5 className="text-gray-500">Select payment method</h5>
+                    <hr className="mb-2 bg-gray-500" />
+                    <div className="flex flex-row gap-x-20 my-4">
+                        <div className="flex items-center">
+                            <input
+                                id="default-radio-1"
+                                type="radio"
+                                value=""
+                                name="default-radio"
+                                className="mr-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 "
+                            />
+                            <Image
+                                src={cc}
+                                alt="CC or Debit"
+                                height={16}
+                                width={21}
+                                style={{ opacity: 0.8 }}
+                            />
+                            <label
+                                /*for="default-radio-1"*/ className="text-sm font-regular text-gray-500 ml-2 block"
                             >
-                                Apple MacBook Pro 17
-                            </th>
-                            <td className="px-6 py-4">Silver</td>
-                            <td className="px-6 py-4">Laptop</td>
-                            <td className="px-6 py-4">$2999</td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th
-                                scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                            >
-                                Microsoft Surface Pro
-                            </th>
-                            <td className="px-6 py-4">White</td>
-                            <td className="px-6 py-4">Laptop PC</td>
-                            <td className="px-6 py-4">$1999</td>
-                        </tr>
-                        <tr className="bg-white dark:bg-gray-800">
-                            <th
-                                scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                            >
-                                Magic Mouse 2
-                            </th>
-                            <td className="px-6 py-4">Black</td>
-                            <td className="px-6 py-4">Accessories</td>
-                            <td className="px-6 py-4">$99</td>
-                        </tr>
-                    </tbody>
-                </table>
+                                Credit or Debit Card
+                            </label>
+                        </div>
+
+                        <div className="flex items-center">
+                            <input
+                                checked
+                                id="default-radio-2"
+                                type="radio"
+                                value=""
+                                name="default-radio"
+                                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 mr-4"
+                            />
+                            <Image src={fpx} alt="FPX" height={32} width={42} />
+                            <label
+                                /*for="default-radio-2"*/ className="ml-2 text-sm font-medium text-gray-900 "
+                            ></label>
+                        </div>
+                    </div>
+
+                    <div className="">
+                        <div className="mb-2">
+                            <div className="w-full mb-2">
+                                <select
+                                    id="countries"
+                                    className="font-sans bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                >
+                                    <option selected>Select bank</option>
+                                    <option value="may">Maybank</option>
+                                    <option value="rhb">RHB</option>
+                                    <option value="cimb">CIMB</option>
+                                    <option value="bis">Bank Islam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="mb-2">
+                            <input
+                                type="email"
+                                id="helper-text"
+                                aria-describedby="helper-text-explanation"
+                                className="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Name on card"
+                            />
+                        </div>
+                        <div className="flex flex-row gap-2">
+                            <input
+                                type="email"
+                                id="helper-text"
+                                aria-describedby="helper-text-explanation"
+                                className="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg basis-1/2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="Card number"
+                            />
+                            <input
+                                type="email"
+                                id="helper-text"
+                                aria-describedby="helper-text-explanation"
+                                className="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg basis-1/2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                placeholder="CVV"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-row justify-between">
+                        <div className="mt-10">
+                            <p>Amount due:</p>
+                            <h3 className="text-black font-bold text-2xl">
+                                RM33.00
+                            </h3>
+                        </div>
+                        <div className="mt-10 ">
+                            <button className="bg-green-700 hover:bg-green-800 px-5 py-3 rounded-md bottom-0 right-0 text-white">
+                                Proceed
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -21,9 +21,9 @@ const Navbar = () => {
 
     return (
         <div
-            className="fixed backdrop-blur-sm bg-white/75
+            className="fixed backdrop-blur-sm bg-white
             top-0 left-0 right-0 h-20 border-b border-slate-300 
-            shadow-sm flex items-center justify-between"
+            shadow-sm flex items-center justify-between z-10"
         >
             <div className="container max-w-7xl mx-auto flex justify-between items-center">
                 <Link

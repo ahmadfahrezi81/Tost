@@ -1,6 +1,4 @@
-import { FC } from "react";
-
-const page: FC = ({}) => {
+const page = ({}) => {
     return <div>page notification</div>;
 };
 

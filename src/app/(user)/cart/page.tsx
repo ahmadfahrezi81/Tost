@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Burgir from "../../../../public/Burgir.png";
+import Burgir from "@/images/Burgir.png";
 export default function Home() {
   return (
     <>
@@ -134,10 +134,8 @@ export default function Home() {
                   Checkout
                 </button>
               </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 }
