@@ -2,155 +2,86 @@ import { FC } from "react";
 
 const page: FC = ({}) => {
   return (
-    <div>
-      <div className="relative mt-12 mx-60 mr-16 overflow-auto">
-        <table className="w-full text-sm text-left text-gray-500 ">
-          <caption className="p-5 text-3xl font-bold text-left text-gray-900 bg-white ">
+    <>
+      <div className="relative mt-12 mx-4 mr-4 overflow-auto">
+        <div className="flex flex-col justify-between items-center">
+          <caption className="p-5 text-3xl font-bold text-gray-900 ">
             Table Info
           </caption>
-          <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-200">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Time Slot
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Status
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Customers name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Table ID
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Details
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Duration
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                03.30 PM
-              </th>
-              <td className="px-6 py-4">Booked</td>
-              <td className="px-6 py-4">Dzaky</td>
-              <td className="px-6 py-4">OBH2</td>
-              <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">3 hours</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                04.30 PM
-              </th>
-              <td className="px-6 py-4">Available</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">-</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                05.00 PM
-              </th>
-              <td className="px-6 py-4">Booked</td>
-              <td className="px-6 py-4">Leo</td>
-              <td className="px-6 py-4">CPH3</td>
-              <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">1 hours</td>
-            </tr>
-            <tr className="border-t-2 border-b-2 border-gray-200">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-              >
-                05.30 PM
-              </th>
-              <td className="px-6 py-4">Available</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">-</td>
-              <td className="px-6 py-4">Lorem Ipsum</td>
-              <td className="px-6 py-4">-</td>
-            </tr>
-          </tbody>
-        </table>
+          <table className="w-full text-sm table-fixed text-left text-gray-700">
+            <caption className="p-5 text-xl text-left font-bold text-gray-900 ">
+              Apr 21
+            </caption>
+
+            <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-200">
+              <tr>
+                <th scope="col" className="px-6 py-3 w-auto">
+                  Table ID
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Status
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Time Slots
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  No. Seats
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t-2 border-b-2 border-gray-200">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  1
+                </th>
+                <td className="px-6 py-4">Booked</td>
+                <td className="px-6 py-4">11-12</td>
+                <td className="px-6 py-4">2</td>
+              </tr>
+              <tr className="border-t-2 border-b-2 border-gray-200">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  2
+                </th>
+                <td className="px-6 py-4">Available</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+              </tr>
+              <tr className="border-t-2 border-b-2 border-gray-200">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  3
+                </th>
+                <td className="px-6 py-4">Booked</td>
+                <td className="px-6 py-4">3-4</td>
+                <td className="px-6 py-4">4</td>
+              </tr>
+              <tr className="border-t-2 border-b-2 border-gray-200">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  4
+                </th>
+                <td className="px-6 py-4">Available</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <nav
-        className="flex justify-center mt-32 mb-32"
-        aria-label="Page navigation example"
-      >
-        <ul className="inline-flex -space-x-px">
-          <li>
-            <a
-              href="#"
-              className="px-3 py-2 ml-0 hover:font-semibold text-zinc-500"
-            >
-              Previous
-            </a>
-          </li>
-          <li className="px-1">
-            <a
-              href="#"
-              className="px-3 py-2 leading-tight rounded-lg text-white bg-red-400 border border-red-400 hover:bg-white hover:text-red-400"
-            >
-              1
-            </a>
-          </li>
-          <li className="px-1">
-            <a
-              href="#"
-              className="px-3 py-2 leading-tight rounded-lg text-white bg-red-400 border border-red-400 hover:bg-white hover:text-red-400"
-            >
-              2
-            </a>
-          </li>
-          <li className="px-1">
-            <a
-              href="#"
-              aria-current="page"
-              className="px-3 py-2 leading-tight rounded-lg text-white bg-red-400 border border-red-400 hover:bg-white hover:text-red-400"
-            >
-              3
-            </a>
-          </li>
-          <li className="px-1">
-            <a
-              href="#"
-              className="px-3 py-2 leading-tight rounded-lg text-white bg-red-400 border border-red-400 hover:bg-white hover:text-red-400"
-            >
-              4
-            </a>
-          </li>
-          <li className="px-1">
-            <a
-              href="#"
-              className="px-3 py-2 leading-tight rounded-lg text-white bg-red-400 border border-red-400 hover:bg-white hover:text-red-400"
-            >
-              5
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="px-3 py-2 leading-tight hover:font-semibold text-zinc-500"
-            >
-              Next
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    </>
   );
 };
 
