@@ -6,6 +6,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 export const RegisterForm = () => {
+    const [name, setName] = useState("");
+    const [Pnumber, setPnumber] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState<string | null>(null);
@@ -17,8 +19,28 @@ export const RegisterForm = () => {
     };
 
     return (
-        <form onSubmit={onSubmit} className="space-y-12 w-[400px] text-white">
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+        <form onSubmit={onSubmit} className="space-y-8 w-[400px] text-white">
+            <div className="grid w-full items-center gap-1.0">
+                <label htmlFor="name">Name</label>
+                <Input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    id="name"
+                    type="name"
+                />
+            </div>
+
+            <div className="grid w-full items-center gap-1.0">
+                <label htmlFor="Pnumber">Phone Number</label>
+                <Input
+                    value={Pnumber}
+                    onChange={(e) => setPnumber(e.target.value)}
+                    id="Pnumber"
+                    type="Pnumber"
+                />
+            </div>
+
+            <div className="grid w-full items-center gap-1.0">
                 <label htmlFor="email">Email</label>
                 <Input
                     value={email}
@@ -28,7 +50,7 @@ export const RegisterForm = () => {
                 />
             </div>
 
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div className="grid w-full items-center gap-1.0">
                 <label htmlFor="password">Password</label>
                 <Input
                     className="w-full"
@@ -43,7 +65,7 @@ export const RegisterForm = () => {
             {/* {error && <Alert>{error}</Alert>} */}
             <div className="w-full">
                 <Link
-                    href="/user/menu"
+                    href="/login"
                     className="w-full flex bg-custom-red hover:bg-custom-red-hov text-white py-3 justify-center rounded-md"
                 >
                     Register

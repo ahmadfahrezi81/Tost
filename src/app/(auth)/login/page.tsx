@@ -9,7 +9,7 @@ const page: FC = ({}) => {
                 <h1 className="font-bold text-4xl text-white text-center">
                     TOST{" "}
                 </h1>
-                <LoginForm />
+                <LoginForm/>
                 <p className="text-center text-white">
                     Don&apos;t have an account yet?
                     <Link
