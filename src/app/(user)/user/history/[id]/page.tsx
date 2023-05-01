@@ -8,13 +8,13 @@ const page: FC = ({}) => {
         <caption className="p-5 text-3xl font-bold text-gray-900  text-left">
           ORDER #3403
         </caption>
-        <caption className="p-5 text-lg font-bold text-gray-900  text-left pb-0 pt-0">
+        <caption className="p-5  text-lg font-bold text-gray-900  text-left pb-0 pt-0">
           Number of Diners : 4 Diners
         </caption>
         <caption className="p-5 text-lg font-bold text-gray-900 text-left pt-0">
           Status : Done
         </caption>
-        <table className="relative mt-5 mx-24 overflow-auto text-sm text-left text-black-500 ">
+        <table className="relative mt-5 mx-5 overflow-auto text-sm text-left text-black-500 ">
           <thead className="text-xs text-gray-700 uppercase  border-b-2 border-gray-500">
             <tr>
               <th scope="col" className="px-6 py-3">
