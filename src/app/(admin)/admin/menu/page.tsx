@@ -24,7 +24,7 @@ const page = ({}) => {
       <h1 className="flex mt-8 text-5xl font-bold justify-center leading-none tracking-tight text-gray-900">
         Menu
       </h1>
-      <div className="relative mt-12 mx-60 mr-16 overflow-auto">
+      <div className="relative mt-12 mx-20 overflow-auto">
         <table className="w-full text-sm table-fixed text-left text-gray-700">
           <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-200">
             <tr>
