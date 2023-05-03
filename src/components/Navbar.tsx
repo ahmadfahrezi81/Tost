@@ -32,7 +32,8 @@ const Navbar = ({ session }: NavbarProps) => {
             top-0 left-0 right-0 h-20 border-b border-slate-300 
             shadow-sm flex items-center justify-between z-10"
         >
-            <div className="container max-w-7xl mx-auto flex justify-between items-center">
+            {/* max-w-7xl */}
+            <div className="container mx-auto flex justify-between items-center">
                 <Link
                     onClick={() => setIsOpen(false)}
                     href="/"
