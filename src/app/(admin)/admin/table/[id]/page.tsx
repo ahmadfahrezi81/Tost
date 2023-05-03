@@ -22,7 +22,13 @@ const page: FC = ({}) => {
                   Customer Name
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  Booking ID
+                </th>
+                <th scope="col" className="px-6 py-3">
                   Details
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Action
                 </th>
               </tr>
             </thead>
@@ -32,44 +38,114 @@ const page: FC = ({}) => {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                  11.00
+                  11.00 - 12.00
                 </th>
                 <td className="px-6 py-4">Dzaky</td>
+                <td className="px-6 py-4">TBA5</td>
                 <td className="px-6 py-4">
                   I want a smoking room with window view
                 </td>
+                <td className="px-6 py-4">
+                  <button
+                    type="button"
+                    className="text-white text-xs bg-custom-orange hover:bg-custom-red-hov font-medium rounded-lg px-5 py-2 mr-2 mb-2"
+                  >
+                    View Pre-Order
+                  </button>
+                </td>
               </tr>
               <tr className="border-t-2 border-b-2 border-gray-200">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                  12.00
+                  12.00 - 13.00
                 </th>
                 <td className="px-6 py-4">-</td>
                 <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
               </tr>
               <tr className="border-t-2 border-b-2 border-gray-200">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                  13.00
+                  13.00 - 14.00
                 </th>
                 <td className="px-6 py-4">-</td>
                 <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
               </tr>
               <tr className="border-t-2 border-b-2 border-gray-200">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                  14.00
+                  14.00 - 15.00
                 </th>
                 <td className="px-6 py-4">Leo</td>
+                <td className="px-6 py-4">HKL4</td>
                 <td className="px-6 py-4">
                   I want a table that are near to the kitchen
                 </td>
+                <td className="px-6 py-4">
+                  <button
+                    type="button"
+                    className="text-white text-xs bg-custom-orange hover:bg-custom-red-hov  font-medium rounded-lg px-5 py-2 mr-2 mb-2"
+                  >
+                    View Pre-Order
+                  </button>
+                </td>
+              </tr>
+              <tr className="border-t-2 border-b-2 border-gray-200">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  15.00 - 16.00
+                </th>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+              </tr>
+              <tr className="border-t-2 border-b-2 border-gray-200">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  16.00 - 17.00
+                </th>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+              </tr>
+              <tr className="border-t-2 border-b-2 border-gray-200">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  17.00 - 18.00
+                </th>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+              </tr>
+              <tr className="border-t-2 border-b-2 border-gray-200">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  19.00 - 20.00
+                </th>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
+                <td className="px-6 py-4">-</td>
               </tr>
             </tbody>
           </table>
