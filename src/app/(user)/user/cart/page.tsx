@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Burgir from "@/images/Burgir.png";
-
 import Link from "next/link";
 
 import { useState, useEffect } from "react";
 import { toast } from "@/ui/Toast";
+
+import router from "next/router";
 
 const Page = ({}) => {
     const [count, setCount] = useState(1);
@@ -40,7 +41,6 @@ const Page = ({}) => {
             type: "error",
         });
     };
-
 
     return (
         <>
@@ -425,14 +425,13 @@ const Page = ({}) => {
                                     </p>
                                 </div>
                                 <div className="flex justify-end mt-4">
-                                    <button
-                                        onClick={tryToast}
+                                    <Link
+                                        href={"/user/payment"}
                                         className="bg-custom-orange hover:bg-custom-red-hov text-white font-bold py-2 px-4 rounded"
                                     >
                                         Checkout
-                                    </button>
+                                    </Link>
                                 </div>
-
                             </div>
                         </div>
                     </div>
