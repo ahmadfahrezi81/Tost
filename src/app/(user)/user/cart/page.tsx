@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Burgir from "@/images/Burgir.png";
+import Link from "next/link";
 
 const page = ({}) => {
     return (
@@ -153,9 +154,12 @@ const page = ({}) => {
                                 </p>
                             </div>
                             <div className="flex justify-end mt-4">
-                                <button className="bg-custom-orange hover:bg-custom-red-hov text-white font-bold py-2 px-4 rounded">
+                                <Link href="/user/payment" className="bg-custom-orange hover:bg-custom-red-hov text-white font-bold py-2 px-4 rounded">
                                     Checkout
-                                </button>
+                                </Link>
+                                {/* <button className="bg-custom-orange hover:bg-custom-red-hov text-white font-bold py-2 px-4 rounded">
+                                    Checkout
+                                </button> */}
                             </div>
                         </div>
                     </div>

@@ -1,14 +1,18 @@
 import Image from "next/image";
 import cc from "@/images/cc.png";
 import fpx from "@/images/fpx.png";
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 const page = ({}) => {
     return (
-        <div className="bg-custom-green h-screen w-full flex items-center justify-center">
-            <div className="card h-1/2 w-1/2 bg-white flex justify-center items-center rounded-lg">
-                <div className="container px-7 py-7">
+        <>
+            <div className="grid pt-36 pb-36 place-items-center">
+                <div className="w-3/5 bg-white rounded-lg shadow-md container px-7 py-7">
+                    <h1 className="text-3xl text-custom-green font-extrabold mb-5">Payment Portal</h1>
                     <h5 className="text-gray-500">Select payment method</h5>
                     <hr className="mb-2 bg-gray-500" />
+
                     <div className="flex flex-row gap-x-20 my-4">
                         <div className="flex items-center">
                             <input
@@ -26,7 +30,7 @@ const page = ({}) => {
                                 style={{ opacity: 0.8 }}
                             />
                             <label
-                                /*for="default-radio-1"*/ className="text-sm font-regular text-gray-500 ml-2 block"
+                                htmlFor="default-radio-1" className="text-sm font-regular text-gray-500 ml-2 block"
                             >
                                 Credit or Debit Card
                             </label>
@@ -43,7 +47,7 @@ const page = ({}) => {
                             />
                             <Image src={fpx} alt="FPX" height={32} width={42} />
                             <label
-                                /*for="default-radio-2"*/ className="ml-2 text-sm font-medium text-gray-900 "
+                                htmlFor="default-radio-2" className="ml-2 text-sm font-medium text-gray-900 "
                             ></label>
                         </div>
                     </div>
@@ -97,15 +101,17 @@ const page = ({}) => {
                                 RM33.00
                             </h3>
                         </div>
-                        <div className="mt-10 ">
-                            <button className="bg-green-700 hover:bg-green-800 px-5 py-3 rounded-md bottom-0 right-0 text-white">
+                        <div className="flex justify-end items-end">
+                            <Link
+                            href="/user/cart"
+                            className="proceed-button bg-custom-red hover:bg-custom-red-hov px-7 py-3 rounded-md text-white">
                                 Proceed
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

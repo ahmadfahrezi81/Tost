@@ -3,8 +3,8 @@ import React from "react";
 const Pending = () => {
     return (
         <div>
-            <div className="bg-white rounded-md shadow-md">
-                <div className="flex text-center py-3 flex-col">
+            <div className="bg-white rounded-md shadow-md w-fit h-fit">
+                <div className="flex text-center py-3 px-4 flex-col">
                     <h3 className="text-lg font-semibold text-gray-900">
                         T201
                     </h3>
