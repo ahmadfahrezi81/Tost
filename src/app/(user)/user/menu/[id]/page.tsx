@@ -12,17 +12,15 @@ const page = ({}) => {
             <nav>{/* Content of navigation bar */}</nav>
 
             {/* Back Button */}
-            <button          
-                className="py-8 flex justify-center items-center"
-                style={{ display: "block", margin: "0 auto" }}
-            >
-                <Link href="/user/menu">
-                    <div className="flex items-center">
-                        <MdArrowBack/>
-                        Back
-                    </div>
-                </Link>
-            </button>
+            <Link 
+                className="py-8 flex justify-center items-center" 
+                href="/user/menu">
+                <div className="flex items-center">
+                    <MdArrowBack/>
+                    Back
+                </div>
+            
+            </Link>
 
             {/* Picture */}
             <Image
@@ -40,16 +38,26 @@ const page = ({}) => {
                 className="py-6"
                 style={{ display: "flex", justifyContent: "center" }}
             >
-                <Button className="rounded-md" style={{ marginRight: "10px" }}>
+                <Link
+                    className="hover: bg-black text-white px-3 py-2.5 flex rounded-md" style={{ marginRight: "10px" }}
+                    href="/user/cart">
+                    Add to Cart
+                </Link>
+                {/* <Button className="rounded-md" style={{ marginRight: "10px" }}>
                     <Link href="/user/cart">
                     Add to Cart
                     </Link>
-                </Button>
-                <Button>
+                </Button> */}
+                <Link
+                    className="hover: bg-black text-white px-3 py-2.5 flex rounded-md" style={{ marginRight: "10px" }}
+                    href="/user/reserve">
+                    Reserve Table
+                </Link>
+                {/* <Button>
                     <Link href="/user/reserve">
                     Reserve Table
                     </Link>
-                </Button>
+                </Button> */}
             </div>
 
             <h1 className="font-medium text-3xl text-center">Ingredients</h1>
