@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import Link from "next/link";
 
+
 type reqProps = {
   // for now i put string for everything
 };
@@ -32,6 +33,7 @@ const page: FC = ({}) => {
             <div className="w-2 h-2 rounded-full bg-yellow-300" />
             <h2>Done</h2>
           </div>
+
         </div>
       </div>
 
