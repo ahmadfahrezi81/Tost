@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Burgir from "@/images/Burgir.png";
+
+import Link from "next/link";
+
 import { useState, useEffect } from "react";
 import { toast } from "@/ui/Toast";
 
@@ -37,6 +40,7 @@ const Page = ({}) => {
             type: "error",
         });
     };
+
 
     return (
         <>
@@ -395,6 +399,7 @@ const Page = ({}) => {
                                 <p className="text-gray-700 text-base">
                                     Here are the items you have selected:
                                 </p>
+
                                 <div className="flex justify-between mt-4">
                                     <p className="text-gray-700 text-base">
                                         Total
@@ -427,6 +432,7 @@ const Page = ({}) => {
                                         Checkout
                                     </button>
                                 </div>
+
                             </div>
                         </div>
                     </div>

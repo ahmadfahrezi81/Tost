@@ -4,7 +4,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <>
             <Navbar session={true} />
-            <section className="pt-20">{children}</section>
+            <section className="pt-20 h-full">{children}</section>
         </>
     );
 }

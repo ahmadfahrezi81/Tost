@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex h-screen">
                 <AdminSidebar />
                 <section
-                    className="flex flex-col
+                    className="flex flex-col w-full
                 "
                 >
                     {children}
