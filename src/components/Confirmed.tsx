@@ -25,7 +25,7 @@ const Confirmed = ({ visible, onClose, ...props }: reqProps) => {
 
                 <button
                     className="w-full text-center bg-custom-red hover:bg-custom-red-hov text-white py-2 px-20 rounded-md mb-2"
-                    onClick={() => router.push("/menu")}
+                    onClick={() => router.push("/user/menu")}
                 >
                     View Menu
                 </button>
