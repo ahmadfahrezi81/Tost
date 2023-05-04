@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import DisplayPic from "@/images/burger.png";
-import Burger from "@/images/Burger-Small.png";
+// import Burger from "@/images/Burger-Small.png";
+import Bacon from "@/images/BaconEgg-Big.png";
 import { Form as MENUIDFORM } from "../../../../../components/menuidform";
 import Button from "@/ui/Button";
 import { useRouter } from "next/router";
@@ -26,7 +27,7 @@ export default function MenuIdPage() {
                     /> */}
                     <Image
                         className=" max-w-xs mx-auto"
-                        src= {Burger}
+                        src= {Bacon}
                         alt="Product"
                     />
 
