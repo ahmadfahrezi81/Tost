@@ -14,6 +14,8 @@ import {
     LogOut,
     Receipt,
     UserCog,
+    BookOpen,
+    LayoutDashboard,
 } from "lucide-react";
 
 export const Icons = {
@@ -32,6 +34,8 @@ export const Icons = {
     LogOut,
     Receipt,
     UserCog,
+    BookOpen,
+    LayoutDashboard,
 };
 
 export default Icons;

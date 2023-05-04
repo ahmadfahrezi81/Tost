@@ -7,10 +7,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex h-screen">
                 <AdminSidebar />
                 <section
-
                     className="flex flex-col w-full
+                    ml-64
                 "
-
                 >
                     {children}
                 </section>

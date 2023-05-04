@@ -18,13 +18,13 @@ import Tandoori from "@/images/CreamyTandoori-Big.png";
 import Mushroom from "@/images/CheesyMushroom-Big.png";
 import Tuna from "@/images/SmokedTuna-Big.png";
 
-const page: FC = ({}) => {
+const Page = ({}) => {
     return (
-        <>
-            <h1 className="flex mt-11 text-5xl font-bold justify-center leading-none tracking-tight text-gray-900">
+        <div className="container">
+            <h1 className="flex my-14 text-5xl font-bold justify-center leading-none tracking-tight text-gray-900">
                 Menu
             </h1>
-            <div className="h-screen grid grid-cols-4 auto-cols-max gap-10 gap-x-0 mx-10 my-10 justify-items-center">
+            <div className="h-screen grid grid-cols-4 auto-cols-max gap-10 gap-x-0 justify-items-center">
                 <Link
                     href="/user/menu/id"
                     className="flex flex-col max-w-sm p-6 items-center"
@@ -152,8 +152,8 @@ const page: FC = ({}) => {
                     </p>
                 </Link>
             </div>
-        </>
+        </div>
     );
 };
 
-export default page;
+export default Page;
