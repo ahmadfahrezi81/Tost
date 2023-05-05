@@ -17,7 +17,6 @@ import Tandoori from "@/images/CreamyTandoori-Small.png";
 import Mushroom from "@/images/CheesyMushroom-Small.png";
 import Tuna from "@/images/SmokedTuna-Small.png";
 
-
 const page = ({}) => {
   return (
     <>
@@ -25,6 +24,29 @@ const page = ({}) => {
         Menu
       </h1>
       <div className="relative mt-12 mx-20 overflow-auto">
+        <Link href="/admin/menu/id">
+        <button
+          type="button"
+          className="text-zinc-600 bg-zinc-300 hover:text-zinc-300 hover:bg-zinc-600 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2"
+        >
+          <svg
+            className="w-6 h-6 mr-2 -ml-1"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fab"
+            data-icon="facebook-f"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill="currentColor"
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            ></path>
+          </svg>
+          Add Menu
+        </button>
+        </Link>
         <table className="w-full text-sm table-fixed text-left text-gray-700">
           <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-200">
             <tr>
@@ -61,7 +83,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Bacon & Egg Tost</td>
               <td className="px-6 py-4">RM 20</td>
               <td className="px-6 py-4 truncate">
-              Bacon, sunny side egg, bread,pepper, oil
+                Bacon, sunny side egg, bread,pepper, oil
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -117,7 +139,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Avocado & Egg Tost</td>
               <td className="px-6 py-4">RM 21</td>
               <td className="px-6 py-4 truncate">
-              Bread, boiled egg, sliced avocado, pepper, mix herb, oil
+                Bread, boiled egg, sliced avocado, pepper, mix herb, oil
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -173,7 +195,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Honey Dipped Pistachios Tost</td>
               <td className="px-6 py-4">RM 18</td>
               <td className="px-6 py-4 truncate">
-              Bread, honey, pistachio, white cheese, butter
+                Bread, honey, pistachio, white cheese, butter
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -229,7 +251,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Sourdough Brioche French Tost</td>
               <td className="px-6 py-4">RM 19</td>
               <td className="px-6 py-4 truncate">
-              Bread, butter, blueberry jam, egg
+                Bread, butter, blueberry jam, egg
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -285,7 +307,7 @@ const page = ({}) => {
               <td className="px-6 py-4">British Baked Bean Tost</td>
               <td className="px-6 py-4">RM 12</td>
               <td className="px-6 py-4 truncate">
-              Bread, beans, oregano leaves, oil
+                Bread, beans, oregano leaves, oil
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -341,7 +363,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Smoked Salmon Tost</td>
               <td className="px-6 py-4">RM 22</td>
               <td className="px-6 py-4 truncate">
-              Bread, salmon, boiled egg, oregano, pepper, walnuts 
+                Bread, salmon, boiled egg, oregano, pepper, walnuts
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -397,7 +419,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Corn Cheese Sandwich</td>
               <td className="px-6 py-4">RM 15</td>
               <td className="px-6 py-4 truncate">
-              Bread, sweet corn, cheddar cheese
+                Bread, sweet corn, cheddar cheese
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -453,7 +475,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Lemon Ice Tost</td>
               <td className="px-6 py-4">RM 15</td>
               <td className="px-6 py-4 truncate">
-              Bread, ice cream, whipped cream, lemon, chocolate powder
+                Bread, ice cream, whipped cream, lemon, chocolate powder
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -509,7 +531,7 @@ const page = ({}) => {
               <td className="px-6 py-4">French Tost with Blueberries</td>
               <td className="px-6 py-4">RM 19</td>
               <td className="px-6 py-4 truncate">
-              Sourdough bread, honey, blueberry, butter
+                Sourdough bread, honey, blueberry, butter
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -565,7 +587,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Cheesy Garlic Bread Tost</td>
               <td className="px-6 py-4">RM 18</td>
               <td className="px-6 py-4 truncate">
-              Bread, mixed herbs, mozzarella cheese
+                Bread, mixed herbs, mozzarella cheese
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -620,9 +642,7 @@ const page = ({}) => {
               <td className="px-6 py-4">10</td>
               <td className="px-6 py-4">Cheesy Tomato Tost</td>
               <td className="px-6 py-4">RM 16</td>
-              <td className="px-6 py-4 truncate">
-              Bread, cheese, egg, basil
-              </td>
+              <td className="px-6 py-4 truncate">Bread, cheese, egg, basil</td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
                   <Link
@@ -677,7 +697,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Creamy Tandoori Paneer Sandwich</td>
               <td className="px-6 py-4">RM 18</td>
               <td className="px-6 py-4 truncate">
-              Bread, cheese, tandoori seasoning
+                Bread, cheese, tandoori seasoning
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
@@ -732,9 +752,7 @@ const page = ({}) => {
               <td className="px-6 py-4">12</td>
               <td className="px-6 py-4">Cheesy Mushroom Sandwichh</td>
               <td className="px-6 py-4">RM 20</td>
-              <td className="px-6 py-4 truncate">
-              Bread, cheese, mushrooms
-              </td>
+              <td className="px-6 py-4 truncate">Bread, cheese, mushrooms</td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
                   <Link
@@ -789,7 +807,7 @@ const page = ({}) => {
               <td className="px-6 py-4">Smoked Tuna Tost</td>
               <td className="px-6 py-4">RM 21</td>
               <td className="px-6 py-4 truncate">
-              Bread, smoked tuna, mix herbs
+                Bread, smoked tuna, mix herbs
               </td>
               <td className="py-4 px-6 space-x-3">
                 <div className="flex flex-row gap-3">
