@@ -9,7 +9,7 @@ const page = ({}) => {
                 <h1 className="font-bold text-3xl text-center text-white">
                     Create your Account
                 </h1>
-                <RegisterForm />
+                <RegisterForm value={false}/>
                 <p className="text-center text-white">
                     Already have an account?{" "}
                     <Link
