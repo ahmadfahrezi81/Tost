@@ -81,22 +81,32 @@ const Navbar = ({ session }: NavbarProps) => {
                                 <Link
                                     onClick={() => setIsOpen(false)}
                                     href="/user/notification"
-                                    className={buttonVariants({
-                                        variant: "ghost",
-                                        size: "icon",
-                                    })}
+                                    className={
+                                        buttonVariants({
+                                            variant: "ghost",
+                                            size: "icon",
+                                        }) + " relative"
+                                    }
                                 >
                                     <Icons.Bell />
+                                    <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-orange-500 border-2 border-white rounded-full -top-1 -right-1">
+                                        0
+                                    </div>
                                 </Link>
                                 <Link
                                     onClick={() => setIsOpen(false)}
                                     href="/user/cart"
-                                    className={buttonVariants({
-                                        variant: "ghost",
-                                        size: "icon",
-                                    })}
+                                    className={
+                                        buttonVariants({
+                                            variant: "ghost",
+                                            size: "icon",
+                                        }) + " relative"
+                                    }
                                 >
                                     <Icons.ShoppingCart />
+                                    <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 border-2 border-white rounded-full -top-1 -right-1">
+                                        4
+                                    </div>
                                 </Link>
 
                                 <Button
@@ -106,7 +116,7 @@ const Navbar = ({ session }: NavbarProps) => {
                                     UI
                                 </Button>
                                 {isOpen ? (
-                                    <div className="absolute top-24 right-24 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                                    <div className="absolute top-24 right-18 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                                         <ul className="py-2 text-sm text-gray-700 ">
                                             <li>
                                                 <Link
