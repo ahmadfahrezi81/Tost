@@ -13,11 +13,10 @@ export default function MenuIdPage() {
 
     return (
         <div>
-            <h1 className="font-bold text-4xl text-black text-center mb-8 py-3 pt-5">
+            <h1 className="font-bold text-4xl text-black text-center mt-10 mb-12 py-3 pt-5">
                 Update Menu
             </h1>
-            <div className=" relative h-full flex justify-center items-center">
-                
+            <div className=" relative h-full flex justify-center gap-10">
                 <div style={{ justifyContent: "center" }}>
                     {/* Picture */}
                     {/* <Image
@@ -27,19 +26,12 @@ export default function MenuIdPage() {
                     /> */}
                     <Image
                         className=" max-w-xs mx-auto"
-                        src= {Bacon}
+                        src={Bacon}
                         alt="Product"
                     />
 
                     {/* Buttons */}
-                    <div
-                        className="flex flex-col items-center justify-center "
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            marginTop: "10px",
-                        }}
-                    >
+                    <div className="flex flex-col items-center justify-center mt-4">
                         <Button
                             className="max-w-xs content-center"
                             style={{ marginBottom: "10px" }}
@@ -55,8 +47,7 @@ export default function MenuIdPage() {
                     </div>
                 </div>
 
-                <div className="shadow-xl px-8 pb-8 pt-12 rounded-xl space-y-12">
-                    <h1 className="font-bold text-4xl text-black text-center"></h1>
+                <div className="shadow-xl px-8 py-12 rounded-xl h-fit">
                     <MENUIDFORM />
                 </div>
             </div>

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { FC, useState } from "react";
@@ -14,24 +13,8 @@ const Page = ({}) => {
         <>
             <div className="flex items-center justify-between px-14 py-10">
                 <h1 className="text-3xl font-bold text-gray-900 self-center">
-                    Table Info
+                    Tables
                 </h1>
-
-                <div className="flex w-fit">
-                    <button className="block text-center font-medium text-2xl">
-                        &#8249;
-                    </button>
-                    <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        dateFormat="MMM dd, yyyy"
-                        maxDate={new Date()}
-                        className="cursor-pointer z-10"
-                    />
-                    <button className="block text-center font-medium text-2xl">
-                        &#8250;
-                    </button>
-                </div>
             </div>
 
             <div className="flex flex-col justify-between items-center px-14">

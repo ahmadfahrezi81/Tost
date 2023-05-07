@@ -16,6 +16,7 @@ import {
     UserCog,
     BookOpen,
     LayoutDashboard,
+    Plus,
 } from "lucide-react";
 
 export const Icons = {
@@ -36,6 +37,7 @@ export const Icons = {
     UserCog,
     BookOpen,
     LayoutDashboard,
+    Plus,
 };
 
 export default Icons;

@@ -105,7 +105,7 @@ const Navbar = ({ session }: NavbarProps) => {
                                 >
                                     <Icons.ShoppingCart />
                                     <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 border-2 border-white rounded-full -top-1 -right-1">
-                                        4
+                                        1
                                     </div>
                                 </Link>
 
@@ -188,8 +188,7 @@ const Navbar = ({ session }: NavbarProps) => {
                             {/* <Button>Sign Out</Button> */}
                             {/* <SignOutButton /> */}
                         </>
-                    ) : // <SignInButton />
-                    null}
+                    ) : null}
                 </div>
             </div>
         </div>

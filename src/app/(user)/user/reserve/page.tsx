@@ -18,13 +18,14 @@ const Page = ({}) => {
     const [showModal, setShowModal] = useState<boolean>(false);
     const [startDate, setStartDate] = useState<Date | null>(null);
     const currDate = moment(startDate).format("dddd, DD MMMM yyyy");
-    // const currDate = "" + startDate;
+
+    const [toggleSearch, setToggleSearch] = useState<boolean>(false);
 
     return (
         <>
-            <div className="flex flex-col h-full md:flex-row">
-                <div className="basis-1/2 bg-custom-green flex items-center">
-                    <div className="font-sans m-10 w-full flex-col">
+            <div className="flex flex-col w-full h-full md:flex-row">
+                <div className="w-1/2 bg-custom-green flex items-center">
+                    <div className="font-sans mx-20 w-full flex-col">
                         <h2 className="text-white font-bold mb-8 text-4xl">
                             Make a Reservation
                         </h2>
@@ -61,52 +62,49 @@ const Page = ({}) => {
                             </div>
                         </div>
                         <div className="flex justify-center">
-                            <Link
-                                href="#"
+                            <button
+                                onClick={() => setToggleSearch(true)}
                                 className="block w-full text-center bg-custom-red hover:bg-custom-red-hov text-white py-2 px-20 rounded-md"
                             >
                                 Search
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div className="basis-1/2 font-sans m-10 my-20 flex-col flex justify-between">
-                    <div>
-                        <h3 className="font-bold font-sans text-2xl text-custom-green">
-                            Pick a time
-                        </h3>
-                        <div className="m-5 grid grid-cols-3 border-gray-200 gap-2 items-center text-sm font-medium text-gray-900">
-                            <Timepick specify={"11:00"} />
-                            <Timepick specify={"12:00"} />
-                            <Timepick specify={"13:00"} />
-                            <Timepick specify={"14:00"} />
-                            <Timepick specify={"15:00"} />
-                            <Timepick specify={"16:00"} />
-                            <Timepick specify={"17:00"} />
+                {toggleSearch ? (
+                    <div className="w-1/2 font-sans mx-20 my-20 flex-col flex justify-between">
+                        <div>
+                            <h3 className="mb-10 font-bold font-sans text-2xl text-custom-green">
+                                Pick a time
+                            </h3>
+                            <div className="w-full grid grid-cols-3 border-gray-200 gap-2 items-center text-sm font-medium text-gray-900">
+                                <Timepick specify={"11:00"} />
+                                <Timepick specify={"12:00"} />
+                                <Timepick specify={"13:00"} />
+                                <Timepick specify={"14:00"} />
+                                <Timepick specify={"15:00"} />
+                                <Timepick specify={"16:00"} />
+                                <Timepick specify={"17:00"} />
+                                <Timepick specify={"18:00"} />
+                                <Timepick specify={"19:00"} />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        {/* <div className="mb-5">
-                            <label className="block mb-2 text-sm font-medium text-gray-900">
-                                Notes
-                            </label>
-                            <textarea
-                                id="message"
-                                rows={6}
-                                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Write your additional requests here"
-                            ></textarea>
-                        </div> */}
 
                         <button
-                            className="w-full text-center bg-custom-red hover:bg-custom-red-hov text-white py-2 px-20 rounded-md"
+                            className="file:w-full text-center bg-custom-red hover:bg-custom-red-hov text-white py-2 px-20 rounded-md"
                             onClick={() => setShowModal(true)}
                         >
                             Confirm
                         </button>
                     </div>
-                </div>
+                ) : (
+                    <div className="w-1/2 h-full flex items-center justify-center">
+                        <h1 className="text-lg text-slate-500">
+                            Select your date
+                        </h1>
+                    </div>
+                )}
             </div>
             <Confirmed
                 visible={showModal}

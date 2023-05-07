@@ -50,7 +50,7 @@ const AdminSidebar = ({}) => {
                             <div className="flex items-center pl-8 pr-10 py-1 w-fit m-auto">
                                 <Icons.BookOpen size={20} /> &nbsp;&nbsp;{" "}
                                 <span className="text-lg font-semibold">
-                                    Menu
+                                    Menus
                                 </span>
                             </div>
                         </Sidebar.Item>
@@ -70,7 +70,7 @@ const AdminSidebar = ({}) => {
                                 </svg>{" "}
                                 &nbsp;&nbsp;{" "}
                                 <span className="text-lg font-semibold">
-                                    Table
+                                    Tables
                                 </span>
                             </div>
                         </Sidebar.Item>

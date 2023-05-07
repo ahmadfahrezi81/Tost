@@ -10,7 +10,7 @@ export const Form = () => {
     const [name, setName] = useState(false);
     const [price, setPrice] = useState(false);
     const [ingredients, setIngredients] = useState(false);
-    
+
     const [defaultmenu, setDefaultmenu] = useState<{
         name: string;
         price: string;
@@ -18,7 +18,7 @@ export const Form = () => {
     }>({
         name: "Bacon & Egg Tost",
         price: "RM 20",
-        ingredients: "Bacon, sunny side egg, bread,pepper, oil",
+        ingredients: "Bacon, sunny side egg, bread, pepper, oil",
     });
 
     const onSubmit = (e: React.FormEvent) => {
@@ -32,7 +32,7 @@ export const Form = () => {
     };
 
     return (
-        <form onSubmit={onSubmit} className="space-y-12 w-[400px]">
+        <form onSubmit={onSubmit} className="flex flex-col gap-8 w-[24rem]">
             <div className="grid w-full max-w-sm items-center gap-1.5">
                 {/* <label htmlFor="name">Name</label> */}
                 {/* <Input
@@ -64,7 +64,10 @@ export const Form = () => {
                         value={defaultmenu.name}
                         disabled={!name}
                         onChange={(e) =>
-                            setDefaultmenu({ ...defaultmenu, name: e.target.value })
+                            setDefaultmenu({
+                                ...defaultmenu,
+                                name: e.target.value,
+                            })
                         }
                     />
 
@@ -76,7 +79,8 @@ export const Form = () => {
                         className="
                         flex justify-center
                         h-fit w-1/5 text-emerald-800 hover:text-white border border-emerald-800 hover:bg-emerald-800 focus:outline-none font-medium rounded-lg text-sm px-3 py-2.5 text-center"
-                    >{!name ? "edit" : "confirm"}
+                    >
+                        {!name ? "edit" : "confirm"}
                     </button>
                 </div>
             </div>
@@ -99,7 +103,10 @@ export const Form = () => {
                         value={defaultmenu.price}
                         disabled={!price}
                         onChange={(e) =>
-                            setDefaultmenu({ ...defaultmenu, price: e.target.value })
+                            setDefaultmenu({
+                                ...defaultmenu,
+                                price: e.target.value,
+                            })
                         }
                     />
 
@@ -111,28 +118,13 @@ export const Form = () => {
                         className="
                         flex justify-center
                         h-fit w-1/5 text-emerald-800 hover:text-white border border-emerald-800 hover:bg-emerald-800 focus:outline-none font-medium rounded-lg text-sm px-3 py-2.5 text-center"
-                    >{!price ? "edit" : "confirm"}
+                    >
+                        {!price ? "edit" : "confirm"}
                     </button>
                 </div>
             </div>
 
             <div className="grid w-full max-w-sm items-center gap-1.5">
-                {/* <label htmlFor="ingredients">Ingredients</label> */}
-                {/* <Input
-                    className="w-full"
-                    required
-                    value={ingredients}
-                    onChange={(e) => setIngredients(e.target.value)}
-                    id="ingredients"
-                    type="ingredients"
-                /> */}
-                {/* <textarea
-                    className=" w-full max-w-sm border rounded-lg p-2"
-                    required
-                    value={ingredients}
-                    onChange={(e) => setIngredients(e.target.value)}
-                    id="ingredients"
-                /> */}
                 <label
                     htmlFor="ingredients"
                     className="block mb-2 text-m font-medium text-zinc-700"
@@ -141,8 +133,8 @@ export const Form = () => {
                 </label>
                 <div className="flex flex-row w-full gap-3">
                     <textarea
-                        // type="text"
                         id="ingredients"
+                        rows={6}
                         className={`
                             ${ingredients ? "bg-white" : "bg-zinc-300"}
                             text-zinc-600 text-sm rounded-lg block p-2.5 w-4/5 font-semibold h-fit
@@ -150,7 +142,10 @@ export const Form = () => {
                         value={defaultmenu.ingredients}
                         disabled={!ingredients}
                         onChange={(e) =>
-                            setDefaultmenu({ ...defaultmenu, ingredients: e.target.value })
+                            setDefaultmenu({
+                                ...defaultmenu,
+                                ingredients: e.target.value,
+                            })
                         }
                     />
 
@@ -162,10 +157,10 @@ export const Form = () => {
                         className="
                         flex justify-center
                         h-fit w-1/5 text-emerald-800 hover:text-white border border-emerald-800 hover:bg-emerald-800 focus:outline-none font-medium rounded-lg text-sm px-3 py-2.5 text-center"
-                    >{!ingredients ? "edit" : "confirm"}
+                    >
+                        {!ingredients ? "edit" : "confirm"}
                     </button>
                 </div>
-
             </div>
         </form>
     );
