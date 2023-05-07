@@ -1,6 +1,9 @@
-import { FC } from "react";
+"use client";
+import GreenModal from "@/components/GreenModal";
+import { FC, useState } from "react";
 
 const page: FC = ({}) => {
+  const [showGreenModal, setShowGreenModal] = useState<boolean>(false);
   return (
     <>
       <div className="relative mt-12 mx-4 mr-4 overflow-auto">
@@ -46,7 +49,8 @@ const page: FC = ({}) => {
                   I want a smoking room with window view
                 </td>
                 <td className="px-6 py-4">
-                  <button
+                  <button 
+                    onClick={() => setShowGreenModal(true)}
                     type="button"
                     className="text-white text-xs bg-custom-orange hover:bg-custom-red-hov font-medium rounded-lg px-5 py-2 mr-2 mb-2"
                   >
@@ -151,6 +155,7 @@ const page: FC = ({}) => {
           </table>
         </div>
       </div>
+      <GreenModal visible={showGreenModal} title="test" level="preorder_details" onClose={() => setShowGreenModal(false)}/>
     </>
   );
 };
