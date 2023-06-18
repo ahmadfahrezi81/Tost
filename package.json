@@ -11,10 +11,17 @@
   "dependencies": {
     "@mui/material": "^5.12.1",
     "@mui/x-data-grid": "^6.2.1",
+    "@prisma/client": "^4.15.0",
+    "@radix-ui/react-dropdown-menu": "^2.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@tanstack/react-table": "^8.9.2",
     "@types/node": "18.15.13",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
-    "class-variance-authority": "^0.5.2",
+    "axios": "^1.4.0",
+    "class-variance-authority": "^0.5.3",
+    "clsx": "^1.2.1",
+    "daisyui": "^3.1.1",
     "date-fns": "^2.30.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
@@ -24,15 +31,13 @@
     "moment": "^2.29.4",
     "next": "13.3.1",
     "next-auth": "^4.22.1",
-
     "prop-types": "^15.8.1",
-
     "react": "18.2.0",
     "react-datepicker": "^4.11.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.0",
     "styled-components": "^5.3.10",
-    "tailwind-merge": "^1.12.0",
+    "tailwind-merge": "^1.13.2",
     "typescript": "5.0.4"
   },
   "devDependencies": {
@@ -42,7 +47,8 @@
     "autoprefixer": "^10.4.14",
     "babel-runtime": "^6.26.0",
     "postcss": "^8.4.23",
+    "prisma": "^4.15.0",
     "tailwindcss": "^3.3.1",
-    "tailwindcss-animate": "^1.0.5"
+    "tailwindcss-animate": "^1.0.6"
   }
 }
