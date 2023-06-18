@@ -18,6 +18,7 @@ export function UserMenuPage({
     type,
 }: Menu) {
     const [toggle, setToggle] = useState(true);
+    const [amount, setAmount] = useState(0);
 
     return (
         <div className="flex flex-row gap-20 mt-4">
@@ -110,20 +111,32 @@ export function UserMenuPage({
                     )}
                 </div>
 
-                <h2 className="font-semibold text-2xl mb-2">RM{price}</h2>
+                <h2 className="font-semibold text-2xl mb-2">
+                    RM{amount == 0 ? price : price * amount}
+                </h2>
 
                 <div className="flex justify-between">
                     <div className="custom-number-input h-10 w-48">
                         <div className="flex flex-row h-14 rounded-lg relative bg-transparent mt-1">
-                            <button className=" bg-gray-200 text-gray-600 active:bg-gray-300 h-full w-14 rounded-l cursor-pointer">
+                            <button
+                                onClick={() => {
+                                    if (amount > 0) setAmount(amount - 1);
+                                }}
+                                className=" bg-gray-200 text-gray-600 active:bg-gray-300 h-full w-14 rounded-l cursor-pointer"
+                            >
                                 <span className="w-full text-2xl font-semibold text-custom-orange">
                                     −
                                 </span>
                             </button>
                             <span className="flex items-center justify-center w-16 bg-gray-200 font-semibold text-lg">
-                                0
+                                {amount}
                             </span>
-                            <button className="bg-gray-200 text-gray-600 active:bg-gray-300 h-full w-14 rounded-r cursor-pointer">
+                            <button
+                                onClick={() => {
+                                    setAmount(amount + 1);
+                                }}
+                                className="bg-gray-200 text-gray-600 active:bg-gray-300 h-full w-14 rounded-r cursor-pointer"
+                            >
                                 <span className="w-full h-fit text-2xl font-semibold text-custom-orange">
                                     +
                                 </span>
