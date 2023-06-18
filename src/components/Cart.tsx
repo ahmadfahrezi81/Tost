@@ -4,7 +4,7 @@ import Icons from "@/components/Icons";
 import Link from "next/link";
 import { useState } from "react";
 
-const Page = ({}) => {
+export default function Cart() {
     const [toggleCart, setToggleCart] = useState(false);
 
     return (
@@ -290,6 +290,4 @@ const Page = ({}) => {
             </div>
         </>
     );
-};
-
-export default Page;
+}

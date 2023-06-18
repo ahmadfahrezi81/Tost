@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 import { HTMLAttributes } from "react";
 import * as React from "react";
 import hotToast, { Toaster as HotToaster } from "react-hot-toast";

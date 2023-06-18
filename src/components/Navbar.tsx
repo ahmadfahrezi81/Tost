@@ -7,14 +7,18 @@ import Icons from "./Icons";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "@/public/Logo1.svg";
+import { Session, User } from "@prisma/client";
+import { any, string } from "prop-types";
+import { signOut } from "next-auth/react";
 
 // import { useRouter } from "next/router";
 
 interface NavbarProps {
-    session?: boolean;
+    name: string | undefined | null;
+    image: string | undefined | null;
 }
 
-const Navbar = ({ session }: NavbarProps) => {
+const Navbar = ({ name, image }: NavbarProps) => {
     // const session = await getServerSession();
     const [isOpen, setIsOpen] = useState(false);
     // const session = session;
@@ -56,7 +60,7 @@ const Navbar = ({ session }: NavbarProps) => {
                     >
                         Documentation
                     </Link> */}
-                    {session ? (
+                    {name ? (
                         <>
                             <Link
                                 onClick={() => setIsOpen(false)}
@@ -80,7 +84,7 @@ const Navbar = ({ session }: NavbarProps) => {
                             <div className="flex items-center gap-2">
                                 <Link
                                     onClick={() => setIsOpen(false)}
-                                    href="/user/notification"
+                                    href="/user/history"
                                     className={
                                         buttonVariants({
                                             variant: "ghost",
@@ -88,14 +92,12 @@ const Navbar = ({ session }: NavbarProps) => {
                                         }) + " relative"
                                     }
                                 >
-                                    <Icons.Bell />
-                                    <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-orange-500 border-2 border-white rounded-full -top-1 -right-1">
-                                        0
-                                    </div>
+                                    <Icons.History />
+                                    <div className="absolute inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-orange-500 border-2 border-white rounded-full -top-0 -right-0"></div>
                                 </Link>
                                 <Link
                                     onClick={() => setIsOpen(false)}
-                                    href="/user/cart"
+                                    href="/user/checkout"
                                     className={
                                         buttonVariants({
                                             variant: "ghost",
@@ -109,12 +111,19 @@ const Navbar = ({ session }: NavbarProps) => {
                                     </div>
                                 </Link>
 
-                                <Button
+                                {/* <Button
                                     onClick={() => setIsOpen(!isOpen)}
                                     className="ml-2 rounded-full h-10 w-10"
-                                >
-                                    UI
-                                </Button>
+                                > */}
+                                <Image
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className="rounded-full ml-2 h-10 w-10 cursor-pointer"
+                                    src={`${image}`}
+                                    width={28}
+                                    height={28}
+                                    alt="Profile"
+                                />
+                                {/* </Button> */}
                                 {isOpen ? (
                                     <div className="absolute top-24 right-18 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                                         <ul className="py-2 text-sm text-gray-700 ">
@@ -132,20 +141,7 @@ const Navbar = ({ session }: NavbarProps) => {
                                                     </span>
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link
-                                                    onClick={() =>
-                                                        setIsOpen(false)
-                                                    }
-                                                    href="/user/history"
-                                                    className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
-                                                >
-                                                    <Icons.History size={16} />
-                                                    <span className="pl-2">
-                                                        History
-                                                    </span>
-                                                </Link>
-                                            </li>
+
                                             {/* <li>
                                                 <Link
                                                     onClick={() =>
@@ -170,16 +166,21 @@ const Navbar = ({ session }: NavbarProps) => {
                                             </li> */}
                                         </ul>
 
-                                        <Link
+                                        <span
                                             onClick={() => setIsOpen(false)}
-                                            href="/"
-                                            className="py-4 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
+                                            className="cursor-pointer py-4 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
                                         >
                                             <Icons.LogOut size={16} />
-                                            <span className="pl-2">
+                                            <span
+                                                className="pl-2"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    signOut();
+                                                }}
+                                            >
                                                 Sign Out
                                             </span>
-                                        </Link>
+                                        </span>
                                     </div>
                                 ) : (
                                     <></>

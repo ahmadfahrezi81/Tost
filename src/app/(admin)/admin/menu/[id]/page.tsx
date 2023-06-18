@@ -1,15 +1,34 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import DisplayPic from "@/images/burger.png";
 // import Burger from "@/images/Burger-Small.png";
 import Bacon from "@/images/BaconEgg-Big.png";
 import { Form as MENUIDFORM } from "../../../../../components/menuidform";
 import Button from "@/ui/Button";
 import { useRouter } from "next/router";
+import { useState } from "react";
+
+interface MenuPage {
+    categories: String;
+    title: String;
+    description: String;
+    image: StaticImageData;
+    price: number;
+    quantity: number;
+    ingredients: String;
+}
 
 export default function MenuIdPage() {
     // const router = useRouter();
     // const { imageSource } = router.query;
+
+    // const [page, setPage] = useState<MenuPage>({
+    //     subtotal: 0,
+    //     tax: 0,
+    //     total: 0,
+    // });
 
     return (
         <div>
