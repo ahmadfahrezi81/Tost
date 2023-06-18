@@ -19,6 +19,7 @@ model Menu {
   type        String
   calories    Float
   fats        Float
+  imageURL    String
 }
 
 model Todo {

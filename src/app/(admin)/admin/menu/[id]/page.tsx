@@ -1,75 +1,54 @@
-"use client";
-
+import { prisma } from "@/lib/db";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
-import DisplayPic from "@/images/burger.png";
-// import Burger from "@/images/Burger-Small.png";
-import Bacon from "@/images/BaconEgg-Big.png";
-import { Form as MENUIDFORM } from "../../../../../components/menuidform";
-import Button from "@/ui/Button";
+import EditMenuForm from "@/components/EditMenuForm";
+import { Menu } from "@prisma/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
-interface MenuPage {
-    categories: String;
-    title: String;
-    description: String;
-    image: StaticImageData;
-    price: number;
-    quantity: number;
-    ingredients: String;
+interface pageProps {
+    params: {
+        id: string;
+    };
 }
 
-export default function MenuIdPage() {
-    // const router = useRouter();
-    // const { imageSource } = router.query;
+async function updateMenuItem(id: number, menu: Menu) {
+    "use server";
 
-    // const [page, setPage] = useState<MenuPage>({
-    //     subtotal: 0,
-    //     tax: 0,
-    //     total: 0,
-    // });
+    if (!menu) {
+        throw new Error("Error Somewhere");
+    }
+
+    await prisma.menu.update({ where: { id }, data: { ...menu } });
+}
+
+const page = async ({ params }: pageProps) => {
+    const getMenu = async () => {
+        const res = await prisma.menu.findUnique({
+            where: {
+                id: parseInt(params.id),
+            },
+        });
+        return res;
+    };
+
+    const menu = await getMenu();
+
+    if (!menu) {
+        throw new Error("wtf");
+    }
 
     return (
-        <div>
-            <h1 className="font-bold text-4xl text-black text-center mt-10 mb-12 py-3 pt-5">
-                Update Menu
-            </h1>
-            <div className=" relative h-full flex justify-center gap-10">
-                <div style={{ justifyContent: "center" }}>
-                    {/* Picture */}
-                    {/* <Image
-                        className=" max-w-xs mx-auto"
-                        src={Burger}
-                        alt="Product"
-                    /> */}
-                    <Image
-                        className=" max-w-xs mx-auto"
-                        src={Bacon}
-                        alt="Product"
-                    />
+        <>
+            <div className="flex flex-col px-14 py-10">
+                <header className="flex justify-between items-center mb-4">
+                    <h1 className="text-3xl font-bold text-gray-900 self-center">
+                        Edit Menu
+                    </h1>
+                </header>
 
-                    {/* Buttons */}
-                    <div className="flex flex-col items-center justify-center mt-4">
-                        <Button
-                            className="max-w-xs content-center"
-                            style={{ marginBottom: "10px" }}
-                        >
-                            Change Picture
-                        </Button>
-                        <Button
-                            className="max-w-xs content-center"
-                            style={{ marginBottom: "10px" }}
-                        >
-                            Remove Picture
-                        </Button>
-                    </div>
-                </div>
-
-                <div className="shadow-xl px-8 py-12 rounded-xl h-fit">
-                    <MENUIDFORM />
-                </div>
+                <EditMenuForm {...menu} updateMenuItem={updateMenuItem} />
             </div>
-        </div>
+        </>
     );
-}
+};
+
+export default page;

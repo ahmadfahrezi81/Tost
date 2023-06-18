@@ -15,11 +15,11 @@ export default async function Layout({
             {session?.user.role !== "ADMIN" ? (
                 <PermissionWarning />
             ) : (
-                <div className="flex h-screen">
+                <div className="flex h-screen overflow-x-hidden">
                     <AdminSidebar />
                     <section
                         className="flex flex-col w-full
-                    ml-64
+                    ml-64 
                 "
                     >
                         {children}
