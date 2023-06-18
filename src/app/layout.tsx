@@ -1,12 +1,12 @@
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/Toast";
 import { Metadata } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Icons from "@/components/Icons";
+import { getAuthSession } from "@/lib/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +20,13 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
+    const session = await getAuthSession();
+
     return (
         <html
             lang="en"
@@ -44,14 +46,16 @@ export default function RootLayout({
                 {/* Allow for more height in mobile devices */}
                 <div className="h-40 md:hidden" />
 
-                <div className="fixed bottom-10 right-10">
-                    <Link
-                        href="/admin"
-                        className="flex justify-center items-center h-14 w-14 bg-custom-red hover:bg-custom-red-hov text-white rounded-full"
-                    >
-                        <Icons.UserCog />
-                    </Link>
-                </div>
+                {session?.user.role === "ADMIN" ? (
+                    <div className="fixed bottom-10 right-10">
+                        <Link
+                            href="/admin"
+                            className="flex justify-center items-center h-14 w-14 bg-custom-red hover:bg-custom-red-hov text-white rounded-full"
+                        >
+                            <Icons.UserCog />
+                        </Link>
+                    </div>
+                ) : null}
             </body>
         </html>
     );
