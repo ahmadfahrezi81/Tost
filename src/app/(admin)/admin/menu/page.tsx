@@ -11,6 +11,12 @@ async function getData(): Promise<Menu[]> {
     return await prisma.menu.findMany();
 }
 
+export async function deleteMenu(id: number) {
+    "use server";
+
+    await prisma.menu.delete({ where: { id } });
+}
+
 export default async function page() {
     const data = await getData();
 

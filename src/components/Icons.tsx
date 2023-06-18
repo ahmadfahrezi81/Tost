@@ -29,9 +29,11 @@ import {
     Info,
     X,
     LucideProps,
+    Pencil,
 } from "lucide-react";
 
 export const Icons = {
+    Pencil,
     Home,
     ChevronLeft,
     ChevronRight,
