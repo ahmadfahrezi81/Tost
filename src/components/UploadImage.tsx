@@ -42,9 +42,13 @@ export const UploadImage = ({
         const formData = new FormData();
 
         formData.append("file", files);
-        formData.append("upload_preset", "MenuImages");
 
-        const URL = "https://api.cloudinary.com/v1_1/dwkwopxt7/image/upload";
+        // nisya old cloudnary settings
+        // formData.append("upload_preset", "MenuImages");
+        // const URL = "https://api.cloudinary.com/v1_1/dwkwopxt7/image/upload";
+
+        formData.append("upload_preset", "menuropang");
+        const URL = "https://api.cloudinary.com/v1_1/wpmenuimage/image/upload";
 
         const data = await fetch(URL, {
             method: "POST",
