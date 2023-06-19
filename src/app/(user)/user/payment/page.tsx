@@ -9,7 +9,9 @@ const page = ({}) => {
         <>
             <div className="grid pt-36 pb-36 place-items-center">
                 <div className="w-3/5 bg-white rounded-lg shadow-md container px-7 py-7">
-                    <h1 className="text-3xl text-custom-green font-extrabold mb-5">Payment Portal</h1>
+                    <h1 className="text-3xl text-custom-green font-extrabold mb-5">
+                        Payment Portal
+                    </h1>
                     <h5 className="text-gray-500">Select payment method</h5>
                     <hr className="mb-2 bg-gray-500" />
 
@@ -30,7 +32,8 @@ const page = ({}) => {
                                 style={{ opacity: 0.8 }}
                             />
                             <label
-                                htmlFor="default-radio-1" className="text-sm font-regular text-gray-500 ml-2 block"
+                                htmlFor="default-radio-1"
+                                className="text-sm font-regular text-gray-500 ml-2 block"
                             >
                                 Credit or Debit Card
                             </label>
@@ -47,7 +50,8 @@ const page = ({}) => {
                             />
                             <Image src={fpx} alt="FPX" height={32} width={42} />
                             <label
-                                htmlFor="default-radio-2" className="ml-2 text-sm font-medium text-gray-900 "
+                                htmlFor="default-radio-2"
+                                className="ml-2 text-sm font-medium text-gray-900 "
                             ></label>
                         </div>
                     </div>
@@ -103,8 +107,9 @@ const page = ({}) => {
                         </div>
                         <div className="flex justify-end items-end">
                             <Link
-                            href="/user/cart"
-                            className="proceed-button bg-custom-red hover:bg-custom-red-hov px-7 py-3 rounded-md text-white">
+                                href="/user/menu"
+                                className="proceed-button bg-custom-red hover:bg-custom-red-hov px-7 py-3 rounded-md text-white"
+                            >
                                 Proceed
                             </Link>
                         </div>

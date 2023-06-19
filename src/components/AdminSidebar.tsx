@@ -30,14 +30,14 @@ const AdminSidebar = ({}) => {
 
                 <Sidebar.Items>
                     <Sidebar.ItemGroup>
-                        <Sidebar.Item href="/admin">
+                        {/* <Sidebar.Item href="/admin">
                             <div className="flex items-center pl-8 pr-10 py-1 w-fit m-auto">
                                 <Icons.LayoutDashboard size={20} /> &nbsp;&nbsp;{" "}
                                 <span className="text-lg font-semibold">
                                     Home
                                 </span>
                             </div>
-                        </Sidebar.Item>
+                        </Sidebar.Item> */}
                         <Sidebar.Item href="/admin/users">
                             <div className="flex items-center pl-8 pr-10 py-1 w-fit m-auto">
                                 <Icons.Users size={20} /> &nbsp;&nbsp;{" "}

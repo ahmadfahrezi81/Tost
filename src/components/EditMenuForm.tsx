@@ -5,9 +5,11 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import UploadImage from "./UploadImage";
 import { Menu } from "@prisma/client";
+import { toast } from "./ui/Toast";
 
 interface MenuProps extends Menu {
     updateMenuItem: (id: number, menu: Menu) => void;
+    deleteMenuItem: (id: number) => void;
 }
 
 export default function NewMenuForm({
@@ -21,6 +23,7 @@ export default function NewMenuForm({
     fats,
     imageURL,
     updateMenuItem,
+    deleteMenuItem,
 }: MenuProps) {
     //menu properties
     const [menu, setMenu] = useState<Menu>();
@@ -38,6 +41,14 @@ export default function NewMenuForm({
             imageURL,
         });
     }, []);
+
+    const tryToast = () => {
+        toast({
+            title: "User Permanently Deleted",
+            message: `You've deleted ${menu?.name}. Please Reload.`,
+            type: "error",
+        });
+    };
 
     //to go back
     const router = useRouter();
@@ -201,26 +212,46 @@ export default function NewMenuForm({
                         />
                     </div>
                 </div>
+                <button
+                    type="submit"
+                    className="
+                            flex justify-center
+                            w-full h-fit px-8 text-emerald-800 hover:text-white border border-emerald-800 hover:bg-emerald-800 focus:outline-none font-medium rounded-lg text-sm py-2 text-center"
+                >
+                    Update
+                </button>
+            </form>
 
-                <div className="flex mt-5 gap-2 justify-end">
-                    <Link
-                        href="/admin/menu"
-                        className="
+            <div className="flex mt-5 gap-2 justify-end">
+                <button
+                    onClick={(e) => {
+                        if (
+                            confirm(
+                                "Do you want to permanently delete this menu item?"
+                            )
+                        ) {
+                            e.preventDefault();
+
+                            console.log("Inside EditMenuForm", id);
+
+                            tryToast();
+                            deleteMenuItem(id);
+                            router.back();
+                        }
+                    }}
+                    className="px-8 flex-auto focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-2.5 mb-2"
+                >
+                    Delete
+                </button>
+                <Link
+                    href="/admin/menu"
+                    className="
                             flex justify-center
                             h-fit px-8 text-red-600 hover:text-white border border-red-600 hover:bg-red-600 focus:outline-none font-medium rounded-lg text-sm py-2 text-center"
-                    >
-                        Cancel
-                    </Link>
-                    <button
-                        type="submit"
-                        className="
-                            flex justify-center
-                            h-fit px-8 text-emerald-800 hover:text-white border border-emerald-800 hover:bg-emerald-800 focus:outline-none font-medium rounded-lg text-sm py-2 text-center"
-                    >
-                        Update
-                    </button>
-                </div>
-            </form>
+                >
+                    Cancel
+                </Link>
+            </div>
         </>
     );
 }

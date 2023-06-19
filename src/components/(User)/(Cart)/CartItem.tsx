@@ -1,73 +1,72 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import AvocadoEgg from "@/images/AvocadoEgg-Small.png";
 import { toast } from "@/components/ui/Toast";
+import { CheckoutItem } from "@prisma/client";
 
-interface CartItemProps {
-    name: string;
-    price: number;
-    quantity: number;
-    image: StaticImageData;
-}
+// interface CartItemProps extends CheckoutItem {}
 
-const CartItem = ({ name, price, quantity, image }: CartItemProps) => {
-    const [item, setItem] = useState({
-        name,
-        price,
-        quantity,
-    });
+const CartItem = ({ name, price, quantity, imageURL }: CheckoutItem) => {
+    // const [item, setItem] = useState({
+    //     name,
+    //     price,
+    //     quantity,
+    // });
+
+    // useEffect(() => {
+    //     if (item.quantity == 0) {
+    //         if (confirm("Do you want to delete this item?")) {
+    //             tryToast();
+    //         } else {
+    //             setItem({
+    //                 name,
+    //                 quantity,
+    //                 price,
+    //             });
+    //         }
+    //     }
+    // }, [item.quantity]);
+
+    const [amount, setAmount] = useState(1);
 
     useEffect(() => {
-        if (item.quantity == 0) {
-            if (confirm("Do you want to delete this item?")) {
-                tryToast();
-            } else {
-                setItem({
-                    name,
-                    quantity,
-                    price,
-                });
-            }
-        }
-    }, [item.quantity]);
+        setAmount(quantity);
+    }, []);
 
     const tryToast = () => {
         toast({
             title: "Item Deleted",
-            message: `You've removed "${item.name}"`,
+            message: `You've removed "${name}"`,
             type: "error",
         });
     };
 
     return (
         <>
-            {item.quantity > 0 ? (
+            {amount > 0 ? (
                 <tr className="border-b">
                     <td className="w-32 p-4">
                         <Image
-                            src={image}
+                            className="rounded-lg"
+                            src={imageURL}
                             alt="Picture of the author"
                             width={500}
                             height={500}
                         />
                     </td>
                     <td className="px-6 py-4 font-bold text-gray-900 ">
-                        {item.name}
+                        {name}
                     </td>
                     <td className="px-6 py-4">
                         <div className="flex items-center space-x-3">
                             <button
                                 className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 "
                                 type="button"
-                                onClick={() =>
-                                    setItem({
-                                        ...item,
-                                        quantity: item.quantity - 1,
-                                        price: price * (item.quantity - 1),
-                                    })
-                                }
+                                onClick={() => {
+                                    setAmount(amount - 1);
+                                }}
                             >
                                 <span className="sr-only">Quantity button</span>
                                 <svg
@@ -89,20 +88,23 @@ const CartItem = ({ name, price, quantity, image }: CartItemProps) => {
                                     type="number"
                                     id="first_product"
                                     className="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 k:bg-gray-700 rk:ay-400"
-                                    value={item.quantity}
+                                    value={amount}
                                     min={1}
                                 />
                             </div>
                             <button
                                 className="inline-flex items-center p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"
                                 type="button"
-                                onClick={() =>
-                                    setItem({
-                                        ...item,
-                                        quantity: item.quantity + 1,
-                                        price: price * (item.quantity + 1),
-                                    })
-                                }
+                                // onClick={() =>
+                                //     setItem({
+                                //         ...item,
+                                //         quantity: item.quantity + 1,
+                                //         price: price * (item.quantity + 1),
+                                //     })
+                                // }
+                                onClick={() => {
+                                    setAmount(amount + 1);
+                                }}
                             >
                                 <span className="sr-only">Quantity button</span>
                                 <svg
@@ -122,7 +124,7 @@ const CartItem = ({ name, price, quantity, image }: CartItemProps) => {
                         </div>
                     </td>
                     <td className="px-6 py-4 font-semibold text-gray-900 ">
-                        RM {item.price}
+                        RM {amount == 0 ? price : price * amount}
                     </td>
                 </tr>
             ) : null}

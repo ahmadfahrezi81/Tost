@@ -1,10 +1,14 @@
 "use client";
 
-import { Menu } from "@prisma/client";
+import { CheckoutItem, Menu } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import Icons from "./Icons";
 import { useState } from "react";
+
+interface UserMenuProps extends Menu {
+    createCheckout: (checkout: any) => void;
+}
 
 export function UserMenuPage({
     id,
@@ -16,7 +20,8 @@ export function UserMenuPage({
     fats,
     imageURL,
     type,
-}: Menu) {
+    createCheckout,
+}: UserMenuProps) {
     const [toggle, setToggle] = useState(true);
     const [amount, setAmount] = useState(0);
 
@@ -144,13 +149,20 @@ export function UserMenuPage({
                         </div>
                     </div>
 
-                    <Link
+                    <button
                         className="h-14 bg-custom-orange text-white w-52 py-2 rounded-md flex items-center justify-center gap-4"
-                        href="#"
+                        onClick={() => {
+                            createCheckout({
+                                name,
+                                price,
+                                quantity: amount,
+                                imageURL,
+                            });
+                        }}
                     >
                         <Icons.ShoppingCart />
                         Add to Cart
-                    </Link>
+                    </button>
                 </div>
 
                 <p className="block mt-4">
