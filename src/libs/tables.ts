@@ -11,7 +11,6 @@ export async function createTable(status: string, slot: string, seats: number) {
   }
 }
 
-
 export async function updateTable(id: number, status: string) {
   try {
     const todo = await prisma.tables.update({

@@ -28,12 +28,12 @@ model Order {
   name    String
   Booking Booking? @relation(fields: [bID], references: [id])
   bID     String   @unique
-  Menu    Menu[]
+  // Menu    Menu[]
 }
 
 model Menu {
-  id          Int     @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   name        String
   description String
-  Order       Order[]
+  // Order       Order[]
 }
