@@ -49,7 +49,7 @@ export default async function RootLayout({
                 {session?.user.role === "ADMIN" ? (
                     <div className="fixed bottom-10 right-10">
                         <Link
-                            href="/admin"
+                            href="/admin/users"
                             className="flex justify-center items-center h-14 w-14 bg-custom-red hover:bg-custom-red-hov text-white rounded-full"
                         >
                             <Icons.UserCog />

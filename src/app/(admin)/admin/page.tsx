@@ -12,7 +12,8 @@ import { getAuthSession } from "@/lib/auth";
 export default async function Admin() {
     return (
         <>
-            <div className="relative font-sans m-10">
+            <h1>empty</h1>
+            {/* <div className="relative font-sans m-10">
                 <div className="flex justify-between mb-16 gap-8">
                     <div className="w-3/5">
                         <div className="flex w-full justify-between mb-2 items-center">
@@ -119,7 +120,7 @@ export default async function Admin() {
                         <h3 className="font-bold text-2xl">RM129.45</h3>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }
