@@ -1,7 +1,3 @@
-![fiesta chicken nugget](https://user-images.githubusercontent.com/83963164/234170749-2ba16358-92a7-4a1c-98cf-cf2f30fe1ee3.gif)
-
-# INI PUNYA JAKI JANGAN DIGANGGU GUGAT
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
