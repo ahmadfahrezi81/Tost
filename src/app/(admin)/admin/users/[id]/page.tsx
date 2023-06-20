@@ -8,13 +8,13 @@ interface pageProps {
     };
 }
 
-export async function updateData(id: string, user: User) {
+async function updateData(id: string, user: User) {
     "use server";
 
     await prisma.user.update({ where: { id }, data: { ...user } });
 }
 
-export async function deleteUser(id: string) {
+async function deleteUser(id: string) {
     "use server";
 
     await prisma.user.delete({ where: { id } });

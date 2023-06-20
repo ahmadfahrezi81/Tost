@@ -14,7 +14,7 @@ interface pageProps {
 
 export interface checkoutItemTest extends Omit<CheckoutItem, "id"> {}
 
-export async function createCheckout(checkout: any) {
+async function createCheckout(checkout: any) {
     "use server";
 
     console.log(checkout);

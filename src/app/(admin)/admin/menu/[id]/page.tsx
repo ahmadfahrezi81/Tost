@@ -20,15 +20,13 @@ async function updateMenuItem(id: number, menu: Menu) {
     await prisma.menu.update({ where: { id }, data: { ...menu } });
 }
 
-export async function deleteMenuItem(id: number) {
+async function deleteMenuItem(id: number) {
     "use server";
-
-    console.log(id, "Hey i'm here");
 
     await prisma.menu.delete({ where: { id } });
 }
 
-const page = async ({ params }: pageProps) => {
+export default async function MenuPageID({ params }: pageProps) {
     const getMenu = async () => {
         const res = await prisma.menu.findUnique({
             where: {
@@ -62,6 +60,4 @@ const page = async ({ params }: pageProps) => {
             </div>
         </>
     );
-};
-
-export default page;
+}

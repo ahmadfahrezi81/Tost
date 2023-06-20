@@ -5,7 +5,6 @@ import { Menu } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 import Link from "next/link";
-import { deleteMenu } from "./page";
 
 export const columns: ColumnDef<Menu>[] = [
     {
