@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import NewMenuForm2 from "@/components/NewMenuForm2";
+import NewMenuForm from "@/components/NewMenuForm";
 import { Menu } from "@prisma/client";
 
 async function createMenuItem(menu: Menu) {
@@ -28,7 +28,7 @@ export default async function NewMenu() {
                     </h1>
                 </header>
 
-                <NewMenuForm2 createMenuItem={createMenuItem} />
+                <NewMenuForm createMenuItem={createMenuItem} />
             </div>
         </>
     );

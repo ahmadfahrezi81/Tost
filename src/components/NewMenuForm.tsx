@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import UploadImage from "./UploadImage";
+import { string } from "prop-types";
 
 interface MenuProps {
     createMenuItem: (menu: any) => void;
@@ -21,8 +23,17 @@ export default function NewMenuForm({ createMenuItem }: MenuProps) {
     //to go back
     const router = useRouter();
 
+    //cloudnary
+    const [imageURL, setImageURL] = useState("");
+
+    const setImageURLChild = (url: string) => {
+        setImageURL(url);
+    };
+
     return (
         <>
+            <UploadImage setImageURLChild={setImageURLChild} />
+
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -35,6 +46,7 @@ export default function NewMenuForm({ createMenuItem }: MenuProps) {
                         type,
                         calories,
                         fats,
+                        imageURL,
                     });
 
                     router.back();
@@ -82,35 +94,49 @@ export default function NewMenuForm({ createMenuItem }: MenuProps) {
                     <option value="Dessert">Dessert</option>
                 </select>
 
-                <label htmlFor="price">Price</label>
-                <input
-                    required
-                    type="text"
-                    name="price"
-                    id="price"
-                    className="bg-gray-50 text-zinc-600 text-sm rounded block p-2.5 font-semibold h-fit"
-                    onChange={(e) => setPrice(parseFloat(e.target.value))}
-                />
+                <div className="flex gap-2">
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="price">Price</label>
+                        <input
+                            required
+                            type="text"
+                            name="price"
+                            id="price"
+                            className="bg-gray-50 text-zinc-600 text-sm rounded block p-2.5 font-semibold h-fit"
+                            onChange={(e) =>
+                                setPrice(parseFloat(e.target.value))
+                            }
+                        />
+                    </div>
 
-                <label htmlFor="calories">Calories</label>
-                <input
-                    required
-                    type="text"
-                    name="calories"
-                    id="calories"
-                    className="bg-gray-50 text-zinc-600 text-sm rounded block p-2.5 font-semibold h-fit"
-                    onChange={(e) => setCalories(parseFloat(e.target.value))}
-                />
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="calories">Calories</label>
+                        <input
+                            required
+                            type="text"
+                            name="calories"
+                            id="calories"
+                            className="bg-gray-50 text-zinc-600 text-sm rounded block p-2.5 font-semibold h-fit"
+                            onChange={(e) =>
+                                setCalories(parseFloat(e.target.value))
+                            }
+                        />
+                    </div>
 
-                <label htmlFor="fat">Fats</label>
-                <input
-                    required
-                    type="text"
-                    name="fat"
-                    id="fat"
-                    className="bg-gray-50 text-zinc-600 text-sm rounded block p-2.5 font-semibold h-fit"
-                    onChange={(e) => setFats(parseFloat(e.target.value))}
-                />
+                    <div className="flex flex-col w-full">
+                        <label htmlFor="fat">Fats</label>
+                        <input
+                            required
+                            type="text"
+                            name="fat"
+                            id="fat"
+                            className="bg-gray-50 text-zinc-600 text-sm rounded block p-2.5 font-semibold h-fit"
+                            onChange={(e) =>
+                                setFats(parseFloat(e.target.value))
+                            }
+                        />
+                    </div>
+                </div>
 
                 <div className="flex mt-5 gap-2 justify-end">
                     <Link
