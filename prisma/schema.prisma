@@ -10,25 +10,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Tables {
-  id     Int    @id @default(autoincrement())
-  status String
-  slot   String
-  seats  Int
+  id       Int       @id @default(autoincrement())
+  status   String
+  slot     String
+  seats    Int
+  bookings Booking[]
 }
 
 model Booking {
-  id    String @id @default(uuid())
-  name  String
+  id   String @id @default(uuid())
+  name String
+
+  Tables   Tables @relation(fields: [tablesId], references: [id])
+  tablesId Int
+
   order Order?
 }
 
 model Order {
-  id      String   @id @default(uuid())
-  name    String
-  Booking Booking? @relation(fields: [bID], references: [id])
-  bID     String   @unique
+  id         String  @id @default(uuid())
+  Booking    Booking @relation(fields: [bookingId], references: [id])
+  bookingId  String  @unique
+  menuAmount Int
   // Menu    Menu[]
 }
 
@@ -36,8 +40,13 @@ model Menu {
   id          Int    @id @default(autoincrement())
   name        String
   description String
-  // Order       Order[]
-=======
+  price       Float
+  ingredients String
+  type        String
+  calories    Float
+  fats        Float
+  imageURL    String
+}
 
 model Account {
   id                String  @id @default(cuid())
@@ -95,5 +104,4 @@ model CheckoutItem {
   price    Float
   imageURL String
   quantity Int
-
 }

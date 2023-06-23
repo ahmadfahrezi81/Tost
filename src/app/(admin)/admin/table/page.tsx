@@ -1,7 +1,3 @@
-
-// "use client";
-
-// import { FC, useState } from "react";
 import { FC } from "react";
 import Link from "next/link";
 import "@/styles/datepicker-style.css";
@@ -16,25 +12,27 @@ import TableTR from "@/components/(Table)/TableTR";
 import { prisma } from "@/db";
 
 async function getData(): Promise<Tables[]> {
-  // return await prisma.user.findMany();
-  return await prisma.tables.findMany();
+    // return await prisma.user.findMany();
+    return await prisma.tables.findMany();
 }
 
 const Page = async ({}) => {
-  // const [startDate, setStartDate] = useState<Date | null>(new Date());
+    // const [startDate, setStartDate] = useState<Date | null>(new Date());
 
-  const data = await getData();
+    const data = await getData();
 
-  return (
-    <>
-      <div className="flex items-center justify-between px-14 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 self-center">Tables</h1>
-      </div>
-      <DataTable columns={columns} data={data} />
-      <div className="flex flex-col justify-between items-center px-14"></div>
-    </>
-  );
+    return (
+        <>
+            <div className="flex flex-col px-14 py-10">
+                <header className="flex justify-between items-center mb-4">
+                    <h1 className="text-3xl font-bold text-gray-900 self-center">
+                        Tables
+                    </h1>
+                </header>
+                <DataTable columns={columns} data={data} />
+            </div>
+        </>
+    );
 };
 
 export default Page;
-

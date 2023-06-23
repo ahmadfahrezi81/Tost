@@ -2,45 +2,39 @@
 
 import { Order, Booking } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-import { useState } from "react";
+
 // import { getOrderAction } from "../../../../_actions";
 
 import GreenModal from "@/components/GreenModal";
 import { getOrder } from "@/libs/order";
+import TableInfoPreOrder from "@/components/TableInfoPreOrder";
+import Link from "next/link";
+import Icons from "@/components/Icons";
 
 var showGreenModal = false;
 
 export const columns: ColumnDef<Booking>[] = [
-  {
-    accessorKey: "id",
-    header: "Booking ID",
-  },
-  {
-    accessorKey: "name",
-    header: "Customer Name",
-  },
-  {
-    header: "Pre-Ordered Menus",
-    cell: () => {
-      const [showGreenModal, setShowGreenModal] = useState<boolean>(false);
-      return (
-        <>
-          <button
-            className="text-white text-xs bg-custom-orange hover:bg-custom-red-hov font-medium rounded-lg px-5 py-2"
-            onClick={() => setShowGreenModal(true)}
-          >
-            View Pre-Order
-          </button>
-          <GreenModal
-            visible={showGreenModal}
-            title=""
-            level="preorder_details"
-            onClose={() => setShowGreenModal(false)}
-          />
-        </>
-      );
+    {
+        accessorKey: "id",
+        header: "Booking ID",
     },
-  },
+    {
+        accessorKey: "name",
+        header: "Customer Name",
+    },
+    {
+        header: "Action",
+        cell: ({ row }) => (
+            <div className="ml-3">
+                <Link
+                    href={`./${row.original.tablesId}/${row.original.id}`}
+                    className="inline-block"
+                >
+                    <Icons.Pencil size={20} />
+                </Link>
+            </div>
+        ),
+    },
 ];
 
 // async function test() {

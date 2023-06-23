@@ -1,6 +1,5 @@
+import TableInfoPreOrder from "@/components/TableInfoPreOrder";
 import { prisma } from "@/db";
-import { DataTable } from "@/components/data-table";
-import { columns } from "./columns";
 import { Booking } from "@prisma/client";
 import Link from "next/link";
 
@@ -10,11 +9,15 @@ interface pageProps {
     };
 }
 
-export default async function TablePageID({ params }: pageProps) {
+export default async function BookingPageID({
+    params,
+}: {
+    params: { id: string; bookingID: string };
+}) {
     const getBooking = async () => {
-        const res = await prisma.booking.findMany({
+        const res = await prisma.order.findUnique({
             where: {
-                tablesId: parseInt(params.id),
+                id: params.bookingID,
             },
         });
         return res;
@@ -27,10 +30,10 @@ export default async function TablePageID({ params }: pageProps) {
             <div className="flex flex-col px-14 py-10">
                 <header className="flex justify-between items-center mb-4">
                     <h1 className="text-3xl font-bold text-gray-900 self-center">
-                        Table Info
+                        Pre-order
                     </h1>
                 </header>
-                <DataTable columns={columns} data={data} />
+                <div>{data?.menuAmount}</div>
             </div>
         </>
     );
