@@ -8,25 +8,19 @@ import Image from "next/image";
 import { buttonVariants } from "./ui/Button";
 
 const AdminSidebar = ({}) => {
-    return (
-        <div className="w-fit h-full fixed">
-            <Sidebar>
-                <Link
-                    href="/"
-                    className={
-                        (buttonVariants({ variant: "none" }),
-                        "flex items-center justify-center mb-16 pt-6")
-                    }
-                >
-                    <Image
-                        priority
-                        src={Logo}
-                        height={40}
-                        width={40}
-                        alt="Logo"
-                    />
-                    &nbsp;&nbsp;<strong className="text-xl">TOST</strong>
-                </Link>
+  return (
+    <div className="w-fit h-full fixed">
+      <Sidebar>
+        <Link
+          href="/"
+          className={
+            (buttonVariants({ variant: "none" }),
+            "flex items-center justify-center mb-16 pt-6")
+          }
+        >
+          <Image priority src={Logo} height={40} width={40} alt="Logo" />
+          &nbsp;&nbsp;<strong className="text-xl">TOST</strong>
+        </Link>
 
                 <Sidebar.Items>
                     <Sidebar.ItemGroup>
@@ -75,14 +69,11 @@ const AdminSidebar = ({}) => {
                             </div>
                         </Sidebar.Item>
                     </Sidebar.ItemGroup>
-                    {/* <Sidebar.ItemGroup>
-                        <Sidebar.Item href="#">Upgrade to Pro</Sidebar.Item>
-                        <Sidebar.Item href="#">Documentation</Sidebar.Item>
-                    </Sidebar.ItemGroup> */}
-                </Sidebar.Items>
-            </Sidebar>
-        </div>
-    );
+
+        </Sidebar.Items>
+      </Sidebar>
+    </div>
+  );
 };
 
 export default AdminSidebar;

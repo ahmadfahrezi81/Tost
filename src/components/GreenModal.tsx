@@ -11,11 +11,10 @@ type ModalProps = {
 };
 
 const GreenModal = ({ visible, title, level, onClose }: ModalProps) => {
-    const content = {
-        edit_customer: "Edit Customer's Details",
-        preorder_details: "Pre-Order Details",
-      };
-
+  const content = {
+    edit_customer: "Edit Customer's Details",
+    preorder_details: "Pre-Order Details",
+  };
 
   if (!visible) return null;
   return (
@@ -35,9 +34,11 @@ const GreenModal = ({ visible, title, level, onClose }: ModalProps) => {
                 {content[level]}
               </h1>
             </div>
-            {
-                level === "edit_customer" ? <RegisterForm value={true}/> : <PreorderDetails/>
-            }
+            {level === "edit_customer" ? (
+              <RegisterForm value={true} />
+            ) : (
+              <PreorderDetails />
+            )}
             {/* <RegisterForm value={true}/> */}
           </div>
         </div>
