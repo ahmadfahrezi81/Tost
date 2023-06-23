@@ -3,16 +3,19 @@ import { Metadata } from "next";
 import toast_pict from "@/images/toast_pict.jpg";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { getAuthSession } from "@/lib/auth";
 
 // export const metadata: Metadata = {
 //     title: "Tost | Home",
 //     description: "The best toast in the world",
 // };
 
-export default function Home() {
+export default async function Home() {
+    const session = await getAuthSession();
+
     return (
         <>
-            <Navbar session={false} />
+            <Navbar name={session?.user.name} image={session?.user.image} />
             <div className="pt-20 w-full h-full flex flex-col justify-between md:flex-row">
                 <div className="flex justify-center text-center items-center md:text-left md:justify-start">
                     <div className="font-sans m-20">
@@ -25,12 +28,21 @@ export default function Home() {
                         {/* <button className="bg-custom-red hover:bg-custom-red-hov text-white py-2 px-20 rounded-md">
                             Get Started
                         </button> */}
-                        <Link
-                            href="/register"
-                            className="bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
-                        >
-                            Get Started
-                        </Link>
+                        {session ? (
+                            <Link
+                                href="/user/menu"
+                                className="bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
+                            >
+                                Go to Menu 🤩
+                            </Link>
+                        ) : (
+                            <Link
+                                href="/sign-in"
+                                className="bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
+                            >
+                                Get Started
+                            </Link>
+                        )}
                     </div>
                 </div>
                 <div className="flex justify-center relative">

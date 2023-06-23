@@ -21,7 +21,7 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                sans: ["var(--font-inter)", ...fontFamily.sans],
+                sans: ['"PT Sans"', "sans-serif"],
             },
             colors: {
                 ...colors,

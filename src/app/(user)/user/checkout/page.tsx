@@ -1,28 +1,34 @@
-"use client";
-
-import BaconEgg from "@/images/BaconEgg-Small.png";
+import CartItem from "@/components/(User)/(Cart)/CartItem";
+import { OrderSummary } from "@/components/OrderSummary";
+import { getAuthSession } from "@/lib/auth";
+import { prisma } from "@/lib/db";
+import { CheckoutItem } from "@prisma/client";
 import Link from "next/link";
 
-import { useState, useEffect } from "react";
+// interface CartTotal {
+//     subtotal: number;
+//     tax: number;
+//     total: number;
+// }
 
-import CartItem from "@/components/(User)/(Cart)/CartItem";
+async function getCheckoutItems(): Promise<CheckoutItem[]> {
+    "use server";
 
-interface CartTotal {
-    subtotal: number;
-    tax: number;
-    total: number;
+    const session = await getAuthSession();
+
+    if (!session?.user.id) {
+        throw new Error("no user");
+    }
+
+    return await prisma.checkoutItem.findMany({
+        where: {
+            userId: session.user.id,
+        },
+    });
 }
 
-const Page = ({}) => {
-    const [cart, setCart] = useState<CartTotal>({
-        subtotal: 0,
-        tax: 0,
-        total: 0,
-    });
-
-    const handleClick = (obj: CartTotal) => {
-        setCart((cart) => ({ ...cart, ...obj }));
-    };
+const Page = async ({}) => {
+    const checkoutItems = await getCheckoutItems();
 
     return (
         <>
@@ -49,33 +55,15 @@ const Page = ({}) => {
                             </tr>
                         </thead>
                         <tbody>
-                            <CartItem
-                                name={"Avocado & Egg Tost"}
-                                price={10}
-                                quantity={1}
-                                image={BaconEgg}
-                            />
+                            {checkoutItems.map((checkoutItem, i) => (
+                                <CartItem key={i} {...checkoutItem} />
+                            ))}
                         </tbody>
                     </table>
                 </div>
-                <div className="flex mt-10  h-screen">
-                    <div className="w-full mr-4">
-                        <div className="mb-6 w-full lg:w-3/4 h-56">
-                            <label
-                                htmlFor="message"
-                                className="ml-1 block font-boblock mb-2 text-lg font-bold text-gray-900"
-                            >
-                                Add Notes
-                            </label>
-                            <textarea
-                                rows={8}
-                                id="message"
-                                className="ml-1 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Write your notes here"
-                            ></textarea>
-                        </div>
-                    </div>
-                    <div className="w-full  flex justify-end items-start">
+
+                <div className="flex mt-10 h-screen">
+                    <div className="w-full flex justify-end items-start">
                         <div className="py-6 px-8 w-full rounded overflow-hidden border">
                             <div className="font-bold text-xl mb-2">
                                 Order Summary
@@ -88,23 +76,17 @@ const Page = ({}) => {
                                 <p className="text-gray-700 text-base">
                                     Subtotal
                                 </p>
-                                <p className="text-gray-700 text-base">
-                                    RM {cart.subtotal}
-                                </p>
+                                <p className="text-gray-700 text-base">RM</p>
                             </div>
                             <div className="flex justify-between mt-4">
                                 <p className="text-gray-700 text-base">
                                     Tax Service
                                 </p>
-                                <p className="text-gray-700 text-base">
-                                    RM {cart.tax}
-                                </p>
+                                <p className="text-gray-700 text-base">RM</p>
                             </div>
                             <div className="flex justify-between mt-4 font-bold">
                                 <p className="text-gray-700 text-base">Total</p>
-                                <p className="text-gray-700 text-base">
-                                    RM {cart.total}
-                                </p>
+                                <p className="text-gray-700 text-base">RM</p>
                             </div>
                             <div className="flex justify-end mt-4">
                                 <Link

@@ -1,157 +1,127 @@
-import { FC } from "react";
-
-import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import Bacon from "@/images/BaconEgg-Big.png";
-import Avocado from "@/images/AvocadoEgg-Big.png";
-import Honey from "@/images/HoneyP-Big.png";
-import SFrench from "@/images/SF-Big.png";
-import British from "@/images/BritishBean-Big.png";
-import Salmon from "@/images/SmokedSalmon-Big.png";
-import Corn from "@/images/CornCheese-Big.png";
-import Lemon from "@/images/LemonIce-Big.png";
-import FrenchBlue from "@/images/FrenchBlue-Big.png";
-import CheeseG from "@/images/CheesyGarlic-Big.png";
-import CheeseT from "@/images/CheesyTomato-Big.png";
-import Tandoori from "@/images/CreamyTandoori-Big.png";
-import Mushroom from "@/images/CheesyMushroom-Big.png";
-import Tuna from "@/images/SmokedTuna-Big.png";
+import Icons from "@/components/Icons";
+import { UserMenuCard } from "@/components/UserMenuCard";
+import { Menu } from "@prisma/client";
+import { prisma } from "@/lib/db";
 
-const Page = ({}) => {
+async function getMenu(): Promise<Menu[]> {
+    "use server";
+
+    return await prisma.menu.findMany();
+}
+
+const Page = async ({}) => {
+    const menuArray = await getMenu();
+
     return (
-        <div className="container">
-            <h1 className="flex my-14 text-5xl font-bold justify-center leading-none tracking-tight text-gray-900">
-                Menu
-            </h1>
-            <div className="h-screen grid grid-cols-4 auto-cols-max gap-10 gap-x-0 justify-items-center">
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Bacon} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Bacon & Egg Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Avocado} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Avocado & Egg Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Honey} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Honey Dipped Pistachios Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={SFrench} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Sourdough Brioche French Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={British} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        British Baked Bean Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Salmon} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Smoked Salmon Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Corn} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Corn Cheese Sandwich
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Lemon} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Lemon Ice Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={FrenchBlue} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        French Tost with Blueberries
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={CheeseG} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Cheesy Garlic Bread Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={CheeseT} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Cheesy Tomato Tost
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Tandoori} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Creamy Tandoori Paneer Sandwich
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Mushroom} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Cheesy Mushroom Sandwich
-                    </p>
-                </Link>
-                <Link
-                    href="/user/menu/id"
-                    className="flex flex-col max-w-sm p-6 items-center"
-                >
-                    <Image src={Tuna} alt="" width={300} height={300} />
-                    <p className="relative text-center mt-6 text-[1.35rem] font-semibold">
-                        Smoked Tuna Tost
-                    </p>
-                </Link>
+        <div className="container mt-10 pb-20 pl-10">
+            <div className="flex justify-between h-20">
+                <div className="flex-1 h-20">
+                    <h1 className="text-4xl font-bold">Menu</h1>
+                    <h2 className="text-xl mt-1">Find the best foods 🥪</h2>
+                </div>
+                <div className="flex-1 flex gap-2.5 justify-end">
+                    {/* <Link
+                        href={pathname + "#food"}
+                        className="flex flex-col gap-1 justify-center items-center rounded-lg border-2 w-20 h-20 cursor-pointer hover:rounded-none hover:scale-105 
+                        hover:border-gray-300"
+                    >
+                        <Icons.Sandwich size={30} />
+                        <span className="font-light text-sm">Food</span>
+                    </Link>
+                    <Link
+                        href={pathname + "#drink"}
+                        className="flex flex-col gap-1 justify-center items-center rounded-lg border-2 w-20 h-20 cursor-pointer hover:rounded-none hover:scale-105
+                        hover:border-gray-300
+                        "
+                    >
+                        <Icons.CupSoda size={30} />
+                        <span className="font-light text-sm">Drink</span>
+                    </Link>
+                    <Link
+                        href={pathname + "#dessert"}
+                        className="flex flex-col gap-1 justify-center items-center rounded-lg border-2 w-20 h-20 cursor-pointer hover:rounded-none hover:scale-105
+                        hover:border-gray-300
+                        "
+                    >
+                        <Icons.IceCream2 size={30} />
+                        <span className="font-light text-sm">Dessert</span>
+                    </Link> */}
+                </div>
             </div>
+
+            {/* Food */}
+            <section>
+                {/* 👇 This is for centering while scrolling */}
+                <span
+                    id="food"
+                    style={{
+                        display: "block",
+                        height: "80px",
+                        marginTop: "-80px",
+                        visibility: "hidden",
+                    }}
+                ></span>
+                <h3 className="text-2xl font-bold mt-8 mb-4">Food</h3>
+
+                <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
+                    {menuArray
+                        .filter((menu) => menu.type === "Food")
+                        .map((menuFood) => (
+                            <UserMenuCard key={menuFood.id} {...menuFood} />
+                        ))}
+                </div>
+            </section>
+
+            {/* Drink */}
+            <section>
+                {/* 👇 This is for centering while scrolling */}
+                <span
+                    id="drink"
+                    style={{
+                        display: "block",
+                        height: "80px",
+                        marginTop: "-80px",
+                        visibility: "hidden",
+                    }}
+                ></span>
+                <h3 className="text-2xl font-bold mt-8 mb-4">Drink</h3>
+                <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
+                    {menuArray
+                        .filter((menu) => menu.type === "Drink")
+                        .map((menuDrink) => (
+                            <UserMenuCard key={menuDrink.id} {...menuDrink} />
+                        ))}
+                </div>
+            </section>
+
+            {/* Dessert */}
+            <section>
+                {/* 👇 This is for centering while scrolling */}
+                <span
+                    id="dessert"
+                    style={{
+                        display: "block",
+                        height: "80px",
+                        marginTop: "-80px",
+                        visibility: "hidden",
+                    }}
+                ></span>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">Dessert</h3>
+                <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
+                    {menuArray
+                        .filter((menu) => menu.type === "Dessert")
+                        .map((menuDessert) => (
+                            <UserMenuCard
+                                key={menuDessert.id}
+                                {...menuDessert}
+                            />
+                        ))}
+                </div>
+            </section>
         </div>
     );
 };

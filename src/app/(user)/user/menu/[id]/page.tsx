@@ -1,64 +1,74 @@
-import Link from "next/link";
-import Image from "next/image";
-import DisplayPic from "@/images/BaconEgg-Big.png";
-import Button from "@/ui/Button";
-import { MdArrowBack } from "react-icons/md";
 import Icons from "@/components/Icons";
+import { UserMenuPage } from "@/components/UserMenuPage";
+import { getAuthSession } from "@/lib/auth";
+import { prisma } from "@/lib/db";
+import { CheckoutItem } from "@prisma/client";
+import Image from "next/image";
+import Link from "next/link";
 
-const page = ({}) => {
+interface pageProps {
+    params: {
+        id: string;
+    };
+}
+
+export interface checkoutItemTest extends Omit<CheckoutItem, "id"> {}
+
+async function createCheckout(checkout: any) {
+    "use server";
+
+    console.log(checkout);
+
+    if (!checkout) {
+        throw new Error("no checkout");
+    }
+
+    const session = await getAuthSession();
+
+    if (!session?.user.id) {
+        throw new Error("no user");
+    }
+
+    await prisma.checkoutItem.create({
+        data: {
+            ...checkout,
+            userId: session.user.id,
+        },
+    });
+}
+
+const Page = async ({ params }: pageProps) => {
+    const getMenu = async () => {
+        const res = await prisma.menu.findUnique({
+            where: {
+                id: parseInt(params.id),
+            },
+        });
+        return res;
+    };
+
+    const menu = await getMenu();
+
+    if (!menu) {
+        throw new Error("Menu data is empty");
+    }
+
     return (
-        <div className="bg-white h-full flex flex-col items-center">
-            {/* Navigation Bar */}
-            <nav>{/* Content of navigation bar */}</nav>
-
-            {/* Back Button */}
+        <div className="px-14 mt-10 ml-4">
             <Link
-                className="my-6 w-fit pr-10 pl-6 py-1 rounded-md flex justify-center items-center cursor-pointer focus:border-2"
-                href="/user/menu"
+                href={"/user/menu"}
+                className="flex gap-2 items-center cursor-pointer hover:gap-3 w-fit p-2"
             >
-                <Icons.ChevronLeft />
-                <span className="text-lg pl-1"> Back</span>
+                <Icons.ArrowLeft size={18} color="#000" />
+                <span className="font-light text-sm">Back to Menu</span>
             </Link>
-
-            {/* Picture */}
-            <Image
-                className=" max-w-xs mx-auto mb-8"
-                src={DisplayPic}
-                alt="Product"
+            <UserMenuPage
+                key={menu?.id}
+                {...menu}
+                createCheckout={createCheckout}
             />
-
-            {/* Text */}
-            <h1 className="font-bold text-3xl text-center mb-2">
-                Bacon & Egg Toast
-            </h1>
-            <h2 className="font-semibold text-xl text-center">RM21.00</h2>
-
-            {/* Buttons */}
-            <div className="py-6 flex gap-2">
-                <Link
-                    className="bg-black text-white w-40 py-2 rounded-md flex items-center justify-center"
-                    href="/user/cart"
-                >
-                    Add to Cart
-                </Link>
-                <Link
-                    className="bg-black text-white w-40 py-2 rounded-md flex items-center justify-center"
-                    href="/user/reserve"
-                >
-                    Reserve Table
-                </Link>
-            </div>
-
-            <h1 className="font-medium text-2xl text-center mb-2 mt-4">
-                Ingredients
-            </h1>
-
-            {/* Text Below */}
-            <p style={{ textAlign: "center" }}>
-                Bacon, egg, flour, black pepper, oil
-            </p>
         </div>
     );
 };
 
-export default page;
+export default Page;
