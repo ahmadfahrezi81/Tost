@@ -1,25 +1,25 @@
 "use server";
 
 import {
-  updateTable,
-  getTableID,
-  deleteTable,
-  createTable,
+    updateTable,
+    getTableID,
+    deleteTable,
+    createTable,
 } from "@/libs/tables";
-import { getOrder } from "@/libs/order";
+// import { getOrder } from "@/libs/order";
 
 export async function updateTableAction(id: number, status: string) {
-  await updateTable(id, status);
+    await updateTable(id, status);
 }
 
 export async function deleteTableAction(id: number) {
-  await deleteTable(id);
+    await deleteTable(id);
 }
 
 export async function addTableAction(
-  status: string,
-  slot: string,
-  seats: number
+    status: string,
+    slot: string,
+    seats: number
 ) {
-  await createTable(status, slot, seats);
+    await createTable(status, slot, seats);
 }
