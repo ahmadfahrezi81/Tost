@@ -1,17 +1,9 @@
 "use client";
 
-import { Order, Booking } from "@prisma/client";
+import { Booking } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-
-// import { getOrderAction } from "../../../../_actions";
-
-import GreenModal from "@/components/GreenModal";
-import { getOrder } from "@/libs/order";
-import TableInfoPreOrder from "@/components/TableInfoPreOrder";
 import Link from "next/link";
 import Icons from "@/components/Icons";
-
-var showGreenModal = false;
 
 export const columns: ColumnDef<Booking>[] = [
     {
