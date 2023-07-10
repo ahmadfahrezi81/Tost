@@ -10,17 +10,39 @@ import Logo from "@/public/Logo1.svg";
 import { Session, User } from "@prisma/client";
 import { any, string } from "prop-types";
 import { signOut } from "next-auth/react";
+import { getCurrentUser } from "@/lib/session";
+import { redirect } from "next/navigation";
+import { db } from "@/lib/db";
 
 // import { useRouter } from "next/router";
 
 interface NavbarProps {
     name: string | undefined | null;
     image: string | undefined | null;
+    totalQuantityCart: number | undefined | null;
 }
 
-const Navbar = ({ name, image }: NavbarProps) => {
+const Navbar = ({ name, image, totalQuantityCart }: NavbarProps) => {
     // const session = await getServerSession();
     const [isOpen, setIsOpen] = useState(false);
+
+    // const user = await getCurrentUser();
+
+    // if (!user) {
+    //     redirect("/sign-in");
+    // }
+
+    //get all the checkoutItems
+    // const checkoutItems = await db.checkoutItem.findMany({
+    //     where: {
+    //         userId: "",
+    //     },
+    // });
+
+    // checkoutItems.forEach((item) => {
+    //     totalQuantityCart += item.quantity;
+    // });
+
     // const session = session;
     // const router = useRouter();
 
@@ -107,7 +129,7 @@ const Navbar = ({ name, image }: NavbarProps) => {
                                 >
                                     <Icons.ShoppingCart />
                                     <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 border-2 border-white rounded-full -top-1 -right-1">
-                                        1
+                                        {totalQuantityCart}
                                     </div>
                                 </Link>
 
@@ -117,11 +139,11 @@ const Navbar = ({ name, image }: NavbarProps) => {
                                 > */}
                                 <Image
                                     onClick={() => setIsOpen(!isOpen)}
-                                    className="rounded-full ml-2 h-10 w-10 cursor-pointer"
+                                    className="border-2 rounded-full ml-2 h-10 w-10 cursor-pointer"
                                     src={`${image}`}
-                                    width={28}
-                                    height={28}
-                                    alt="Profile"
+                                    width={30}
+                                    height={30}
+                                    alt="Profile Button"
                                 />
                                 {/* </Button> */}
                                 {isOpen ? (
@@ -141,43 +163,17 @@ const Navbar = ({ name, image }: NavbarProps) => {
                                                     </span>
                                                 </Link>
                                             </li>
-
-                                            {/* <li>
-                                                <Link
-                                                    onClick={() =>
-                                                        setIsOpen(false)
-                                                    }
-                                                    href="/user/receipt"
-                                                    className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
-                                                >
-                                                    <Icons.Receipt size={16} />
-                                                    <span className="pl-2">
-                                                        Receipt
-                                                    </span>
-                                                </Link>
-                                            </li> */}
-                                            {/* <li>
-                                                <a
-                                                    href="#"
-                                                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                >
-                                                    Settings
-                                                </a>
-                                            </li> */}
                                         </ul>
 
                                         <span
-                                            onClick={() => setIsOpen(false)}
                                             className="cursor-pointer py-4 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                signOut();
+                                            }}
                                         >
                                             <Icons.LogOut size={16} />
-                                            <span
-                                                className="pl-2"
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    signOut();
-                                                }}
-                                            >
+                                            <span className="pl-2">
                                                 Sign Out
                                             </span>
                                         </span>
