@@ -1,107 +1,101 @@
-import CartItem from "@/components/(User)/(Cart)/CartItem";
+import CartItem from "@/components/User/Cart/CartItem";
 import { OrderSummary } from "@/components/OrderSummary";
-import { getAuthSession } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { authOptions, getAuthSession } from "@/lib/auth";
+import { db, prisma } from "@/lib/db";
 import { CheckoutItem } from "@prisma/client";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getCurrentUser } from "@/lib/session";
 
-// interface CartTotal {
-//     subtotal: number;
-//     tax: number;
-//     total: number;
-// }
-
-async function getCheckoutItems(): Promise<CheckoutItem[]> {
+async function updateCartItem(id: string, quantity: number) {
     "use server";
 
-    const session = await getAuthSession();
-
-    if (!session?.user.id) {
-        throw new Error("no user");
-    }
-
-    return await prisma.checkoutItem.findMany({
-        where: {
-            userId: session.user.id,
-        },
-    });
+    await prisma.checkoutItem.update({ where: { id }, data: { quantity } });
 }
 
-const Page = async ({}) => {
-    const checkoutItems = await getCheckoutItems();
+async function deleteCartItem(id: string) {
+    "use server";
+
+    await prisma.checkoutItem.delete({ where: { id } });
+}
+
+export default async function CheckoutPage() {
+    const user = await getCurrentUser();
+
+    if (!user) {
+        redirect(authOptions?.pages?.signIn || "/sign-in");
+    }
+
+    //get all the checkoutItems
+    const checkoutItems = await db.checkoutItem.findMany({
+        where: {
+            userId: user.id,
+        },
+    });
+
+    //testing
+    let total = 0;
+
+    checkoutItems.forEach((item) => {
+        total += item.quantity * item.price;
+        console.log("ej");
+        console.log(item);
+    });
 
     return (
         <>
-            <div className="relative mx-20 mr-20 overflow-auto">
-                <div className="flex flex-col justify-between items-left">
-                    <span className="p-5 text-3xl font-bold text-gray-900  text-left">
-                        CHECKOUT
-                    </span>
-                    <table className="w-full text-sm text-left text-gray-500 px-5">
-                        <thead className="text-xs text-gray-700 uppercase border-t-2 border-b-2 border-gray-500 bg-white ">
-                            <tr>
-                                <th scope="col" className="px-6 py-3">
-                                    <span className="sr-only">Image</span>
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Product
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Qty
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Price
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {checkoutItems.map((checkoutItem, i) => (
-                                <CartItem key={i} {...checkoutItem} />
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+            <div className="flex flex-col px-14 mt-10 ml-6">
+                <header className="flex justify-between items-center mb-4">
+                    <h1 className="text-3xl font-bold text-gray-900 self-center">
+                        Checkout
+                    </h1>
+                </header>
+                <div className="flex gap-6">
+                    <div className="w-full">
+                        {checkoutItems.length == 0 ? (
+                            <h3>No item in cart</h3>
+                        ) : (
+                            <>
+                                {checkoutItems.map((checkoutItem, i) => (
+                                    <CartItem
+                                        key={i}
+                                        checkoutItem={checkoutItem}
+                                        deleteCartItem={deleteCartItem}
+                                        updateCartItem={updateCartItem}
+                                    />
+                                ))}
+                            </>
+                        )}
+                    </div>
+                    <div className="bg-white shadow-md rounded-lg w-[35rem] h-fit p-8 flex flex-col gap-2">
+                        <h3 className="font-semibold text-lg mb-2">
+                            Order Summary
+                        </h3>
 
-                <div className="flex mt-10 h-screen">
-                    <div className="w-full flex justify-end items-start">
-                        <div className="py-6 px-8 w-full rounded overflow-hidden border">
-                            <div className="font-bold text-xl mb-2">
-                                Order Summary
+                        <div className="flex flex-col text-sm">
+                            <div className="flex justify-between border-b py-2 text-slate-700">
+                                <span>Subtotal</span>
+                                <span>{`RM${total}`}</span>
                             </div>
-                            <p className="text-gray-700 text-base">
-                                Here are the items you have selected:
-                            </p>
-
-                            <div className="flex justify-between mt-4">
-                                <p className="text-gray-700 text-base">
-                                    Subtotal
-                                </p>
-                                <p className="text-gray-700 text-base">RM</p>
+                            <div className="flex justify-between border-b py-2  text-slate-700">
+                                <span>Booking Fee</span>
+                                <span>{`RM${total ? 20 : 0}`}</span>
                             </div>
-                            <div className="flex justify-between mt-4">
-                                <p className="text-gray-700 text-base">
-                                    Tax Service
-                                </p>
-                                <p className="text-gray-700 text-base">RM</p>
-                            </div>
-                            <div className="flex justify-between mt-4 font-bold">
-                                <p className="text-gray-700 text-base">Total</p>
-                                <p className="text-gray-700 text-base">RM</p>
-                            </div>
-                            <div className="flex justify-end mt-4">
-                                <Link
-                                    href={"/user/payment"}
-                                    className="bg-custom-orange hover:bg-custom-red-hov text-white font-bold py-2 px-4 rounded"
-                                >
-                                    Checkout
-                                </Link>
+                            <div className="flex justify-between font-semibold py-4 text-base">
+                                <span>Order Total</span>
+                                <span>{`RM${total + (total ? 20 : 0)}`}</span>
                             </div>
                         </div>
+
+                        <button
+                            className="w-full bg-custom-orange text-white
+                        text-sm py-3 rounded-md mt-2"
+                        >
+                            Checkout
+                        </button>
                     </div>
                 </div>
             </div>
         </>
     );
-};
-
-export default Page;
+}

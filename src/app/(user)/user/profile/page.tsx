@@ -1,12 +1,11 @@
-import { ProfileField } from "@/components/ProfileField";
-import { getAuthSession } from "@/lib/auth";
+import { ProfileField } from "@/components/User/ProfileField";
 import { prisma } from "@/lib/db";
-import { User } from "@prisma/client";
+import { getCurrentUser } from "@/lib/session";
 
-async function updateData(id: string, user: User) {
+async function updateData(id: string, name: string) {
     "use server";
 
-    await prisma.user.update({ where: { id }, data: { ...user } });
+    await prisma.user.update({ where: { id }, data: { name } });
 }
 
 async function deleteUser(id: string) {
@@ -15,22 +14,11 @@ async function deleteUser(id: string) {
     await prisma.user.delete({ where: { id } });
 }
 
-export default async function Page() {
-    const session = await getAuthSession();
-    const user = {} as User;
+export default async function ProfilePage() {
+    const user = await getCurrentUser();
 
-    if (session) {
-        const data = await prisma.user.findUnique({
-            where: {
-                id: session.user.id,
-            },
-        });
-
-        if (data) {
-            user.id = data.id;
-            user.name = data.name;
-            user.email = data.email;
-        }
+    if (!user) {
+        throw new Error("No user");
     }
 
     return (
@@ -40,9 +28,9 @@ export default async function Page() {
                     Account Details
                 </h1>
             </header>
+
             <ProfileField
-                key={user.id}
-                {...user}
+                user={user}
                 updateData={updateData}
                 deleteUser={deleteUser}
             />

@@ -62,7 +62,7 @@ Toast.Description = function ToastDescription({
 interface ToastOpts {
     title?: string;
     message: string;
-    type?: "success" | "error" | "default";
+    type?: "success" | "error" | "default" | "warning";
     duration?: number;
 }
 
@@ -76,6 +76,7 @@ export function toast(opts: ToastOpts) {
                 className={cn({
                     "bg-red-600 text-white": type === "error",
                     "bg-green-600 text-white": type === "success",
+                    "bg-yellow-500 text-white": type === "warning",
                 })}
             >
                 <Toast.Title>{title}</Toast.Title>

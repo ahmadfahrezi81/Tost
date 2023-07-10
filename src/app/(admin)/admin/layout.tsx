@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import AdminSidebar from "@/components/AdminSidebar";
 import { getAuthSession } from "@/lib/auth";
-import PermissionWarning from "@/components/PermissionWarning";
+import PermissionWarning from "@/components/Admin/PermissionWarning";
+import { redirect } from "next/navigation";
 
 export default async function Layout({
     children,
@@ -9,6 +10,10 @@ export default async function Layout({
     children: React.ReactNode;
 }) {
     const session = await getAuthSession();
+
+    if (!session) {
+        redirect("/sign-in");
+    }
 
     return (
         <>

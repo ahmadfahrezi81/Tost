@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import UploadImage from "./UploadImage";
 import { Menu } from "@prisma/client";
-import { toast } from "./ui/Toast";
+import { toast } from "@/ui/Toast";
 
 interface MenuProps extends Menu {
     updateMenuItem: (id: number, menu: Menu) => void;
@@ -78,6 +78,8 @@ export default function NewMenuForm({
                     }
 
                     updateMenuItem(id, menu);
+
+                    router.refresh();
 
                     router.back();
                 }}
@@ -236,6 +238,8 @@ export default function NewMenuForm({
 
                             tryToast();
                             deleteMenuItem(id);
+
+                            router.refresh();
                             router.back();
                         }
                     }}

@@ -3,10 +3,16 @@
 import { CheckoutItem, Menu } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
-import Icons from "./Icons";
-import { useState } from "react";
+import Icons from "../../Icons";
+import { use, useEffect, useState } from "react";
+
+import { toast } from "@/ui/Toast";
+import { useRouter } from "next/navigation";
+import Button from "@/components/ui/Button";
 
 interface UserMenuProps extends Menu {
+    quantity: number;
+    isAdded: boolean;
     createCheckout: (checkout: any) => void;
 }
 
@@ -21,9 +27,25 @@ export function UserMenuPage({
     imageURL,
     type,
     createCheckout,
+    quantity,
+    isAdded,
 }: UserMenuProps) {
     const [toggle, setToggle] = useState(true);
     const [amount, setAmount] = useState(0);
+
+    useEffect(() => {
+        setAmount(quantity);
+    }, []);
+
+    const router = useRouter();
+
+    const tryToast = () => {
+        toast({
+            title: "Added to cart",
+            message: `You've added ${amount} x ${name}`,
+            type: "success",
+        });
+    };
 
     return (
         <div className="flex flex-row gap-20 mt-4">
@@ -37,7 +59,7 @@ export function UserMenuPage({
                 />
             </div>
 
-            <div className="flex-1 mt-16 flex flex-col gap-2">
+            <div className="flex-1 flex flex-col gap-2">
                 <h3 className="font-medium text-lg">{type}</h3>
                 <h1 className="font-semibold text-2xl mb-2">{name}</h1>
                 <p>{description}</p>
@@ -124,6 +146,7 @@ export function UserMenuPage({
                     <div className="custom-number-input h-10 w-48">
                         <div className="flex flex-row h-14 rounded-lg relative bg-transparent mt-1">
                             <button
+                                disabled={isAdded}
                                 onClick={() => {
                                     if (amount > 0) setAmount(amount - 1);
                                 }}
@@ -137,6 +160,7 @@ export function UserMenuPage({
                                 {amount}
                             </span>
                             <button
+                                disabled={isAdded}
                                 onClick={() => {
                                     setAmount(amount + 1);
                                 }}
@@ -152,16 +176,41 @@ export function UserMenuPage({
                     <button
                         className="h-14 bg-custom-orange text-white w-52 py-2 rounded-md flex items-center justify-center gap-4"
                         onClick={() => {
-                            createCheckout({
-                                name,
-                                price,
-                                quantity: amount,
-                                imageURL,
-                            });
+                            if (!isAdded) {
+                                createCheckout({
+                                    name,
+                                    price,
+                                    quantity: amount,
+                                    imageURL,
+                                    menuId: id,
+                                });
+
+                                tryToast();
+
+                                router.refresh();
+                            } else {
+                                toast({
+                                    title: `${quantity} of ${name} already in Cart`,
+                                    message: `Redirecting to Cart Page`,
+                                    type: "warning",
+                                });
+
+                                router.push("/user/checkout");
+                            }
                         }}
                     >
-                        <Icons.ShoppingCart />
-                        Add to Cart
+                        {isAdded ? (
+                            <>
+                                <span className="bg-white text-custom-orange w-5 h-5 flex justify-center items-center rounded-full">
+                                    {quantity}
+                                </span>
+                                Already in Cart
+                            </>
+                        ) : (
+                            <>
+                                <Icons.ShoppingCart /> Add to Cart
+                            </>
+                        )}
                     </button>
                 </div>
 

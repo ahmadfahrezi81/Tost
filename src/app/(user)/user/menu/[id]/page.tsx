@@ -1,8 +1,10 @@
 import Icons from "@/components/Icons";
-import { UserMenuPage } from "@/components/UserMenuPage";
+import { UserMenuPage } from "@/components/User/Menu/UserMenuPage";
 import { getAuthSession } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { db, prisma } from "@/lib/db";
+import { getCurrentUser } from "@/lib/session";
 import { CheckoutItem } from "@prisma/client";
+import { redirect } from "next/dist/server/api-utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,46 +14,61 @@ interface pageProps {
     };
 }
 
-export interface checkoutItemTest extends Omit<CheckoutItem, "id"> {}
-
-async function createCheckout(checkout: any) {
+async function createCheckout(checkout: CheckoutItem) {
     "use server";
 
-    console.log(checkout);
+    const user = await getCurrentUser();
 
-    if (!checkout) {
-        throw new Error("no checkout");
-    }
-
-    const session = await getAuthSession();
-
-    if (!session?.user.id) {
+    if (!user) {
         throw new Error("no user");
     }
+
+    // await prisma.checkoutItem.create({
+    //     data: {
+    //         name: "Test",
+    //         imageURL:
+    //             "https://res.cloudinary.com/wpmenuimage/image/upload/v1688932866/menuropang/li2udppnziiyh1ci3mqq.png",
+    //         price: 111,
+    //         quantity: 2,
+    //         userId: "cljvuzunk0004qtova0mztigl",
+    //         menuId: 1,
+    //     },
+    // });
 
     await prisma.checkoutItem.create({
         data: {
             ...checkout,
-            userId: session.user.id,
+            userId: user.id,
+            menuId: checkout.menuId,
         },
     });
 }
 
 const Page = async ({ params }: pageProps) => {
-    const getMenu = async () => {
-        const res = await prisma.menu.findUnique({
-            where: {
-                id: parseInt(params.id),
-            },
-        });
-        return res;
-    };
-
-    const menu = await getMenu();
+    const menu = await prisma.menu.findUnique({
+        where: {
+            id: parseInt(params.id),
+        },
+    });
 
     if (!menu) {
         throw new Error("Menu data is empty");
     }
+
+    const user = await getCurrentUser();
+
+    if (!user) {
+        throw new Error("no user");
+    }
+
+    //this is temporary because I didn't connect with the menu ID
+    //so the only that have a relation is the imageURL, but they're not unique
+    const checkoutItem = await db.checkoutItem.findFirst({
+        where: {
+            menuId: menu.id,
+            userId: user.id,
+        },
+    });
 
     return (
         <div className="px-14 mt-10 ml-4">
@@ -64,6 +81,8 @@ const Page = async ({ params }: pageProps) => {
             </Link>
             <UserMenuPage
                 key={menu?.id}
+                quantity={checkoutItem ? checkoutItem.quantity : 0}
+                isAdded={!!checkoutItem}
                 {...menu}
                 createCheckout={createCheckout}
             />

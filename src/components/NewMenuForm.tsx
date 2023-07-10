@@ -49,6 +49,8 @@ export default function NewMenuForm({ createMenuItem }: MenuProps) {
                         imageURL,
                     });
 
+                    router.refresh();
+
                     router.back();
                 }}
                 className="flex gap-2 flex-col"

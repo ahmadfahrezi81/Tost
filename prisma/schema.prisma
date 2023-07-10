@@ -37,15 +37,16 @@ model Order {
 }
 
 model Menu {
-  id          Int    @id @default(autoincrement())
-  name        String
-  description String
-  price       Float
-  ingredients String
-  type        String
-  calories    Float
-  fats        Float
-  imageURL    String
+  id           Int            @id @default(autoincrement())
+  name         String
+  description  String
+  price        Float
+  ingredients  String
+  type         String
+  calories     Float
+  fats         Float
+  imageURL     String
+  CheckoutItem CheckoutItem[]
 }
 
 model Account {
@@ -97,11 +98,16 @@ model User {
 
 model CheckoutItem {
   id     String @id @default(cuid())
-  user   User?  @relation(fields: [userId], references: [id])
+  user   User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
+
+  menuId Int
+  menu   Menu? @relation(fields: [menuId], references: [id], onDelete: Cascade)
 
   name     String
   price    Float
   imageURL String
   quantity Int
+
+  @@unique([userId, menuId])
 }

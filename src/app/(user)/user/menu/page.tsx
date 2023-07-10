@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import Icons from "@/components/Icons";
 import { UserMenuCard } from "@/components/UserMenuCard";
 import { Menu } from "@prisma/client";
-import { prisma } from "@/lib/db";
+import { db, prisma } from "@/lib/db";
+import { getCurrentUser } from "@/lib/session";
+import { redirect } from "next/dist/server/api-utils";
 
 async function getMenu(): Promise<Menu[]> {
     "use server";
@@ -12,8 +13,66 @@ async function getMenu(): Promise<Menu[]> {
     return await prisma.menu.findMany();
 }
 
+async function isInCheckout(menuId: number, userId: string) {
+    "use server";
+
+    const checkoutItem = await prisma.checkoutItem.findFirst({
+        where: {
+            menuId,
+            userId,
+        },
+    });
+
+    return checkoutItem ? true : false;
+}
+
 const Page = async ({}) => {
+    const user = await getCurrentUser();
+
+    if (!user) {
+        throw new Error("");
+    }
+
     const menuArray = await getMenu();
+
+    //menuFood section
+    const menuFood = await Promise.all(
+        menuArray
+            .filter((menu) => menu.type === "Food")
+            .map(async (menuFood) => (
+                <UserMenuCard
+                    key={menuFood.id}
+                    menu={menuFood}
+                    isAdded={await isInCheckout(menuFood.id, user.id)}
+                />
+            ))
+    );
+
+    //menuDessert section
+    const menuDessert = await Promise.all(
+        menuArray
+            .filter((menu) => menu.type === "Dessert")
+            .map(async (menuDessert) => (
+                <UserMenuCard
+                    key={menuDessert.id}
+                    menu={menuDessert}
+                    isAdded={await isInCheckout(menuDessert.id, user.id)}
+                />
+            ))
+    );
+
+    //menuDrink section
+    const menuDrink = await Promise.all(
+        menuArray
+            .filter((menu) => menu.type === "Drink")
+            .map(async (menuDrink) => (
+                <UserMenuCard
+                    key={menuDrink.id}
+                    menu={menuDrink}
+                    isAdded={await isInCheckout(menuDrink.id, user.id)}
+                />
+            ))
+    );
 
     return (
         <div className="container mt-10 pb-20 pl-10">
@@ -23,8 +82,8 @@ const Page = async ({}) => {
                     <h2 className="text-xl mt-1">Find the best foods 🥪</h2>
                 </div>
                 <div className="flex-1 flex gap-2.5 justify-end">
-                    {/* <Link
-                        href={pathname + "#food"}
+                    <Link
+                        href="#food"
                         className="flex flex-col gap-1 justify-center items-center rounded-lg border-2 w-20 h-20 cursor-pointer hover:rounded-none hover:scale-105 
                         hover:border-gray-300"
                     >
@@ -32,7 +91,7 @@ const Page = async ({}) => {
                         <span className="font-light text-sm">Food</span>
                     </Link>
                     <Link
-                        href={pathname + "#drink"}
+                        href="#drink"
                         className="flex flex-col gap-1 justify-center items-center rounded-lg border-2 w-20 h-20 cursor-pointer hover:rounded-none hover:scale-105
                         hover:border-gray-300
                         "
@@ -41,14 +100,14 @@ const Page = async ({}) => {
                         <span className="font-light text-sm">Drink</span>
                     </Link>
                     <Link
-                        href={pathname + "#dessert"}
+                        href="#dessert"
                         className="flex flex-col gap-1 justify-center items-center rounded-lg border-2 w-20 h-20 cursor-pointer hover:rounded-none hover:scale-105
                         hover:border-gray-300
                         "
                     >
                         <Icons.IceCream2 size={30} />
                         <span className="font-light text-sm">Dessert</span>
-                    </Link> */}
+                    </Link>
                 </div>
             </div>
 
@@ -67,11 +126,7 @@ const Page = async ({}) => {
                 <h3 className="text-2xl font-bold mt-8 mb-4">Food</h3>
 
                 <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
-                    {menuArray
-                        .filter((menu) => menu.type === "Food")
-                        .map((menuFood) => (
-                            <UserMenuCard key={menuFood.id} {...menuFood} />
-                        ))}
+                    {menuFood}
                 </div>
             </section>
 
@@ -89,11 +144,7 @@ const Page = async ({}) => {
                 ></span>
                 <h3 className="text-2xl font-bold mt-8 mb-4">Drink</h3>
                 <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
-                    {menuArray
-                        .filter((menu) => menu.type === "Drink")
-                        .map((menuDrink) => (
-                            <UserMenuCard key={menuDrink.id} {...menuDrink} />
-                        ))}
+                    {menuDrink}
                 </div>
             </section>
 
@@ -112,14 +163,7 @@ const Page = async ({}) => {
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">Dessert</h3>
                 <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
-                    {menuArray
-                        .filter((menu) => menu.type === "Dessert")
-                        .map((menuDessert) => (
-                            <UserMenuCard
-                                key={menuDessert.id}
-                                {...menuDessert}
-                            />
-                        ))}
+                    {menuDessert}
                 </div>
             </section>
         </div>

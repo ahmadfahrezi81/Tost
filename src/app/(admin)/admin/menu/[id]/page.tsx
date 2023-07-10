@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/db";
+import { db, prisma } from "@/lib/db";
 import Link from "next/link";
 import EditMenuForm from "@/components/EditMenuForm";
 import { Menu } from "@prisma/client";
@@ -17,18 +17,18 @@ async function updateMenuItem(id: number, menu: Menu) {
         throw new Error("Error Somewhere");
     }
 
-    await prisma.menu.update({ where: { id }, data: { ...menu } });
+    await db.menu.update({ where: { id }, data: { ...menu } });
 }
 
 async function deleteMenuItem(id: number) {
     "use server";
 
-    await prisma.menu.delete({ where: { id } });
+    await db.menu.delete({ where: { id } });
 }
 
 export default async function MenuPageID({ params }: pageProps) {
     const getMenu = async () => {
-        const res = await prisma.menu.findUnique({
+        const res = await db.menu.findUnique({
             where: {
                 id: parseInt(params.id),
             },

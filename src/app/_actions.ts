@@ -5,8 +5,8 @@ import {
     getTableID,
     deleteTable,
     createTable,
-} from "@/libs/tables";
-// import { getOrder } from "@/libs/order";
+} from "@/lib/tables";
+// import { getOrder } from "@lib/order";
 
 export async function updateTableAction(id: number, status: string) {
     await updateTable(id, status);
