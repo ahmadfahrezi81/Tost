@@ -16,14 +16,10 @@ import { db } from "@/lib/db";
 export default async function Home() {
     const user = await getCurrentUser();
 
-    if (!user) {
-        redirect("/sign-in");
-    }
-
     //get all the checkoutItems
     const checkoutItems = await db.checkoutItem.findMany({
         where: {
-            userId: user.id,
+            userId: user?.id,
         },
     });
 
@@ -36,8 +32,8 @@ export default async function Home() {
     return (
         <>
             <Navbar
-                name={user.name}
-                image={user.image}
+                name={user?.name}
+                image={user?.image}
                 totalQuantityCart={totalQuantityCart}
             />
             <div className="pt-20 w-full h-full flex flex-col justify-between md:flex-row">

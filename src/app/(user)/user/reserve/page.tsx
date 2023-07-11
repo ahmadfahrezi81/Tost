@@ -14,7 +14,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "@/styles/datepicker-styles-reserve.css";
 import moment from "moment";
+import { useRouter } from "next/navigation";
 const Page = ({}) => {
+    //temporary measure to block user from entering
+    const router = useRouter();
+    router.push("/user/menu");
+
     const [showModal, setShowModal] = useState<boolean>(false);
     const [startDate, setStartDate] = useState<Date | null>(null);
     const currDate = moment(startDate).format("dddd, DD MMMM yyyy");

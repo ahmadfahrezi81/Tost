@@ -93,7 +93,7 @@ const Navbar = ({ name, image, totalQuantityCart }: NavbarProps) => {
                             >
                                 Menu
                             </Link>
-                            <Link
+                            {/* <Link
                                 onClick={() => setIsOpen(false)}
                                 href="/user/reserve"
                                 className={buttonVariants({
@@ -101,10 +101,10 @@ const Navbar = ({ name, image, totalQuantityCart }: NavbarProps) => {
                                 })}
                             >
                                 Reservation
-                            </Link>
+                            </Link> */}
 
                             <div className="flex items-center gap-2">
-                                <Link
+                                {/* <Link
                                     onClick={() => setIsOpen(false)}
                                     href="/user/history"
                                     className={
@@ -116,7 +116,7 @@ const Navbar = ({ name, image, totalQuantityCart }: NavbarProps) => {
                                 >
                                     <Icons.History />
                                     <div className="absolute inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-orange-500 border-2 border-white rounded-full -top-0 -right-0"></div>
-                                </Link>
+                                </Link> */}
                                 <Link
                                     onClick={() => setIsOpen(false)}
                                     href="/user/checkout"
