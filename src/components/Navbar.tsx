@@ -19,10 +19,11 @@ import { db } from "@/lib/db";
 interface NavbarProps {
     name: string | undefined | null;
     image: string | undefined | null;
+    email: string | undefined | null;
     totalQuantityCart: number | undefined | null;
 }
 
-const Navbar = ({ name, image, totalQuantityCart }: NavbarProps) => {
+const Navbar = ({ name, image, email, totalQuantityCart }: NavbarProps) => {
     // const session = await getServerSession();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -147,15 +148,26 @@ const Navbar = ({ name, image, totalQuantityCart }: NavbarProps) => {
                                 />
                                 {/* </Button> */}
                                 {isOpen ? (
-                                    <div className="absolute top-24 right-18 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                                        <ul className="py-2 text-sm text-gray-700 ">
+                                    <div className="absolute top-16 right-16 z-10 bg-white rounded shadow w-60 p-2">
+                                        <span className="inline-block p-2">
+                                            <p className="text-sm font-semibold">
+                                                {name}
+                                            </p>
+                                            <p className="text-sm font-light mt-0.5">
+                                                {email}
+                                            </p>
+                                        </span>
+
+                                        <hr />
+
+                                        <ul className="py-1 text-sm text-gray-700 ">
                                             <li>
                                                 <Link
                                                     onClick={() =>
                                                         setIsOpen(false)
                                                     }
                                                     href="/user/profile"
-                                                    className="py-2 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
+                                                    className="py-2 pl-2 rounded flex items-center text-sm text-gray-700 hover:bg-gray-100"
                                                 >
                                                     <Icons.User size={16} />
                                                     <span className="pl-2">
@@ -165,8 +177,10 @@ const Navbar = ({ name, image, totalQuantityCart }: NavbarProps) => {
                                             </li>
                                         </ul>
 
+                                        <hr />
+
                                         <span
-                                            className="cursor-pointer py-4 px-4 flex items-center text-sm text-gray-700 hover:bg-gray-100"
+                                            className="cursor-pointer mt-2 rounded py-2 pl-2 flex items-center text-sm text-gray-700 hover:bg-gray-100"
                                             onClick={(e) => {
                                                 e.preventDefault();
                                                 signOut();

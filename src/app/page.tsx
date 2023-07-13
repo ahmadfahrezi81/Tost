@@ -34,6 +34,7 @@ export default async function Home() {
             <Navbar
                 name={user?.name}
                 image={user?.image}
+                email={user?.email}
                 totalQuantityCart={totalQuantityCart}
             />
             <div className="pt-20 w-full h-full flex flex-col justify-between md:flex-row">

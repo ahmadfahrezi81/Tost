@@ -39,6 +39,7 @@ export default async function Layout({
             <Navbar
                 name={user?.name}
                 image={user?.image}
+                email={user?.email}
                 totalQuantityCart={totalQuantityCart}
             />
             <section className="pt-20 h-full">{children}</section>
