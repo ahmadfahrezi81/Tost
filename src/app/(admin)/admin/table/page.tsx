@@ -3,7 +3,7 @@ import Link from "next/link";
 import "@/styles/datepicker-style.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-import { DataTable } from "@/components/data-table";
+// import { DataTable } from "@/components/data-table";
 import { columns } from "./columns";
 import { Tables } from "@prisma/client";
 
@@ -29,7 +29,7 @@ const Page = async ({}) => {
                         Tables
                     </h1>
                 </header>
-                <DataTable columns={columns} data={data} />
+                {/* <DataTable columns={columns} data={data} /> */}
             </div>
         </>
     );

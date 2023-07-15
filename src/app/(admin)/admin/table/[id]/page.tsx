@@ -1,5 +1,5 @@
 import { prisma } from "@/db";
-import { DataTable } from "@/components/data-table";
+// import { DataTable } from "@/components/data-table";
 import { columns } from "./columns";
 import { Booking } from "@prisma/client";
 import Link from "next/link";
@@ -30,7 +30,7 @@ export default async function TablePageID({ params }: pageProps) {
                         Table Info
                     </h1>
                 </header>
-                <DataTable columns={columns} data={data} />
+                {/* <DataTable columns={columns} data={data} /> */}
             </div>
         </>
     );
