@@ -136,15 +136,27 @@ export const UploadImage = ({
                     onClick={(e) => {
                         e.preventDefault();
                         handleSubmit(files);
+
+                        setTimeout(() => {
+                            toast({
+                                title: "Photo Saved",
+                                message: "Photo is uploaded",
+                                type: "success",
+                            });
+                        }, 2000);
                     }}
                 >
                     Upload Picture
                 </Button>
 
-                <Input className="w-full" readOnly value={imageURL} />
-                <Button
-                    variant="ghost"
-                    className="border-2"
+                <Input
+                    className="w-full"
+                    readOnly
+                    value={imageURL ?? "*Upload Image first"}
+                />
+                <button
+                    disabled={!imageURL}
+                    className="border border-slate-300 h-full px-4 rounded-md disabled:bg-gray-500"
                     onClick={(e) => {
                         e.preventDefault();
 
@@ -157,8 +169,11 @@ export const UploadImage = ({
                         });
                     }}
                 >
-                    <Icons.Copy size={15} />
-                </Button>
+                    <Icons.Copy
+                        size={15}
+                        color={`${!imageURL ? "white" : "black"}`}
+                    />
+                </button>
             </div>
         </form>
     );
