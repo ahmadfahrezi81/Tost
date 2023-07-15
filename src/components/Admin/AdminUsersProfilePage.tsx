@@ -50,7 +50,7 @@ export function AdminUsersProfilePage({
             deleteUser(user.id);
 
             // This forces a cache invalidation.
-            // router.refresh();
+            router.refresh();
 
             router.back();
 

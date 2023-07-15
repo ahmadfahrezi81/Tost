@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import UploadImage from "./UploadImage";
 import { Menu } from "@prisma/client";
 import { toast } from "@/ui/Toast";
+import Button from "@/ui/Button";
 
 interface MenuProps extends Menu {
     updateMenuItem: (id: number, menu: Menu) => void;
@@ -27,6 +28,7 @@ export default function NewMenuForm({
 }: MenuProps) {
     //menu properties
     const [menu, setMenu] = useState<Menu>();
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setMenu({
@@ -42,14 +44,6 @@ export default function NewMenuForm({
         });
     }, []);
 
-    const tryToast = () => {
-        toast({
-            title: "User Permanently Deleted",
-            message: `You've deleted ${menu?.name}. Please Reload.`,
-            type: "error",
-        });
-    };
-
     //to go back
     const router = useRouter();
 
@@ -62,6 +56,46 @@ export default function NewMenuForm({
         setMenu({ ...menu, imageURL: url });
     };
 
+    const handleUpdate = () => {
+        setIsLoading(true);
+
+        if (!menu) {
+            throw new Error("No menu");
+        }
+
+        updateMenuItem(id, menu);
+
+        router.refresh();
+
+        setTimeout(() => {
+            setIsLoading(false);
+
+            toast({
+                title: "Updated Menu",
+                message: `You've updated "${name}"`,
+                type: "success",
+            });
+
+            router.back();
+        }, 1500);
+    };
+
+    const handleDelete = () => {
+        if (confirm("Do you want to permanently delete this menu item?")) {
+            deleteMenuItem(id);
+
+            router.refresh();
+
+            router.back();
+
+            toast({
+                title: "Menu Permanently Deleted",
+                message: `You've deleted ${menu?.name}.`,
+                type: "error",
+            });
+        }
+    };
+
     return (
         <>
             <UploadImage
@@ -69,22 +103,7 @@ export default function NewMenuForm({
                 setImageURLChild={setImageURLChild}
             />
 
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-
-                    if (!menu) {
-                        throw new Error("No menu");
-                    }
-
-                    updateMenuItem(id, menu);
-
-                    router.refresh();
-
-                    router.back();
-                }}
-                className="flex gap-2 flex-col"
-            >
+            <div className="flex gap-2 flex-col">
                 <label htmlFor="name">Name</label>
                 <input
                     required
@@ -101,12 +120,11 @@ export default function NewMenuForm({
                     }}
                 />
                 <label htmlFor="description">Description</label>
-                <input
+                <textarea
                     required
-                    type="text"
                     name="description"
                     id="description"
-                    className="bg-gray-50 text-zinc-600 text-sm rounded block p-2.5 font-semibold h-fit"
+                    className="bg-gray-50 text-zinc-600 h-16 text-sm rounded block p-2.5 font-semibold"
                     value={menu?.description}
                     onChange={(e) => {
                         if (!menu) {
@@ -114,7 +132,7 @@ export default function NewMenuForm({
                         }
                         setMenu({ ...menu, description: e.target.value });
                     }}
-                />
+                ></textarea>
                 <label htmlFor="ingredients">Ingredients</label>
                 <input
                     required
@@ -214,17 +232,38 @@ export default function NewMenuForm({
                         />
                     </div>
                 </div>
-                <button
-                    type="submit"
+            </div>
+
+            <div className="flex mt-10">
+                <Link
+                    href="/admin/menu"
                     className="
                             flex justify-center
-                            w-full h-fit px-8 text-emerald-800 hover:text-white border border-emerald-800 hover:bg-emerald-800 focus:outline-none font-medium rounded-lg text-sm py-2 text-center"
+                            h-fit px-8 text-white bg-red-600 focus:outline-none font-medium rounded-lg text-sm py-2.5 text-center"
                 >
-                    Update
-                </button>
-            </form>
+                    Cancel
+                </Link>
 
-            <div className="flex mt-5 gap-2 justify-end">
+                <div className="flex w-full gap-2 items-center justify-end">
+                    <button
+                        onClick={handleDelete}
+                        type="button"
+                        className="w-[12rem] focus:outline-none border border-red-600 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5"
+                    >
+                        Delete Account
+                    </button>
+                    <Button
+                        onClick={handleUpdate}
+                        variant="none"
+                        isLoading={isLoading}
+                        className="w-[12rem] text-white bg-green-700 hover:bg-green-600"
+                    >
+                        Save Changes
+                    </Button>
+                </div>
+            </div>
+
+            {/* <div className="flex mt-5 gap-2 justify-end">
                 <button
                     onClick={(e) => {
                         if (
@@ -255,7 +294,7 @@ export default function NewMenuForm({
                 >
                     Cancel
                 </Link>
-            </div>
+            </div> */}
         </>
     );
 }

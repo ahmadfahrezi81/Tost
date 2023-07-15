@@ -26,6 +26,7 @@ export default async function page() {
                             href="./menu/new"
                             className="flex items-center justify-center gap-2 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5"
                         >
+                            <Icons.Plus size={18} />
                             <span>Add</span>
                         </Link>
                     </div>

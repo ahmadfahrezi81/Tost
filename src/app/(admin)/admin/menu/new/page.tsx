@@ -1,6 +1,4 @@
 import { prisma } from "@/lib/db";
-import { redirect } from "next/navigation";
-import Link from "next/link";
 import NewMenuForm from "@/components/NewMenuForm";
 import { Menu } from "@prisma/client";
 

@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Image from "next/image";
-import Button from "./ui/Button";
-import Input from "./ui/Input";
+import Button from "@/ui/Button";
+import Input from "@/ui/Input";
+import Icons from "@/components/Icons";
+import { toast } from "@/ui/Toast";
 
 export const UploadImage = ({
     className,
@@ -65,49 +67,33 @@ export const UploadImage = ({
             >
                 <label htmlFor="image">Image</label>
                 <input id="image" {...getInputProps()} />
-                {files ? (
+                {files || imageURL ? (
+                    //Preview Image
                     <div className="flex justify-center flex-col items-center">
-                        <div className="border-2 border-gray-300 border-dashed rounded-lg cursor-pointer w-full h-fit p-10">
-                            <Image
-                                src={files.preview}
-                                alt={files.name}
-                                width={200}
-                                height={200}
-                                onLoad={() => {
-                                    URL.revokeObjectURL(files.preview);
-                                }}
-                                className="w-52 h-52 object-cover"
-                            />
+                        <div className="border-2 border-gray-300 border-dashed rounded-lg cursor-pointer w-full h-fit p-5">
+                            {imageURL ? (
+                                <Image
+                                    src={imageURL}
+                                    alt="Food Image"
+                                    width={250}
+                                    height={250}
+                                    className="object-cover rounded"
+                                />
+                            ) : (
+                                <Image
+                                    src={files.preview}
+                                    alt={files.name}
+                                    width={250}
+                                    height={250}
+                                    onLoad={() => {
+                                        URL.revokeObjectURL(files.preview);
+                                    }}
+                                    className="object-cover rounded"
+                                />
+                            )}
                         </div>
                         <p className="my-3 text-xs text-gray-500 dark:text-gray-400 flex justify-center">
-                            *Click or Drag n Drop on the same area to upload
-                            different picture
-                        </p>
-                    </div>
-                ) : isDragActive ? (
-                    <div className="flex flex-col items-center justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 w-full h-[19rem]">
-                        <div>
-                            <svg
-                                aria-hidden="true"
-                                className="w-10 h-10 mb-3 text-gray-400"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                                ></path>
-                            </svg>
-                        </div>
-                        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400 flex justify-center">
-                            Drop the files here
-                        </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                            SVG, PNG, JPG or GIF (MAX. 800x400px)
+                            Click or Drag n Drop to upload different picture
                         </p>
                     </div>
                 ) : (
@@ -136,7 +122,7 @@ export const UploadImage = ({
                             or drag n drop
                         </p>
                         <p className="text-xs text-gray-500 dark:text-gray-400">
-                            SVG, PNG, JPG or GIF (MAX. 800x400px)
+                            SVG, PNG, JPG or GIF (MAX. 800x400px) | coo
                         </p>
                     </div>
                 )}
@@ -154,7 +140,25 @@ export const UploadImage = ({
                 >
                     Upload Picture
                 </Button>
+
                 <Input className="w-full" readOnly value={imageURL} />
+                <Button
+                    variant="ghost"
+                    className="border-2"
+                    onClick={(e) => {
+                        e.preventDefault();
+
+                        navigator.clipboard.writeText(imageURL);
+
+                        toast({
+                            title: "Copied",
+                            message: "Image URL copied to clipboard",
+                            type: "success",
+                        });
+                    }}
+                >
+                    <Icons.Copy size={15} />
+                </Button>
             </div>
         </form>
     );

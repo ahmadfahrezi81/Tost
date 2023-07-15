@@ -5,11 +5,22 @@ import { Menu } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export const columns: ColumnDef<Menu>[] = [
     {
         accessorKey: "id",
-        header: "ID",
+        header: ({ column }) => {
+            return (
+                <span className="flex items-center">
+                    ID
+                    <Icons.ArrowUpDown
+                        onClick={() => column.toggleSorting()}
+                        className="ml-2 h-4 w-4 cursor-pointer"
+                    />
+                </span>
+            );
+        },
     },
     {
         accessorKey: "image",
@@ -18,8 +29,8 @@ export const columns: ColumnDef<Menu>[] = [
             <Image
                 className="rounded"
                 src={`${row.original.imageURL}`}
-                width={150}
-                height={100}
+                width={300}
+                height={300}
                 alt="Profile"
             />
         ),
@@ -34,15 +45,36 @@ export const columns: ColumnDef<Menu>[] = [
     },
     {
         accessorKey: "price",
-        header: "Price",
+        header: ({ column }) => {
+            return (
+                <span className="flex items-center">
+                    Price
+                    <Icons.ArrowUpDown
+                        onClick={() => column.toggleSorting()}
+                        className="ml-2 h-4 w-4 cursor-pointer"
+                    />
+                </span>
+            );
+        },
     },
     {
         accessorKey: "description",
         header: "Description",
+        cell: ({ row }) => (
+            <>
+                {row.original.description.split(" ").slice(0, 12).join(" ")} ...
+            </>
+        ),
     },
     {
         accessorKey: "ingredients",
         header: "Ingredients",
+        cell: ({ row }) => (
+            <>
+                {row.original.ingredients.split(",").slice(0, 3).join(", ")},
+                ...
+            </>
+        ),
     },
 
     {
