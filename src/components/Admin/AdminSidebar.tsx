@@ -1,26 +1,32 @@
 "use client";
 
 import { Sidebar } from "flowbite-react";
-import Icons from "./Icons";
+import Icons from "../Icons";
 import Logo from "@/public/Logo1.svg";
 import Link from "next/link";
 import Image from "next/image";
-import { buttonVariants } from "./ui/Button";
+import { buttonVariants } from "../ui/Button";
 
 const AdminSidebar = ({}) => {
-  return (
-    <div className="w-fit h-full fixed">
-      <Sidebar>
-        <Link
-          href="/"
-          className={
-            (buttonVariants({ variant: "none" }),
-            "flex items-center justify-center mb-16 pt-6")
-          }
-        >
-          <Image priority src={Logo} height={40} width={40} alt="Logo" />
-          &nbsp;&nbsp;<strong className="text-xl">TOST</strong>
-        </Link>
+    return (
+        <div className="w-fit h-full fixed">
+            <Sidebar>
+                <Link
+                    href="/"
+                    className={
+                        (buttonVariants({ variant: "none" }),
+                        "flex items-center justify-center mb-16 pt-6")
+                    }
+                >
+                    <Image
+                        priority
+                        src={Logo}
+                        height={40}
+                        width={40}
+                        alt="Logo"
+                    />
+                    &nbsp;&nbsp;<strong className="text-xl">TOST</strong>
+                </Link>
 
                 <Sidebar.Items>
                     <Sidebar.ItemGroup>
@@ -69,11 +75,10 @@ const AdminSidebar = ({}) => {
                             </div>
                         </Sidebar.Item>
                     </Sidebar.ItemGroup>
-
-        </Sidebar.Items>
-      </Sidebar>
-    </div>
-  );
+                </Sidebar.Items>
+            </Sidebar>
+        </div>
+    );
 };
 
 export default AdminSidebar;

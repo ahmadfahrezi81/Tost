@@ -1,12 +1,7 @@
-import { FC } from "react";
-import Link from "next/link";
-import WarningModal from "@/components/WarningModal";
-import GreenModal from "@/components/GreenModal";
 import { DataTable } from "@/components/ui/data-table";
 import { columns } from "./columns";
 import { prisma } from "@/lib/db";
 import { User } from "@prisma/client";
-import Icons from "@/components/Icons";
 
 async function getData(): Promise<User[]> {
     // return await prisma.user.findMany();

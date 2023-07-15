@@ -1,6 +1,5 @@
-import { prisma } from "@/lib/db";
-import { User } from "@prisma/client";
-import { AdminUsersProfilePage } from "@/components/AdminUsersProfilePage";
+import { db, prisma } from "@/lib/db";
+import { AdminUsersProfilePage } from "@/components/Admin/AdminUsersProfilePage";
 
 interface pageProps {
     params: {
@@ -8,32 +7,27 @@ interface pageProps {
     };
 }
 
-async function updateData(id: string, user: User) {
+async function updateData(id: string, name: string) {
     "use server";
 
-    await prisma.user.update({ where: { id }, data: { ...user } });
+    await db.user.update({ where: { id }, data: { name } });
 }
 
 async function deleteUser(id: string) {
     "use server";
 
-    await prisma.user.delete({ where: { id } });
+    await db.user.delete({ where: { id } });
 }
 
-const page = async ({ params }: pageProps) => {
-    const getUser = async () => {
-        const res = await prisma.user.findUnique({
-            where: {
-                id: params.id,
-            },
-        });
-        return res;
-    };
-
-    const user = await getUser();
+export default async function AdminProfilePage({ params }: pageProps) {
+    const user = await db.user.findUnique({
+        where: {
+            id: params.id,
+        },
+    });
 
     if (!user) {
-        throw new Error("wtf");
+        throw new Error("No user!");
     }
 
     return (
@@ -46,14 +40,11 @@ const page = async ({ params }: pageProps) => {
                 </header>
 
                 <AdminUsersProfilePage
-                    key={user.id}
-                    {...user}
+                    user={user}
                     updateData={updateData}
                     deleteUser={deleteUser}
                 />
             </div>
         </>
     );
-};
-
-export default page;
+}

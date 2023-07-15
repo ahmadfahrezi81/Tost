@@ -3,7 +3,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { ChevronLeft } from "lucide-react";
-import SignIn from "@/components/SignIn";
+import SignIn from "@/components/Auth/SignIn";
 import SignUp from "@/components/SignUp";
 
 const page: FC = ({}) => {

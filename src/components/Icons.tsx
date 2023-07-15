@@ -30,6 +30,7 @@ import {
     X,
     LucideProps,
     Pencil,
+    ArrowUpDown,
 } from "lucide-react";
 
 export const Icons = {
@@ -62,6 +63,7 @@ export const Icons = {
     ArrowLeft,
     ArrowRight,
     Info,
+    ArrowUpDown,
     X,
     logo: (props: LucideProps) => (
         <svg {...props} viewBox="0 0 497 497">

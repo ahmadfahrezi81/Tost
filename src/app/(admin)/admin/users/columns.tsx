@@ -1,6 +1,7 @@
 "use client";
 
 import Icons from "@/components/Icons";
+import Button from "@/components/ui/Button";
 // import { Checkbox } from "@/components/ui/checkbox";
 import { User } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
@@ -25,7 +26,17 @@ export const columns: ColumnDef<User>[] = [
     },
     {
         accessorKey: "email",
-        header: "Email",
+        header: ({ column }) => {
+            return (
+                <span className="flex items-center">
+                    Email
+                    <Icons.ArrowUpDown
+                        onClick={() => column.toggleSorting()}
+                        className="ml-2 h-4 w-4 cursor-pointer"
+                    />
+                </span>
+            );
+        },
     },
     {
         accessorKey: "role",

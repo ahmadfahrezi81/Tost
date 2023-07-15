@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import AdminSidebar from "@/components/AdminSidebar";
+import AdminSidebar from "@/components/Admin/AdminSidebar";
 import { getAuthSession } from "@/lib/auth";
 import PermissionWarning from "@/components/Admin/PermissionWarning";
 import { redirect } from "next/navigation";

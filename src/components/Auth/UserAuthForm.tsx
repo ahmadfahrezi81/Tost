@@ -4,27 +4,32 @@ import { signIn } from "next-auth/react";
 import * as React from "react";
 import { FC } from "react";
 
-import { Icons } from "./Icons";
-import Button from "./ui/Button";
+import Icons from "@/components/Icons";
+import Button from "@/components/ui/Button";
+
 import { cn } from "@/lib/utils";
+import { toast } from "@/ui/Toast";
+import { useRouter } from "next/navigation";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const UserAuthForm: FC<UserAuthFormProps> = ({ className, ...props }) => {
-    // const { toast } = useToast();
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
+    const router = useRouter();
 
     const loginWithGoogle = async () => {
         setIsLoading(true);
 
         try {
             await signIn("google");
+
+            router.refresh();
         } catch (error) {
-            // toast({
-            //     title: "Error",
-            //     description: "There was an error logging in with Google",
-            //     variant: "destructive",
-            // });
+            toast({
+                title: "Error",
+                message: `${error}`,
+                type: "error",
+            });
         } finally {
             setIsLoading(false);
         }

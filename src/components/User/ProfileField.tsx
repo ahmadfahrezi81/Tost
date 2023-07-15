@@ -1,14 +1,12 @@
 "use client";
 
-import { User } from "@prisma/client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "@/components/ui/Toast";
 import { useRouter } from "next/navigation";
-import Icons from "../Icons";
 import Button from "../ui/Button";
 import { signOut } from "next-auth/react";
 
-interface UserProps {
+export interface UserProps {
     // user: Pick<User, "name" | "email" | "id">;
     user: any;
     updateData: (id: string, name: string) => void;

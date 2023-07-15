@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Icons from "./Icons";
+import Icons from "../Icons";
 import Link from "next/link";
 import { CheckoutItem, Menu } from "@prisma/client";
 import { set } from "date-fns";
 import { useRouter } from "next/navigation";
-import { toast } from "./ui/Toast";
+import { toast } from "../ui/Toast";
 
 interface menuCardProps {
     menu: Menu;

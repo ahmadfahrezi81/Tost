@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import Icons from "@/components/Icons";
-import { UserMenuCard } from "@/components/UserMenuCard";
+import { UserMenuCard } from "@/components/User/UserMenuCard";
 import { Menu } from "@prisma/client";
 import { db, prisma } from "@/lib/db";
 import { getCurrentUser } from "@/lib/session";
