@@ -13,7 +13,9 @@ import Button from "@/components/ui/Button";
 interface UserMenuProps extends Menu {
     quantity: number;
     isAdded: boolean;
+    checkoutItem: CheckoutItem;
     createCheckout: (checkout: any) => void;
+    deleteCartItem: (id: string) => void;
 }
 
 export function UserMenuPage({
@@ -27,6 +29,8 @@ export function UserMenuPage({
     imageURL,
     type,
     createCheckout,
+    deleteCartItem,
+    checkoutItem,
     quantity,
     isAdded,
 }: UserMenuProps) {
@@ -45,6 +49,21 @@ export function UserMenuPage({
             message: `You've added ${amount} x ${name}`,
             type: "success",
         });
+    };
+
+    const handleDelete = () => {
+        if (confirm("Do you want to remove this item?")) {
+            deleteCartItem(checkoutItem.id);
+
+            // This forces a cache invalidation.
+            router.refresh();
+
+            toast({
+                title: "Item is Removed",
+                message: `You've removed ${name}.`,
+                type: "error",
+            });
+        }
     };
 
     return (
@@ -214,12 +233,11 @@ export function UserMenuPage({
                     </button>
                 </div>
 
-                <p className="block mt-4">
-                    Haven’t booked yet?{" "}
-                    <Link className="underline" href="/user/reserve">
-                        Book now
-                    </Link>
-                </p>
+                {isAdded ? (
+                    <p className="block mt-4">
+                        <button onClick={handleDelete}>Remove</button>
+                    </p>
+                ) : null}
             </div>
         </div>
     );

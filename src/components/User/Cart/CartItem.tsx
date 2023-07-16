@@ -29,7 +29,7 @@ const CartItem = ({
     }, []);
 
     const handleDelete = () => {
-        if (confirm("Do you want to permanently delete this acc?")) {
+        if (confirm("Do you want to remove this item?")) {
             deleteCartItem(checkoutItem.id);
 
             // This forces a cache invalidation.
@@ -100,6 +100,7 @@ const CartItem = ({
                         checkoutItem.price * amount
                     }`}
                 </div>
+
                 <Button
                     onClick={handleDelete}
                     variant={"link"}

@@ -44,6 +44,12 @@ async function createCheckout(checkout: CheckoutItem) {
     });
 }
 
+async function deleteCartItem(id: string) {
+    "use server";
+
+    await prisma.checkoutItem.delete({ where: { id } });
+}
+
 const Page = async ({ params }: pageProps) => {
     const menu = await prisma.menu.findUnique({
         where: {
@@ -83,8 +89,10 @@ const Page = async ({ params }: pageProps) => {
                 key={menu?.id}
                 quantity={checkoutItem ? checkoutItem.quantity : 0}
                 isAdded={!!checkoutItem}
+                checkoutItem={checkoutItem!}
                 {...menu}
                 createCheckout={createCheckout}
+                deleteCartItem={deleteCartItem}
             />
         </div>
     );
