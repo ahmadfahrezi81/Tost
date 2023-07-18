@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import UploadImage from "./UploadImage";
-import { string } from "prop-types";
 
 interface MenuProps {
     createMenuItem: (menu: any) => void;
@@ -140,22 +139,21 @@ export default function NewMenuForm({ createMenuItem }: MenuProps) {
                     </div>
                 </div>
 
-                <div className="flex mt-5 gap-2 justify-end">
+                <div className="flex mt-5 gap-2 justify-between">
                     <Link
                         href="/admin/menu"
                         className="
                             flex justify-center
-                            h-fit px-8 text-red-600 hover:text-white border border-red-600 hover:bg-red-600 focus:outline-none font-medium rounded-lg text-sm py-2 text-center"
+                            h-fit px-8 text-white bg-red-600 focus:outline-none font-medium rounded-lg text-sm py-2.5 text-center"
                     >
                         Cancel
                     </Link>
+
                     <button
                         type="submit"
-                        className="
-                            flex justify-center
-                            h-fit px-8 text-emerald-800 hover:text-white border border-emerald-800 hover:bg-emerald-800 focus:outline-none font-medium rounded-lg text-sm py-2 text-center"
+                        className="w-[12rem] rounded-lg text-white bg-green-700 hover:bg-green-600"
                     >
-                        Create
+                        Create Menu
                     </button>
                 </div>
             </form>

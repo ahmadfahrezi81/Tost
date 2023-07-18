@@ -13,6 +13,7 @@ export const UploadImage = ({
 }: any) => {
     const [files, setFiles] = useState<any>();
     const [imageURL, setImageURL] = useState(imageURLString);
+    const [isLoading, setIsLoading] = useState(false);
 
     // receive the accepted files and rejected files
     const onDrop = useCallback((acceptedFiles: any) => {
@@ -133,17 +134,33 @@ export const UploadImage = ({
                 <Button
                     type="submit"
                     className="max-w-xs content-center w-[19rem]"
+                    isLoading={isLoading}
                     onClick={(e) => {
                         e.preventDefault();
-                        handleSubmit(files);
 
-                        setTimeout(() => {
+                        setIsLoading(true);
+
+                        if (!files) {
                             toast({
-                                title: "Photo Saved",
-                                message: "Photo is uploaded",
-                                type: "success",
+                                title: "Upload Photo Error",
+                                message: "Photo is null",
+                                type: "error",
                             });
-                        }, 2000);
+
+                            setIsLoading(false);
+                        } else {
+                            handleSubmit(files);
+
+                            setTimeout(() => {
+                                toast({
+                                    title: "Photo Saved",
+                                    message: "Photo is uploaded",
+                                    type: "success",
+                                });
+
+                                setIsLoading(false);
+                            }, 1500);
+                        }
                     }}
                 >
                     Upload Picture
@@ -160,7 +177,9 @@ export const UploadImage = ({
                     onClick={(e) => {
                         e.preventDefault();
 
-                        navigator.clipboard.writeText(imageURL);
+                        // navigator.clipboard.writeText(imageURL);
+
+                        window.open(imageURL, "_blank");
 
                         toast({
                             title: "Copied",
@@ -169,7 +188,7 @@ export const UploadImage = ({
                         });
                     }}
                 >
-                    <Icons.Copy
+                    <Icons.ExternalLink
                         size={15}
                         color={`${!imageURL ? "white" : "black"}`}
                     />

@@ -32,6 +32,7 @@ import {
     Pencil,
     ArrowUpDown,
     Copy,
+    ExternalLink,
 } from "lucide-react";
 
 export const Icons = {
@@ -66,6 +67,7 @@ export const Icons = {
     Info,
     ArrowUpDown,
     Copy,
+    ExternalLink,
     X,
     logo: (props: LucideProps) => (
         <svg {...props} viewBox="0 0 497 497">

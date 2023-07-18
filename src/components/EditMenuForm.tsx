@@ -262,39 +262,6 @@ export default function NewMenuForm({
                     </Button>
                 </div>
             </div>
-
-            {/* <div className="flex mt-5 gap-2 justify-end">
-                <button
-                    onClick={(e) => {
-                        if (
-                            confirm(
-                                "Do you want to permanently delete this menu item?"
-                            )
-                        ) {
-                            e.preventDefault();
-
-                            console.log("Inside EditMenuForm", id);
-
-                            tryToast();
-                            deleteMenuItem(id);
-
-                            router.refresh();
-                            router.back();
-                        }
-                    }}
-                    className="px-8 flex-auto focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-2.5 mb-2"
-                >
-                    Delete
-                </button>
-                <Link
-                    href="/admin/menu"
-                    className="
-                            flex justify-center
-                            h-fit px-8 text-red-600 hover:text-white border border-red-600 hover:bg-red-600 focus:outline-none font-medium rounded-lg text-sm py-2 text-center"
-                >
-                    Cancel
-                </Link>
-            </div> */}
         </>
     );
 }
