@@ -7,7 +7,8 @@ import { getAuthSession } from "@/lib/auth";
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
-import Button from "@/components/ui/Button";
+import Button, { buttonVariants } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 
 // export const metadata: Metadata = {
 //     title: "Tost | Home",
@@ -51,22 +52,24 @@ export default async function Home() {
                             Get Started
                         </button> */}
                         {user ? (
-                            <Link href="/user/menu">
-                                <Button
-                                    variant="none"
-                                    className="block-inline bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
-                                >
-                                    Go to Menu 🤩{" "}
-                                </Button>
+                            <Link
+                                href="/user/menu"
+                                className={cn(
+                                    buttonVariants({ variant: "none" }),
+                                    "block-inline bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
+                                )}
+                            >
+                                Go to Menu 🤩
                             </Link>
                         ) : (
-                            <Link href="/sign-in">
-                                <Button
-                                    variant="none"
-                                    className="bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
-                                >
-                                    Get Started{" "}
-                                </Button>
+                            <Link
+                                href="/sign-in"
+                                className={cn(
+                                    buttonVariants({ variant: "none" }),
+                                    "block-inline bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
+                                )}
+                            >
+                                Get Started
                             </Link>
                         )}
                     </div>

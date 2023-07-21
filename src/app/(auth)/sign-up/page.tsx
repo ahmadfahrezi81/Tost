@@ -8,7 +8,7 @@ import SignUp from "@/components/Auth/SignUp";
 const page: FC = ({}) => {
     return (
         <div className="absolute inset-0">
-            <div className="h-full p-10 pt-8 rounded-lg mx-auto pb-28 flex flex-col items-center justify-center gap-8">
+            <div className="h-full p-4 md:p-10 md:pt-8 rounded-lg mx-auto pb-28 flex flex-col items-center justify-center gap-8">
                 <Link
                     href="/"
                     className={cn(
