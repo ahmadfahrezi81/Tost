@@ -7,6 +7,7 @@ import { getAuthSession } from "@/lib/auth";
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
+import Button from "@/components/ui/Button";
 
 // export const metadata: Metadata = {
 //     title: "Tost | Home",
@@ -37,10 +38,10 @@ export default async function Home() {
                 email={user?.email}
                 totalQuantityCart={totalQuantityCart}
             />
-            <div className="pt-20 w-full h-full flex flex-col justify-between md:flex-row">
-                <div className="flex justify-center text-center items-center md:text-left md:justify-start">
-                    <div className="font-sans m-20">
-                        <h1 className="text-7xl mb-3 font-bold text-custom-green">
+            <div className="h-screen pt-20 w-full flex flex-col justify-between md:flex-row">
+                <div className="flex-1 flex justify-center text-center items-center md:text-left md:justify-start">
+                    <div className="font-sans mx-auto my-20 lg:m-20">
+                        <h1 className="text-7xl mb-3 font-extrabold text-custom-green">
                             TOST.
                         </h1>
                         <h3 className="text-2xl mb-10">
@@ -50,28 +51,33 @@ export default async function Home() {
                             Get Started
                         </button> */}
                         {user ? (
-                            <Link
-                                href="/user/menu"
-                                className="bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
-                            >
-                                Go to Menu 🤩
+                            <Link href="/user/menu">
+                                <Button
+                                    variant="none"
+                                    className="block-inline bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
+                                >
+                                    Go to Menu 🤩{" "}
+                                </Button>
                             </Link>
                         ) : (
-                            <Link
-                                href="/sign-in"
-                                className="bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
-                            >
-                                Get Started
+                            <Link href="/sign-in">
+                                <Button
+                                    variant="none"
+                                    className="bg-custom-red hover:bg-custom-red-hov text-white py-4 px-20 rounded-md"
+                                >
+                                    Get Started{" "}
+                                </Button>
                             </Link>
                         )}
                     </div>
                 </div>
-                <div className="flex justify-center relative">
+                <div className="flex-1 flex justify-center relative md:m-4">
                     <Image
-                        className="rounded-tl-[5rem]"
+                        className="md:rounded-xl lg:min-h-[600px] lg:min-w-[600px]"
                         src={toast_pict}
                         alt="Picture of a toast"
-                        height={750}
+                        objectFit="cover"
+                        fill
                         priority
                     />
                 </div>

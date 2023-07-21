@@ -38,13 +38,13 @@ export default async function RootLayout({
                 <link rel="shortcut icon" href="/favicon.ico" />
             </Head>
 
-            <body className="h-screen bg-slate-50 antialiased flex flex-col">
+            <body className=" bg-slate-50 antialiased flex flex-col max-w-[1440px] mx-auto">
                 {children}
 
                 <Toaster position="bottom-right" />
 
                 {/* Allow for more height in mobile devices */}
-                <div className="h-40 md:hidden" />
+                {/* <div className="h-40 md:hidden" /> */}
 
                 {session?.user.role === "ADMIN" ? (
                     <div className="fixed bottom-10 right-10">
