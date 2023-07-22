@@ -53,7 +53,7 @@ export function ProfileField({ user, updateData, deleteUser }: UserProps) {
     };
 
     return (
-        <div className="flex flex-col mx-auto border-2 shadow-sm rounded-xl p-10 py-10 w-[35rem]">
+        <div className=" flex flex-col mx-auto p-10 py-10 sm:w-[35rem] sm:border-2 sm:shadow-sm sm:rounded-xl ">
             <h2 className="text-xl font-semibold mb-6">
                 Hey there, {user.name}
             </h2>
