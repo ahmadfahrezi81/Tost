@@ -52,7 +52,7 @@ const CartItem = ({
 
     return (
         <>
-            <div className="bg-white rounded-lg flex p-5 gap-5 shadow-sm">
+            <div className="bg-white rounded-lg flex p-5 gap-5 shadow-md">
                 <Image
                     className="rounded-lg"
                     src={checkoutItem.imageURL}

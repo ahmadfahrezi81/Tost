@@ -45,7 +45,7 @@ export default async function CheckoutPage() {
 
     return (
         <>
-            <div className="flex flex-col px-3 md:px-14 mt-10 ">
+            <div className="flex flex-col px-3 md:px-14 my-10 ">
                 <header className="flex justify-between items-center mb-4">
                     <h1 className="text-3xl font-bold text-gray-900 self-center">
                         My Cart

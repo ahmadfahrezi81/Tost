@@ -77,7 +77,7 @@ const Page = async ({ params }: pageProps) => {
     });
 
     return (
-        <div className="px-14 mt-10 ml-4">
+        <div className="px-4 md:px-14 my-10 ml-4">
             <Link
                 href={"/user/menu"}
                 className="flex gap-2 items-center cursor-pointer hover:gap-3 w-fit p-2"

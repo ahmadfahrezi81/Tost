@@ -67,7 +67,7 @@ export function UserMenuPage({
     };
 
     return (
-        <div className="flex flex-row gap-20 mt-4">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-20 mt-4">
             <div className="flex-1">
                 <Image
                     className="mx-auto rounded-2xl"
@@ -161,39 +161,39 @@ export function UserMenuPage({
                     RM{amount == 0 ? price : price * amount}
                 </h2>
 
-                <div className="flex justify-between">
-                    <div className="custom-number-input h-10 w-48">
-                        <div className="flex flex-row h-14 rounded-lg relative bg-transparent mt-1">
-                            <button
-                                disabled={isAdded}
-                                onClick={() => {
-                                    if (amount > 0) setAmount(amount - 1);
-                                }}
-                                className=" bg-gray-200 text-gray-600 active:bg-gray-300 h-full w-14 rounded-l cursor-pointer"
-                            >
-                                <span className="w-full text-2xl font-semibold text-custom-orange">
-                                    −
-                                </span>
-                            </button>
-                            <span className="flex items-center justify-center w-16 bg-gray-200 font-semibold text-lg">
-                                {amount}
+                <div className="flex flex-col gap-2 items-center justify-between lg:flex-row">
+                    {/* <div className="custom-number-input h-fit w-full md:w-fit"> */}
+                    <div className="w-full flex flex-row justify-between bg-gray-200 h-14 lg:w-48 rounded-lg relative ">
+                        <button
+                            disabled={isAdded}
+                            onClick={() => {
+                                if (amount > 0) setAmount(amount - 1);
+                            }}
+                            className=" text-gray-600 active:bg-gray-300 h-full w-14 rounded-l cursor-pointer"
+                        >
+                            <span className="w-full text-2xl font-semibold text-custom-orange">
+                                −
                             </span>
-                            <button
-                                disabled={isAdded}
-                                onClick={() => {
-                                    setAmount(amount + 1);
-                                }}
-                                className="bg-gray-200 text-gray-600 active:bg-gray-300 h-full w-14 rounded-r cursor-pointer"
-                            >
-                                <span className="w-full h-fit text-2xl font-semibold text-custom-orange">
-                                    +
-                                </span>
-                            </button>
-                        </div>
+                        </button>
+                        <span className="flex items-center justify-center w-16  font-semibold text-lg">
+                            {amount}
+                        </span>
+                        <button
+                            disabled={isAdded}
+                            onClick={() => {
+                                setAmount(amount + 1);
+                            }}
+                            className="text-gray-600 active:bg-gray-300 h-full w-14 rounded-r cursor-pointer"
+                        >
+                            <span className="w-full h-fit text-2xl font-semibold text-custom-orange">
+                                +
+                            </span>
+                        </button>
                     </div>
+                    {/* </div> */}
 
                     <button
-                        className="h-14 bg-custom-orange text-white w-52 py-2 rounded-md flex items-center justify-center gap-4"
+                        className="h-14 bg-custom-orange text-white w-full px-10 py-2 rounded-md flex items-center justify-center gap-4"
                         onClick={() => {
                             if (!isAdded) {
                                 createCheckout({
@@ -234,8 +234,11 @@ export function UserMenuPage({
                 </div>
 
                 {isAdded ? (
-                    <p className="block mt-4">
-                        <button onClick={handleDelete}>Remove</button>
+                    <p
+                        className="mt-4 underline cursor-pointer"
+                        onClick={handleDelete}
+                    >
+                        Remove
                     </p>
                 ) : null}
             </div>
