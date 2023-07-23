@@ -76,13 +76,7 @@ const Navbar = ({ name, image, email, totalQuantityCart }: NavbarProps) => {
                     &nbsp;<strong className="text-xl">TOST</strong>
                 </Link>
 
-                <div className="hidden md:flex gap-4">
-                    {/* <Link
-                        href="/documentation"
-                        className={buttonVariants({ variant: "ghost" })}
-                    >
-                        Documentation
-                    </Link> */}
+                <div className="flex gap-2 md:gap-4">
                     {name ? (
                         <>
                             <Link
@@ -148,7 +142,7 @@ const Navbar = ({ name, image, email, totalQuantityCart }: NavbarProps) => {
                                 />
                                 {/* </Button> */}
                                 {isOpen ? (
-                                    <div className="absolute top-16 right-16 z-10 bg-white rounded shadow w-60 p-2">
+                                    <div className="absolute top-16 right-4 xl:right-16 z-10 bg-white rounded shadow w-60 p-2">
                                         <span className="inline-block p-2">
                                             <p className="text-sm font-semibold">
                                                 {name}
@@ -196,8 +190,6 @@ const Navbar = ({ name, image, email, totalQuantityCart }: NavbarProps) => {
                                     <></>
                                 )}
                             </div>
-                            {/* <Button>Sign Out</Button> */}
-                            {/* <SignOutButton /> */}
                         </>
                     ) : null}
                 </div>
