@@ -83,7 +83,7 @@ export function UserMenuCard({ menu, isAdded }: menuCardProps) {
                                     type: "warning",
                                 });
 
-                                router.push("/user/checkout");
+                                router.push("/usercart");
                             }}
                             className="h-10 border-2 border-custom-orange bg-gray-100 text-sm text-custom-orange w-52 py-2 rounded flex items-center justify-center gap-2"
                         >

@@ -214,7 +214,7 @@ export function UserMenuPage({
                                     type: "warning",
                                 });
 
-                                router.push("/user/checkout");
+                                router.push("/user/cart");
                             }
                         }}
                     >

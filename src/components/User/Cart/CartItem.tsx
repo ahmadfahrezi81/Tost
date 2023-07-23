@@ -52,7 +52,7 @@ const CartItem = ({
 
     return (
         <>
-            <div className="bg-white rounded-lg flex p-5 gap-5 mb-3 shadow-sm">
+            <div className="bg-white rounded-lg flex p-5 gap-5 shadow-sm">
                 <Image
                     className="rounded-lg"
                     src={checkoutItem.imageURL}
@@ -64,10 +64,8 @@ const CartItem = ({
                     <p className="font-bold text-gray-900 text-xl">
                         {checkoutItem.name}
                     </p>
-                </div>
 
-                <div className="px-6 py-4">
-                    <div className="custom-number-input h-10 w-48">
+                    <div className="custom-number-input h-fit w-fit">
                         <div className="flex flex-row h-14 rounded-lg relative bg-transparent mt-1">
                             <button
                                 onClick={() => {
@@ -94,20 +92,18 @@ const CartItem = ({
                             </button>
                         </div>
                     </div>
-                </div>
-                <div className="px-6 py-4 font-semibold text-gray-900 ">
-                    {`RM${checkoutItem.price} x ${amount} = ${
-                        checkoutItem.price * amount
-                    }`}
-                </div>
 
-                <Button
-                    onClick={handleDelete}
-                    variant={"link"}
-                    className="text-red-600"
-                >
-                    Delete
-                </Button>
+                    <p className="font-semibold text-gray-900">
+                        {`RM${checkoutItem.price * amount}`}
+                    </p>
+
+                    <p
+                        onClick={handleDelete}
+                        className="text-red-600 cursor-pointer underline"
+                    >
+                        Remove
+                    </p>
+                </div>
             </div>
         </>
     );

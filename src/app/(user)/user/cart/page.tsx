@@ -6,6 +6,7 @@ import { CheckoutItem } from "@prisma/client";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/session";
+import Icons from "@/components/Icons";
 
 async function updateCartItem(id: string, quantity: number) {
     "use server";
@@ -44,14 +45,14 @@ export default async function CheckoutPage() {
 
     return (
         <>
-            <div className="flex flex-col px-14 mt-10 ml-6">
+            <div className="flex flex-col px-3 md:px-14 mt-10 ">
                 <header className="flex justify-between items-center mb-4">
                     <h1 className="text-3xl font-bold text-gray-900 self-center">
-                        Checkout
+                        My Cart
                     </h1>
                 </header>
-                <div className="flex gap-6">
-                    <div className="w-full">
+                <div className="flex flex-col gap-6 lg:flex-row">
+                    <div className="w-full flex flex-col gap-4">
                         {checkoutItems.length == 0 ? (
                             <h3>No item in cart</h3>
                         ) : (
@@ -67,7 +68,7 @@ export default async function CheckoutPage() {
                             </>
                         )}
                     </div>
-                    <div className="bg-white shadow-md rounded-lg w-[35rem] h-fit p-8 flex flex-col gap-2">
+                    <div className="bg-white shadow-md rounded-lg lg:w-[35rem] h-fit p-8 flex flex-col gap-2">
                         <h3 className="font-semibold text-lg mb-2">
                             Order Summary
                         </h3>
@@ -93,6 +94,15 @@ export default async function CheckoutPage() {
                         >
                             Checkout
                         </button>
+                        <div className="flex items-center gap-2 justify-center">
+                            <p>or</p>
+                            <Link
+                                href="./menu"
+                                className="flex items-center gap-1 text-sm text-custom-orange"
+                            >
+                                Continue Shopping <Icons.ArrowRight size={16} />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

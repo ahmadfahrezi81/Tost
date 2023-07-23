@@ -269,7 +269,7 @@ export default function Cart() {
                         Taxes calculated at checkout.
                     </p>
                     <Link
-                        href="/user/checkout"
+                        href="/user/cart"
                         className="mt-6 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                     >
                         Checkout

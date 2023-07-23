@@ -120,7 +120,7 @@ const Navbar = ({ name, image, email, totalQuantityCart }: NavbarProps) => {
                                 </Link> */}
                                 <Link
                                     onClick={() => setIsOpen(false)}
-                                    href="/user/checkout"
+                                    href="/user/cart"
                                     className={
                                         buttonVariants({
                                             variant: "ghost",
