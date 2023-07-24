@@ -76,12 +76,12 @@ const Page = async ({}) => {
 
     return (
         <div className="container mt-10 pb-20 pl-10">
-            <div className="flex justify-between h-20">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:h-20">
                 <div className="flex-1 h-20">
                     <h1 className="text-4xl font-bold">Menu</h1>
                     <h2 className="text-xl mt-1">Find the best foods 🥪</h2>
                 </div>
-                <div className="flex-1 flex gap-2.5 justify-end">
+                <div className="flex-1 flex gap-2.5 sm:justify-end">
                     <Link
                         href="#food"
                         className="flex flex-col gap-1 justify-center items-center rounded-lg border-2 w-20 h-20 cursor-pointer hover:rounded-none hover:scale-105 
@@ -125,7 +125,7 @@ const Page = async ({}) => {
                 ></span>
                 <h3 className="text-2xl font-bold mt-8 mb-4">Food</h3>
 
-                <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
+                <div className="h-fit grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-cols-max gap-4 items-start justify-center">
                     {menuFood}
                 </div>
             </section>
@@ -143,7 +143,7 @@ const Page = async ({}) => {
                     }}
                 ></span>
                 <h3 className="text-2xl font-bold mt-8 mb-4">Drink</h3>
-                <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
+                <div className="h-fit grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-cols-max gap-4 items-start justify-center">
                     {menuDrink}
                 </div>
             </section>
@@ -162,7 +162,7 @@ const Page = async ({}) => {
                 ></span>
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">Dessert</h3>
-                <div className="h-fit grid grid-cols-4 auto-cols-max gap-4 justify-items-center">
+                <div className="h-fit grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-cols-max gap-4 items-start justify-center">
                     {menuDessert}
                 </div>
             </section>

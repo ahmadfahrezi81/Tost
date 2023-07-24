@@ -31,7 +31,7 @@ export function UserMenuCard({ menu, isAdded }: menuCardProps) {
     const router = useRouter();
 
     return (
-        <div className="flex flex-col max-w-sm p-5 border-2 rounded-lg hover:border-gray-300">
+        <div className="flex flex-col w-fit sm:w-full max-w-sm p-5 border-2 rounded-lg hover:border-gray-300">
             <Image
                 className="rounded-md"
                 // src="https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80"
