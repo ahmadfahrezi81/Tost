@@ -15,7 +15,7 @@ export default async function Home() {
     let totalQuantityCart = 0;
 
     if (!user) {
-        redirect(authOptions?.pages?.signIn || "/login");
+        redirect("/");
     }
 
     const checkoutItems = await db.checkoutItem.findMany({

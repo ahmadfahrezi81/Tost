@@ -31,7 +31,7 @@ const Page = async ({}) => {
     const user = await getCurrentUser();
 
     if (!user) {
-        redirect(authOptions?.pages?.signIn || "/login");
+        redirect("/");
     }
 
     const menuArray = await getMenu();
