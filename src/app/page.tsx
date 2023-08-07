@@ -17,19 +17,23 @@ import { cn } from "@/lib/utils";
 
 export default async function Home() {
     const user = await getCurrentUser();
-
-    //get all the checkoutItems
-    const checkoutItems = await db.checkoutItem.findMany({
-        where: {
-            userId: user?.id,
-        },
-    });
-
     let totalQuantityCart = 0;
+    let checkoutItems;
 
-    checkoutItems.forEach((item) => {
-        totalQuantityCart += item.quantity;
-    });
+    try {
+        //get all the checkoutItems
+        checkoutItems = await db.checkoutItem.findMany({
+            where: {
+                userId: user?.id,
+            },
+        });
+
+        checkoutItems.forEach((item) => {
+            totalQuantityCart += item.quantity;
+        });
+    } catch (e) {
+        console.log(e);
+    }
 
     return (
         <>
