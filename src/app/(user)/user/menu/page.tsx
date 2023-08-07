@@ -5,7 +5,8 @@ import { UserMenuCard } from "@/components/User/UserMenuCard";
 import { Menu } from "@prisma/client";
 import { db, prisma } from "@/lib/db";
 import { getCurrentUser } from "@/lib/session";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
+import { authOptions } from "@/lib/auth";
 
 async function getMenu(): Promise<Menu[]> {
     "use server";
@@ -30,7 +31,7 @@ const Page = async ({}) => {
     const user = await getCurrentUser();
 
     if (!user) {
-        throw new Error("");
+        redirect(authOptions?.pages?.signIn || "/login");
     }
 
     const menuArray = await getMenu();

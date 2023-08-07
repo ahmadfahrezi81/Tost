@@ -1,39 +1,32 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import toast_pict from "@/images/toast_pict.jpg";
+import { authOptions } from "@/lib/auth";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { getAuthSession } from "@/lib/auth";
 import { getCurrentUser } from "@/lib/session";
-import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
-import Button, { buttonVariants } from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-
-// export const metadata: Metadata = {
-//     title: "Tost | Home",
-//     description: "The best toast in the world",
-// };
+import { redirect } from "next/navigation";
 
 export default async function Home() {
     const user = await getCurrentUser();
     let totalQuantityCart = 0;
-    let checkoutItems;
 
-    try {
-        //get all the checkoutItems
-        checkoutItems = await db.checkoutItem.findMany({
-            where: {
-                userId: user?.id,
-            },
-        });
-
-        checkoutItems.forEach((item) => {
-            totalQuantityCart += item.quantity;
-        });
-    } catch (e) {
-        console.log(e);
+    if (!user) {
+        redirect(authOptions?.pages?.signIn || "/login");
     }
+
+    const checkoutItems = await db.checkoutItem.findMany({
+        where: {
+            userId: user?.id,
+        },
+    });
+
+    checkoutItems.forEach((item) => {
+        totalQuantityCart += item.quantity;
+    });
 
     return (
         <>

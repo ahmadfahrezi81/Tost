@@ -7,8 +7,6 @@ import Icons from "./Icons";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "@/public/Logo1.svg";
-import { Session, User } from "@prisma/client";
-import { any, string } from "prop-types";
 import { signOut } from "next-auth/react";
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
