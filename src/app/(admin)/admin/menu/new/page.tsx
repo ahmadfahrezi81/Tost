@@ -9,7 +9,7 @@ async function createMenuItem(menu: Menu) {
         throw new Error("Error Somewhere");
     }
 
-    await prisma.menu.create({
+    await db.menu.create({
         data: {
             ...menu,
         },

@@ -23,7 +23,7 @@ async function createCheckout(checkout: CheckoutItem) {
         throw new Error("no user");
     }
 
-    // await prisma.checkoutItem.create({
+    // await db.checkoutItem.create({
     //     data: {
     //         name: "Test",
     //         imageURL:
@@ -35,7 +35,7 @@ async function createCheckout(checkout: CheckoutItem) {
     //     },
     // });
 
-    await prisma.checkoutItem.create({
+    await db.checkoutItem.create({
         data: {
             ...checkout,
             userId: user.id,
@@ -47,11 +47,11 @@ async function createCheckout(checkout: CheckoutItem) {
 async function deleteCartItem(id: string) {
     "use server";
 
-    await prisma.checkoutItem.delete({ where: { id } });
+    await db.checkoutItem.delete({ where: { id } });
 }
 
 const Page = async ({ params }: pageProps) => {
-    const menu = await prisma.menu.findUnique({
+    const menu = await db.menu.findUnique({
         where: {
             id: parseInt(params.id),
         },

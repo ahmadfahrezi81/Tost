@@ -12,8 +12,8 @@ import TableTR from "@/components/(Table)/TableTR";
 import { prisma } from "@/db";
 
 async function getData(): Promise<Tables[]> {
-    // return await prisma.user.findMany();
-    return await prisma.tables.findMany();
+    // return await db.user.findMany();
+    return await db.tables.findMany();
 }
 
 const Page = async ({}) => {

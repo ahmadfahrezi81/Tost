@@ -8,7 +8,7 @@ import Icons from "@/components/Icons";
 async function getData(): Promise<Menu[]> {
     "use server";
 
-    return await prisma.menu.findMany();
+    return await db.menu.findMany();
 }
 
 export default async function page() {

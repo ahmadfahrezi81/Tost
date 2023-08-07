@@ -4,8 +4,8 @@ import { prisma } from "@/lib/db";
 import { User } from "@prisma/client";
 
 async function getData(): Promise<User[]> {
-    // return await prisma.user.findMany();
-    return await prisma.user.findMany();
+    // return await db.user.findMany();
+    return await db.user.findMany();
 }
 
 export default async function page() {

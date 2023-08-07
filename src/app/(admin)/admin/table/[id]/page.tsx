@@ -12,7 +12,7 @@ interface pageProps {
 
 export default async function TablePageID({ params }: pageProps) {
     const getBooking = async () => {
-        const res = await prisma.booking.findMany({
+        const res = await db.booking.findMany({
             where: {
                 tablesId: parseInt(params.id),
             },

@@ -2,7 +2,7 @@
 
 // export async function getOrder(bID: string) {
 //     try {
-//       const order = await prisma.order.findUnique(
+//       const order = await db.order.findUnique(
 //         {
 //           where: {
 //             bID: bID,

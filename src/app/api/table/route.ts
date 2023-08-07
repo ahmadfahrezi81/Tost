@@ -1,18 +1,20 @@
-import { prisma } from "@/db"
+import { prisma } from "@/db";
 import { Tables } from "@prisma/client";
 import { NextResponse } from "next/server";
 
-export const PATCH = async (request: Request, {params}: {params: {id: number}}) =>{
+export const PATCH = async (
+    request: Request,
+    { params }: { params: { id: number } }
+) => {
     const body: Tables = await request.json();
-    const product = await prisma.tables.update({
-        where:{
+    const product = await db.tables.update({
+        where: {
             id: params.id,
         },
-        data:{
+        data: {
             seats: body.seats,
-            slot: body.slot
-        }
+            slot: body.slot,
+        },
     });
-    return NextResponse.json(product, {status: 200});
-}
-  
+    return NextResponse.json(product, { status: 200 });
+};

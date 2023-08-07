@@ -15,7 +15,7 @@ export default async function BookingPageID({
     params: { id: string; bookingID: string };
 }) {
     const getBooking = async () => {
-        const res = await prisma.order.findUnique({
+        const res = await db.order.findUnique({
             where: {
                 id: params.bookingID,
             },

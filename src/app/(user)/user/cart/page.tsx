@@ -11,13 +11,13 @@ import Icons from "@/components/Icons";
 async function updateCartItem(id: string, quantity: number) {
     "use server";
 
-    await prisma.checkoutItem.update({ where: { id }, data: { quantity } });
+    await db.checkoutItem.update({ where: { id }, data: { quantity } });
 }
 
 async function deleteCartItem(id: string) {
     "use server";
 
-    await prisma.checkoutItem.delete({ where: { id } });
+    await db.checkoutItem.delete({ where: { id } });
 }
 
 export default async function CheckoutPage() {

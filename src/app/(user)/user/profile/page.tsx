@@ -5,13 +5,13 @@ import { getCurrentUser } from "@/lib/session";
 async function updateData(id: string, name: string) {
     "use server";
 
-    await prisma.user.update({ where: { id }, data: { name } });
+    await db.user.update({ where: { id }, data: { name } });
 }
 
 async function deleteUser(id: string) {
     "use server";
 
-    await prisma.user.delete({ where: { id } });
+    await db.user.delete({ where: { id } });
 }
 
 export default async function ProfilePage() {

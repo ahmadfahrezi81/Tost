@@ -10,13 +10,13 @@ import { redirect } from "next/dist/server/api-utils";
 async function getMenu(): Promise<Menu[]> {
     "use server";
 
-    return await prisma.menu.findMany();
+    return await db.menu.findMany();
 }
 
 async function isInCheckout(menuId: number, userId: string) {
     "use server";
 
-    const checkoutItem = await prisma.checkoutItem.findFirst({
+    const checkoutItem = await db.checkoutItem.findFirst({
         where: {
             menuId,
             userId,
