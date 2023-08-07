@@ -3,7 +3,7 @@
 import { Tables } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import { useState } from "react";
-import { prisma } from "@/db";
+import { db } from "@/lib/db";
 
 // import {
 //   DropdownMenu,

@@ -1,4 +1,4 @@
-import { prisma } from "@/db";
+import { db } from "@/lib/db";
 
 export async function createTable(status: string, slot: string, seats: number) {
     try {

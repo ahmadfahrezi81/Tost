@@ -1,4 +1,4 @@
-import { prisma } from "@/db";
+import { db } from "@/lib/db";
 // import { DataTable } from "@/components/data-table";
 import { columns } from "./columns";
 import { Booking } from "@prisma/client";

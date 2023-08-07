@@ -1,5 +1,5 @@
 import TableInfoPreOrder from "@/components/TableInfoPreOrder";
-import { prisma } from "@/db";
+import { db } from "@/lib/db";
 import { Booking } from "@prisma/client";
 import Link from "next/link";
 

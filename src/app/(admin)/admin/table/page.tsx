@@ -9,7 +9,7 @@ import { Tables } from "@prisma/client";
 
 import DatePicker from "react-datepicker";
 import TableTR from "@/components/(Table)/TableTR";
-import { prisma } from "@/db";
+import { db } from "@/lib/db";
 
 async function getData(): Promise<Tables[]> {
     // return await db.user.findMany();

@@ -1,5 +1,5 @@
 import { ProfileField } from "@/components/User/ProfileField";
-import { prisma } from "@/lib/db";
+import { db } from "@/lib/db";
 import { getCurrentUser } from "@/lib/session";
 
 async function updateData(id: string, name: string) {

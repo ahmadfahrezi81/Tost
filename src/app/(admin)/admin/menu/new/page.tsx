@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/db";
+import { db } from "@/lib/db";
 import NewMenuForm from "@/components/NewMenuForm";
 import { Menu } from "@prisma/client";
 

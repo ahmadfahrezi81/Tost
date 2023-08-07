@@ -1,6 +1,6 @@
 import { DataTable } from "@/components/ui/data-table";
 import { columns } from "./columns";
-import { prisma } from "@/lib/db";
+import { db } from "@/lib/db";
 import { Menu } from "@prisma/client";
 import Link from "next/link";
 import Icons from "@/components/Icons";

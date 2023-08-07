@@ -1,4 +1,4 @@
-import { prisma } from "@/db";
+import { db } from "@/lib/db";
 import { Tables } from "@prisma/client";
 import { NextResponse } from "next/server";
 
