@@ -1,55 +1,22 @@
 "use client";
 
-import { getServerSession } from "next-auth";
 import Link from "next/link";
 import Button, { buttonVariants } from "@/ui/Button";
 import Icons from "./Icons";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Logo from "@/public/Logo1.svg";
 import { signOut } from "next-auth/react";
-import { getCurrentUser } from "@/lib/session";
-import { redirect } from "next/navigation";
-import { db } from "@/lib/db";
-
-// import { useRouter } from "next/router";
 
 interface NavbarProps {
-    name: string | undefined | null;
-    image: string | undefined | null;
-    email: string | undefined | null;
-    totalQuantityCart: number | undefined | null;
+    name?: string | null;
+    image?: string | null;
+    email?: string | null;
+    totalQuantityCart?: number | null;
 }
 
 const Navbar = ({ name, image, email, totalQuantityCart }: NavbarProps) => {
-    // const session = await getServerSession();
     const [isOpen, setIsOpen] = useState(false);
-
-    // const user = await getCurrentUser();
-
-    // if (!user) {
-    //     redirect("/sign-in");
-    // }
-
-    //get all the checkoutItems
-    // const checkoutItems = await db.checkoutItem.findMany({
-    //     where: {
-    //         userId: "",
-    //     },
-    // });
-
-    // checkoutItems.forEach((item) => {
-    //     totalQuantityCart += item.quantity;
-    // });
-
-    // const session = session;
-    // const router = useRouter();
-
-    // useEffect(() => {
-    //     setIsOpen(false);
-    //     setCurretnUrl(window.location.pathname);
-    //     console.log(window.location.pathname);
-    // }, [isOpen currentUrl]);
 
     return (
         <div

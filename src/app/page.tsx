@@ -1,32 +1,28 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import toast_pict from "@/images/toast_pict.jpg";
-import { authOptions } from "@/lib/auth";
+import { authOptions, getAuthSession } from "@/lib/auth";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { getCurrentUser } from "@/lib/session";
 import { db } from "@/lib/db";
 import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { redirect } from "next/navigation";
 
 export default async function Home() {
     const user = await getCurrentUser();
+
     let totalQuantityCart = 0;
 
-    if (!user) {
-        redirect("/");
-    }
+    // const checkoutItems = await db.checkoutItem.findMany({
+    //     where: {
+    //         userId: user?.id,
+    //     },
+    // });
 
-    const checkoutItems = await db.checkoutItem.findMany({
-        where: {
-            userId: user?.id,
-        },
-    });
-
-    checkoutItems.forEach((item) => {
-        totalQuantityCart += item.quantity;
-    });
+    // checkoutItems.forEach((item) => {
+    //     totalQuantityCart += item.quantity;
+    // });
 
     return (
         <>
